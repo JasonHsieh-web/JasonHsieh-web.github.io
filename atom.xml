@@ -6,7 +6,7 @@
   <link href="https://jasonhsieh-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://jasonhsieh-web.github.io/"/>
-  <updated>2022-02-13T08:11:33.632Z</updated>
+  <updated>2022-02-13T08:32:39.315Z</updated>
   <id>https://jasonhsieh-web.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>ASP.NET MVC — DataAnnotation 資料模型驗證</title>
-    <link href="https://jasonhsieh-web.github.io/2022/02/13/2022-02-13-ASP.NET%20MVC%20%E2%80%94%20DataAnnotation%20%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%E9%A9%97%E8%AD%89/"/>
-    <id>https://jasonhsieh-web.github.io/2022/02/13/2022-02-13-ASP.NET%20MVC%20%E2%80%94%20DataAnnotation%20%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%E9%A9%97%E8%AD%89/</id>
-    <published>2022-02-12T16:00:00.000Z</published>
-    <updated>2022-02-13T08:11:33.632Z</updated>
+    <link href="https://jasonhsieh-web.github.io/2021/11/24/2021-11-24-ASP.NET%20MVC%20%E2%80%94%20DataAnnotation%20%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%E9%A9%97%E8%AD%89/"/>
+    <id>https://jasonhsieh-web.github.io/2021/11/24/2021-11-24-ASP.NET%20MVC%20%E2%80%94%20DataAnnotation%20%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%E9%A9%97%E8%AD%89/</id>
+    <published>2021-11-23T16:00:00.000Z</published>
+    <updated>2022-02-13T08:32:39.315Z</updated>
     
     <content type="html"><![CDATA[<p>網站中，開發者會為頁面資料，進行欄位驗證確保資料的正確性，因此開發者一般會使用JavaScript來進行客戶端驗證，而ASP.NET MVC中，無提供自動化的客戶端驗證，而是須使用模型驗證(Model Validate)。</p><span id="more"></span><h2 id="Model-Validate"><a href="#Model-Validate" class="headerlink" title="Model Validate"></a><strong>Model Validate</strong></h2><p>Model Validate的應用讓開發者可謂Model附加上驗證，使得當使用者傳送輸入資料前，進行Model的驗證邏輯，Model Validate是透過.NET Framework裡的DataAnnotation輔助進行驗證，DataAnnotation提供讓開發者以附加屬性的方式，來添加資料驗證規則，進而完成資料驗證。</p><h2 id="客戶端驗證"><a href="#客戶端驗證" class="headerlink" title="客戶端驗證"></a><strong>客戶端驗證</strong></h2><p>DataAnnotation 配合Javascript的三個檔案jquery.js、jquery.validate.js、jquery.validate.unobtrusive.js，後兩個檔案是在客戶端上輔助進行驗證的JavaScript，在NuGet安裝就行了。如下圖，安裝反白的套件剛說的三個檔案都會安裝下來，使用Html.Helper會自動幫我們產生jquery的驗證屬性。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F1.png?alt=media&token=13ff245d-0de3-4509-a280-39d9ccd1bb19" alt="photo"></p><hr><h2 id="驗證屬性"><a href="#驗證屬性" class="headerlink" title="驗證屬性"></a><strong>驗證屬性</strong></h2><p>在使用驗證屬性前要先using兩個命名空間</p><blockquote><p>using System.ComponentModel;</p></blockquote><blockquote><p>using System.ComponentModel.DataAnnotations;</p></blockquote><ol><li><p>DisplayName:用於定義欄位顯示名稱<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F2.png?alt=media&token=7c891d4d-a42a-4fa4-bf11-5415c1fc6921" alt="photo"></p></li><li><p>Required:可藉由傳入參數ErrorMessage來設定顯示的錯誤訊息<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F3.png?alt=media&token=9fcb4494-493f-4ef0-8691-c0a0c2f38a5e" alt="photo"></p></li><li><p>StringLength:定義字串最大長度，也可以傳入MinimumLength來設定最小長度<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F4.png?alt=media&token=bfb1b6fc-2b86-40a4-99f7-c42f3bc3e11a" alt="photo"></p></li><li><p>Range:定義數值欄位的上下限值，可以設定最小跟最大值<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F5.png?alt=media&token=5208e57b-d1d2-4cb4-9206-0a5b32271b4c" alt="photo"></p></li><li><p>Compare:用於比對與另一個欄位的內容是否相同，最常被用在會員註冊，會需要輸入兩次相同的密碼進行驗證<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F6.png?alt=media&token=ae5a2010-32f7-4382-a100-b4e6dd38a939" alt="photo"></p></li><li><p>RegularExpression:用於使欄位輸入的內容必須符合指定的正規表達式，想了解正規表達式可以看我的這篇文章<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F7.png?alt=media&token=983f8b9d-b7b0-450f-b9ad-e23671161659" alt="photo"></p></li><li><p>EmailAddress:驗證是否為電子郵件<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F8.png?alt=media&token=8594fe72-27d0-410d-a306-16efd87811d9" alt="photo"></p></li><li><p>Url]驗證欄位是否是網址格式<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F9.png?alt=media&token=af90f592-06a5-4a3d-8e17-ec650a763745" alt="photo"></p></li><li><p>FileExtension:定義檔案的副檔名，預設為png、jpg、jpeg、gif，若要使用FileExtension必須先用NuGet安裝<strong>jQuery.Validation.AdditionMethods</strong><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F10.png?alt=media&token=f5d66f5f-9686-4ba2-8cca-f51e6a0103ec" alt="photo"><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F11.png?alt=media&token=b4642c7f-c994-4a58-9d83-f03a30c14fc1" alt="photo"></p></li><li><p>creditCard:判斷是否為信用卡卡號</p></li><li><p>DataType:可藉由傳入參數決定欄位資料型態，@Html.EditorFor，會依照資料型態不同產生不同的input type<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F12.png?alt=media&token=e53b520f-fb1a-417c-83fc-718f28b87d81" alt="photo"></p></li><li><p>Remote:可使欄位輸入值透過AJAX方式送到指定的Controller Action進行驗證，並藉由回傳的結果，來驗證是否成功<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F13.png?alt=media&token=718affdf-2dba-41a2-8a4d-ac68e9fd8a03" alt="photo"><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F14.png?alt=media&token=e59e5daf-b1ab-4213-9135-e7ff89961915" alt="photo"></p></li></ol><blockquote><p>參考至: <a href="https://www.books.com.tw/products/0010839577">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)</a></p></blockquote><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
@@ -34,6 +34,27 @@
     
     
     <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C# — 抽象類別與介面</title>
+    <link href="https://jasonhsieh-web.github.io/2021/11/21/2021-11-21-Csharp%20%E2%80%94%20%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2/"/>
+    <id>https://jasonhsieh-web.github.io/2021/11/21/2021-11-21-Csharp%20%E2%80%94%20%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2/</id>
+    <published>2021-11-20T16:00:00.000Z</published>
+    <updated>2022-02-13T08:26:13.047Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="抽象類別"><a href="#抽象類別" class="headerlink" title="抽象類別"></a><strong>抽象類別</strong></h1><p>將類別之間的共同特性,從類別中萃取出來的動作,就稱之為「抽象化」,如交通工具封裝一些特性,再透過繼承的方式由子類別來展現這一些特性：如汽車、腳踏車、機車。如果是不同類型物件間的共同特性，則可以定義成介面。</p><span id="more"></span><p>抽象類別就是將同種類類別的共通特性，定義到父類別中，再透過繼承的動作，讓子類別都可以具備一致的特性。以上面交通工具的角色就是用來定義所有交通工具的”共同特性”。像這種類別，就稱為「抽象類別」。</p><p>抽象類別可以含抽象成員的類別，但無法使用「new」關鍵字建立物件。<br>現在假設定義一個「Shape」類別來描述所有形狀的共同特性,而在此類別中設計一個「ShowInfo」方法,但不同種類的「Shape」，要顯示的訊息不同，因此「ShowInfo」需要加上virtual關鍵字讓子類別可以override。像「ShowInfo」這一種在每個子類別中，都需要覆寫才可以使用的方法，在物件導向中可以宣告為「抽象方法」。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F1.png?alt=media&token=bfc19677-e407-4c6f-b333-a853d63d6be6" alt="&quot;photo&quot;"></p><p>繼承抽象類別的子類別中，必須實作所有抽象成員，子類別使用override宣告抽象方法實作。</p><p>下圖宣告Rectangle和Circle繼承Shape，可以看到不同的子類別因各自定義不同的抽象成員的實作方法，因此也會產生多型的現象。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F2.png?alt=media&token=6d8ca9e4-22d7-4f7a-a72f-7450774540c1" alt="&quot;photo&quot;"></p><hr><h1 id="介面"><a href="#介面" class="headerlink" title="介面"></a><strong>介面</strong></h1><p>在C#中可以利用interface定義介面來模擬多重繼承，界面和類別一樣可以定義屬性、方法、事件。不同的地方在於介面僅可定義抽象成員，不包含實作的部分，實作部分留給繼承此介面的類別來實作。定義介面習慣以大寫I來命名。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F3.png?alt=media&token=f7685c29-bcea-4249-b6ab-5575b980abf6" alt="&quot;photo&quot;"><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F4.png?alt=media&token=a534396a-ce0c-4eaf-b1c4-7185d4d395cc" alt="&quot;photo&quot;"></p><h2 id="介面與抽象類別的比較"><a href="#介面與抽象類別的比較" class="headerlink" title="介面與抽象類別的比較"></a><strong>介面與抽象類別的比較</strong></h2><p>介面跟抽象類別都是屬於物件導向抽象化的產物，但有兩個主要不同點：</p><blockquote><p>抽象類別主要是定義同種類物件所需要具備的基本特性，因此需要被繼承之後，這些特性才會展現在子類別中。</p></blockquote><blockquote><p>介面則是用來定義不同種類物件，提供相同功能所需要具備的特性。因此不同種類的物件，實作相同的介面就會有相同的功能。</p></blockquote><blockquote><p>抽象類別中，可以定義實體成員。雖然抽象類別不能直接建立實體，但是這些實體的特性會被繼承到子類別中。</p></blockquote><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;抽象類別&quot;&gt;&lt;a href=&quot;#抽象類別&quot; class=&quot;headerlink&quot; title=&quot;抽象類別&quot;&gt;&lt;/a&gt;&lt;strong&gt;抽象類別&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;將類別之間的共同特性,從類別中萃取出來的動作,就稱之為「抽象化」,如交通工具封裝一些特性,再透過繼承的方式由子類別來展現這一些特性：如汽車、腳踏車、機車。如果是不同類型物件間的共同特性，則可以定義成介面。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/categories/Csharp/"/>
+    
+    
+    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/tags/Csharp/"/>
     
   </entry>
   
