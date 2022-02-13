@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>駿辰的部落格</title>
+  
+  
+  <link href="https://jasonhsieh-web.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://jasonhsieh-web.github.io/"/>
+  <updated>2022-02-13T06:27:43.163Z</updated>
+  <id>https://jasonhsieh-web.github.io/</id>
+  
+  <author>
+    <name>Jason</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ASP.NET MVC — DataAnnotation 資料模型驗證</title>
+    <link href="https://jasonhsieh-web.github.io/2022/02/13/2022-02-13-ASP.NET%20MVC%20%E2%80%94%20DataAnnotation%20%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%E9%A9%97%E8%AD%89/"/>
+    <id>https://jasonhsieh-web.github.io/2022/02/13/2022-02-13-ASP.NET%20MVC%20%E2%80%94%20DataAnnotation%20%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%E9%A9%97%E8%AD%89/</id>
+    <published>2022-02-12T16:00:00.000Z</published>
+    <updated>2022-02-13T06:27:43.163Z</updated>
+    
+    <content type="html"><![CDATA[<p>網站中，開發者會為頁面資料，進行欄位驗證確保資料的正確性，因此開發者一般會使用JavaScript來進行客戶端驗證，而ASP.NET MVC中，無提供自動化的客戶端驗證，而是須使用模型驗證(Model Validate)。</p><span id="more"></span><h2 id="Model-Validate"><a href="#Model-Validate" class="headerlink" title="Model Validate"></a><strong>Model Validate</strong></h2><p>Model Validate的應用讓開發者可謂Model附加上驗證，使得當使用者傳送輸入資料前，進行Model的驗證邏輯，Model Validate是透過.NET Framework裡的DataAnnotation輔助進行驗證，DataAnnotation提供讓開發者以附加屬性的方式，來添加資料驗證規則，進而完成資料驗證。</p><h2 id="客戶端驗證"><a href="#客戶端驗證" class="headerlink" title="客戶端驗證"></a><strong>客戶端驗證</strong></h2><p>DataAnnotation 配合Javascript的三個檔案jquery.js、jquery.validate.js、jquery.validate.unobtrusive.js，後兩個檔案是在客戶端上輔助進行驗證的JavaScript，在NuGet安裝就行了。如下圖，安裝反白的套件剛說的三個檔案都會安裝下來，使用Html.Helper會自動幫我們產生jquery的驗證屬性。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F1.png?alt=media&token=13ff245d-0de3-4509-a280-39d9ccd1bb19" alt="photo"></p><hr><h2 id="驗證屬性"><a href="#驗證屬性" class="headerlink" title="驗證屬性"></a><strong>驗證屬性</strong></h2><p>在使用驗證屬性前要先using兩個命名空間</p><blockquote><p>using System.ComponentModel;</p></blockquote><blockquote><p>using System.ComponentModel.DataAnnotations;</p></blockquote><ol><li><p>DisplayName:用於定義欄位顯示名稱<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F2.png?alt=media&token=7c891d4d-a42a-4fa4-bf11-5415c1fc6921" alt="photo"></p></li><li><p>Required:可藉由傳入參數ErrorMessage來設定顯示的錯誤訊息<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F3.png?alt=media&token=9fcb4494-493f-4ef0-8691-c0a0c2f38a5e" alt="photo"></p></li><li><p>StringLength:定義字串最大長度，也可以傳入MinimumLength來設定最小長度<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F4.png?alt=media&token=bfb1b6fc-2b86-40a4-99f7-c42f3bc3e11a" alt="photo"></p></li><li><p>Range:定義數值欄位的上下限值，可以設定最小跟最大值<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F5.png?alt=media&token=5208e57b-d1d2-4cb4-9206-0a5b32271b4c" alt="photo"></p></li><li><p>Compare:用於比對與另一個欄位的內容是否相同，最常被用在會員註冊，會需要輸入兩次相同的密碼進行驗證<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F6.png?alt=media&token=ae5a2010-32f7-4382-a100-b4e6dd38a939" alt="photo"></p></li><li><p>RegularExpression:用於使欄位輸入的內容必須符合指定的正規表達式，想了解正規表達式可以看我的這篇文章<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F7.png?alt=media&token=983f8b9d-b7b0-450f-b9ad-e23671161659" alt="photo"></p></li><li><p>EmailAddress:驗證是否為電子郵件<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F8.png?alt=media&token=8594fe72-27d0-410d-a306-16efd87811d9" alt="photo"></p></li><li><p>Url]驗證欄位是否是網址格式<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F9.png?alt=media&token=af90f592-06a5-4a3d-8e17-ec650a763745" alt="photo"></p></li><li><p>FileExtension:定義檔案的副檔名，預設為png、jpg、jpeg、gif，若要使用FileExtension必須先用NuGet安裝<strong>jQuery.Validation.AdditionMethods</strong><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F10.png?alt=media&token=f5d66f5f-9686-4ba2-8cca-f51e6a0103ec" alt="photo"><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F11.png?alt=media&token=b4642c7f-c994-4a58-9d83-f03a30c14fc1" alt="photo"></p></li><li><p>creditCard:判斷是否為信用卡卡號</p></li><li><p>DataType:可藉由傳入參數決定欄位資料型態，@Html.EditorFor，會依照資料型態不同產生不同的input type<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F12.png?alt=media&token=e53b520f-fb1a-417c-83fc-718f28b87d81" alt="photo"></p></li><li><p>Remote:可使欄位輸入值透過AJAX方式送到指定的Controller Action進行驗證，並藉由回傳的結果，來驗證是否成功<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F13.png?alt=media&token=718affdf-2dba-41a2-8a4d-ac68e9fd8a03" alt="photo"><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F14.png?alt=media&token=e59e5daf-b1ab-4213-9135-e7ff89961915" alt="photo"></p></li></ol><blockquote><p>參考至: <a href="https://www.books.com.tw/products/0010839577">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)</a></p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;網站中，開發者會為頁面資料，進行欄位驗證確保資料的正確性，因此開發者一般會使用JavaScript來進行客戶端驗證，而ASP.NET MVC中，無提供自動化的客戶端驗證，而是須使用模型驗證(Model Validate)。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/"/>
+    
+    
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
+    
+  </entry>
+  
+</feed>
