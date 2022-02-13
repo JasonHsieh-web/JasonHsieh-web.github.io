@@ -20,25 +20,25 @@
     var CONFIG = {"hostname":"jasonhsieh-web.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="抽象類別將類別之間的共同特性,從類別中萃取出來的動作,就稱之為「抽象化」,如交通工具封裝一些特性,再透過繼承的方式由子類別來展現這一些特性：如汽車、腳踏車、機車。如果是不同類型物件間的共同特性，則可以定義成介面。">
+  <meta name="description" content="HTML Helper在ASP.NET MVC中可以使用HTML Helper輔助產生需要的HTML語法，進而增加專案開發的效率。以下介紹HTML Helper的方法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C# — 抽象類別與介面">
-<meta property="og:url" content="https://jasonhsieh-web.github.io/2021/11/21/2021-11-21-Csharp%20%E2%80%94%20%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2/index.html">
+<meta property="og:title" content="ASP.NET MVC — HTML Helper與自訂HTML Helper">
+<meta property="og:url" content="https://jasonhsieh-web.github.io/2021/11/23/2021-11-23-ASP.NET%20MVC%20%E2%80%94%20HTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper/index.html">
 <meta property="og:site_name" content="駿辰的部落格">
-<meta property="og:description" content="抽象類別將類別之間的共同特性,從類別中萃取出來的動作,就稱之為「抽象化」,如交通工具封裝一些特性,再透過繼承的方式由子類別來展現這一些特性：如汽車、腳踏車、機車。如果是不同類型物件間的共同特性，則可以定義成介面。">
+<meta property="og:description" content="HTML Helper在ASP.NET MVC中可以使用HTML Helper輔助產生需要的HTML語法，進而增加專案開發的效率。以下介紹HTML Helper的方法。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F1.png?alt=media&token=bfc19677-e407-4c6f-b333-a853d63d6be6">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F2.png?alt=media&token=6d8ca9e4-22d7-4f7a-a72f-7450774540c1">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F3.png?alt=media&token=f7685c29-bcea-4249-b6ab-5575b980abf6">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F4.png?alt=media&token=a534396a-ce0c-4eaf-b1c4-7185d4d395cc">
-<meta property="article:published_time" content="2021-11-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-13T08:26:13.047Z">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F1.png?alt=media&token=1f7d1f07-17dd-48f7-b0f6-9b1b55e30ef2">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F2.png?alt=media&token=fae84b15-3a05-4b12-bf51-ba95fae8574a">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F3.png?alt=media&token=7ff9295e-42b2-4f6f-92b1-9ab2c0fe0d52">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F4.png?alt=media&token=09087c6b-5be0-4170-995d-b0883a17717d">
+<meta property="article:published_time" content="2021-11-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-02-13T12:25:43.228Z">
 <meta property="article:author" content="Jason">
-<meta property="article:tag" content="Csharp">
+<meta property="article:tag" content="ASP.NET MVC">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F1.png?alt=media&token=bfc19677-e407-4c6f-b333-a853d63d6be6">
+<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F1.png?alt=media&token=1f7d1f07-17dd-48f7-b0f6-9b1b55e30ef2">
 
-<link rel="canonical" href="https://jasonhsieh-web.github.io/2021/11/21/2021-11-21-Csharp%20%E2%80%94%20%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2/">
+<link rel="canonical" href="https://jasonhsieh-web.github.io/2021/11/23/2021-11-23-ASP.NET%20MVC%20%E2%80%94%20HTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper/">
 
 
 <script id="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>C# — 抽象類別與介面 | 駿辰的部落格</title>
+  <title>ASP.NET MVC — HTML Helper與自訂HTML Helper | 駿辰的部落格</title>
   
 
 
@@ -167,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/2021/11/21/2021-11-21-Csharp%20%E2%80%94%20%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2/">
+    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/2021/11/23/2021-11-23-ASP.NET%20MVC%20%E2%80%94%20HTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/%E5%A4%A7%E9%A0%AD%E8%B2%BC%2FProfileLogo.jpg?alt=media&token=1a4800a0-5ffb-46a5-9519-3788522ab4c2">
@@ -180,7 +180,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C# — 抽象類別與介面
+          ASP.NET MVC — HTML Helper與自訂HTML Helper
         </h1>
 
         <div class="post-meta">
@@ -190,14 +190,14 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2021-11-21 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-21T00:00:00+08:00">2021-11-21</time>
+              <time title="創建時間：2021-11-23 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-23T00:00:00+08:00">2021-11-23</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-02-13 16:26:13" itemprop="dateModified" datetime="2022-02-13T16:26:13+08:00">2022-02-13</time>
+                <time title="修改時間：2022-02-13 20:25:43" itemprop="dateModified" datetime="2022-02-13T20:25:43+08:00">2022-02-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -205,7 +205,7 @@
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Csharp/" itemprop="url" rel="index"><span itemprop="name">Csharp</span></a>
+                  <a href="/categories/ASP-NET-MVC/" itemprop="url" rel="index"><span itemprop="name">ASP.NET MVC</span></a>
                 </span>
             </span>
 
@@ -218,8 +218,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2021/11/21/2021-11-21-Csharp%20%E2%80%94%20%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/11/21/2021-11-21-Csharp — 抽象類別與介面/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/11/23/2021-11-23-ASP.NET%20MVC%20%E2%80%94%20HTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/11/23/2021-11-23-ASP.NET MVC — HTML Helper與自訂HTML Helper/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -234,25 +234,41 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="抽象類別"><a href="#抽象類別" class="headerlink" title="抽象類別"></a><strong>抽象類別</strong></h1><p>將類別之間的共同特性,從類別中萃取出來的動作,就稱之為「抽象化」,如交通工具封裝一些特性,再透過繼承的方式由子類別來展現這一些特性：如汽車、腳踏車、機車。如果是不同類型物件間的共同特性，則可以定義成介面。</p>
+        <h1 id="HTML-Helper"><a href="#HTML-Helper" class="headerlink" title="HTML Helper"></a>HTML Helper</h1><p>在ASP.NET MVC中可以使用HTML Helper輔助產生需要的HTML語法，進而增加專案開發的效率。以下介紹HTML Helper的方法。</p>
 <span id="more"></span>
 
-<p>抽象類別就是將同種類類別的共通特性，定義到父類別中，再透過繼承的動作，讓子類別都可以具備一致的特性。以上面交通工具的角色就是用來定義所有交通工具的”共同特性”。像這種類別，就稱為「抽象類別」。</p>
-<p>抽象類別可以含抽象成員的類別，但無法使用「new」關鍵字建立物件。<br>現在假設定義一個「Shape」類別來描述所有形狀的共同特性,而在此類別中設計一個「ShowInfo」方法,但不同種類的「Shape」，要顯示的訊息不同，因此「ShowInfo」需要加上virtual關鍵字讓子類別可以override。像「ShowInfo」這一種在每個子類別中，都需要覆寫才可以使用的方法，在物件導向中可以宣告為「抽象方法」。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F1.png?alt=media&token=bfc19677-e407-4c6f-b333-a853d63d6be6" alt="&quot;photo&quot;"></p>
-<p>繼承抽象類別的子類別中，必須實作所有抽象成員，子類別使用override宣告抽象方法實作。</p>
-<p>下圖宣告Rectangle和Circle繼承Shape，可以看到不同的子類別因各自定義不同的抽象成員的實作方法，因此也會產生多型的現象。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F2.png?alt=media&token=6d8ca9e4-22d7-4f7a-a72f-7450774540c1" alt="&quot;photo&quot;"></p>
+<ol>
+<li><p>輸出超連結</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>)</span><br><span class="line">第一個參數為想顯示的文字,第二個參數為此View預設Controller中的Action</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;首頁&quot;</span>,<span class="string">&quot;Index&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>1-1</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>,<span class="string">&quot;ControllerName&quot;</span>)</span><br><span class="line">第三個參數可以指定Controller名稱</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;首頁&quot;</span>,<span class="string">&quot;Index&quot;</span>,<span class="string">&quot;Home&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>1-2</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>,RouteValues)</span><br><span class="line">第三個參數為路由的參數</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;關於&quot;</span>,<span class="string">&quot;Aboot&quot;</span>,<span class="keyword">new</span> &#123; id = <span class="number">0</span> &#125;)</span><br></pre></td></tr></table></figure>
+<p>1-3</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>,RouteValues,htmlAttributes)</span><br><span class="line">第四個參數可以設定HTML屬性,需在關鍵字前加上@才能正確編譯,若HTML屬性含有「-」 符號必須用底線「_」代替,如data-<span class="keyword">value</span>需改為data_value</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;關於&quot;</span>,<span class="string">&quot;Aboot&quot;</span>,<span class="keyword">new</span> &#123; id = <span class="number">0</span> &#125;,<span class="keyword">new</span> &#123;@class=<span class="string">&#x27;btn&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>弱型別Helper<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F1.png?alt=media&token=1f7d1f07-17dd-48f7-b0f6-9b1b55e30ef2" alt="photo"></p>
+</li>
+<li><p>強行別Helper可傳入Model,都是以For作為結尾，若使用強行別Helper，需在View的頂端使用@model 定義此View所參考的Model，才能正確編譯。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F2.png?alt=media&token=fae84b15-3a05-4b12-bf51-ba95fae8574a" alt="photo"></p>
+</li>
+</ol>
+<blockquote>
+<p>強型別好處是，支援Model物件的成員名稱IntelliSense提示及編譯時期的檢查。</p>
+</blockquote>
+<h1 id="自訂HTML-Helper"><a href="#自訂HTML-Helper" class="headerlink" title="自訂HTML Helper"></a>自訂HTML Helper</h1><p>我們可新增擴充方法自訂全站都可以使用的HTML Helper，建議獨立出一個資料夾。擴充方法為靜態方法，因此定義HTML Helper方法必須宣告為靜態方法(static method)，並存放於一個靜態的類別中(static class)。此外還需注意回傳的型態，若使用string作為字串回傳的型態，回傳的內容將被透過HTML編碼後進行輸出,而使用System.Web.Mvc.MvcHtmlString作為字串回傳時，當內容包含標籤資料，便會直接輸出成HTML標籤。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F3.png?alt=media&token=7ff9295e-42b2-4f6f-92b1-9ab2c0fe0d52" alt="photo"><br>若欲於View中使用自訂的HTML Helper，必須先在View的最上方引用命名空間，便能在View中使用自訂的HTML Helper</p>
+<blockquote>
+<p>@using  專案名稱.Helpers</p>
+</blockquote>
+<p>除了上述的StringBuilder組自定義的HTML Helper，ASP.NET MVC為了HTML標籤需求而提供TagBuilder類別，因此也可使用TagBuilder類別來自定義HTML Helper，以更物件化的方式產生需要的HTML標籤。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F4.png?alt=media&token=09087c6b-5be0-4170-995d-b0883a17717d" alt="photo"></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TagBuilder中的Tostring的多載方法</span><br><span class="line">空(預設) = 正常的標籤 &lt;Lable id=<span class="string">&quot;test&quot;</span>&gt;xxx&lt;/Label&gt;</span><br><span class="line">TagRenderMode.Nomal = 正常的標籤 &lt;Lable id=<span class="string">&quot;test&quot;</span>&gt;xxx&lt;/Label&gt;</span><br><span class="line">TagRenderMode.StartTag = 開始標籤 &lt;Lable&gt;</span><br><span class="line">TagRenderMode.EndTag = 結束標籤 &lt;/Label&gt;</span><br><span class="line">TagRenderMode.SelfClosing =自我結束標籤 &lt;Lable id=<span class="string">&quot;test&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
+
 <hr>
-<h1 id="介面"><a href="#介面" class="headerlink" title="介面"></a><strong>介面</strong></h1><p>在C#中可以利用interface定義介面來模擬多重繼承，界面和類別一樣可以定義屬性、方法、事件。不同的地方在於介面僅可定義抽象成員，不包含實作的部分，實作部分留給繼承此介面的類別來實作。定義介面習慣以大寫I來命名。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F3.png?alt=media&token=f7685c29-bcea-4249-b6ab-5575b980abf6" alt="&quot;photo&quot;"><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F4.png?alt=media&token=a534396a-ce0c-4eaf-b1c4-7185d4d395cc" alt="&quot;photo&quot;"></p>
-<h2 id="介面與抽象類別的比較"><a href="#介面與抽象類別的比較" class="headerlink" title="介面與抽象類別的比較"></a><strong>介面與抽象類別的比較</strong></h2><p>介面跟抽象類別都是屬於物件導向抽象化的產物，但有兩個主要不同點：</p>
 <blockquote>
-<p>抽象類別主要是定義同種類物件所需要具備的基本特性，因此需要被繼承之後，這些特性才會展現在子類別中。</p>
+<p>參考至: <a target="_blank" rel="noopener" href="https://www.books.com.tw/products/0010839577">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)</a></p>
 </blockquote>
 <blockquote>
-<p>介面則是用來定義不同種類物件，提供相同功能所需要具備的特性。因此不同種類的物件，實作相同的介面就會有相同的功能。</p>
-</blockquote>
-<blockquote>
-<p>抽象類別中，可以定義實體成員。雖然抽象類別不能直接建立實體，但是這些實體的特性會被繼承到子類別中。</p>
+<p>參考至: <a target="_blank" rel="noopener" href="https://www.books.com.tw/products/0010826823?sloc=main">網頁程式設計ASP.NET MVC 5.X範例完美演繹(適用Visual C# 2019&#x2F;2017)（第三版）</a></p>
 </blockquote>
 <blockquote>
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
@@ -266,7 +282,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Csharp/" rel="tag"># Csharp</a>
+              <a href="/tags/ASP-NET-MVC/" rel="tag"># ASP.NET MVC</a>
           </div>
 
         
@@ -274,10 +290,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/11/22/2021-11-22-ASP.NET%20MVC%20%E2%80%94%20Razor/" rel="next" title="ASP.NET MVC — Razor">
-      ASP.NET MVC — Razor <i class="fa fa-chevron-right"></i>
+    <a href="/2021/11/22/2021-11-22-ASP.NET%20MVC%20%E2%80%94%20Razor/" rel="prev" title="ASP.NET MVC — Razor">
+      <i class="fa fa-chevron-left"></i> ASP.NET MVC — Razor
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/11/24/2021-11-24-ASP.NET%20MVC%20%E2%80%94%20DataAnnotation%20%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%E9%A9%97%E8%AD%89/" rel="next" title="ASP.NET MVC — DataAnnotation 資料模型驗證">
+      ASP.NET MVC — DataAnnotation 資料模型驗證 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -344,7 +363,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5"><span class="nav-number">1.</span> <span class="nav-text">抽象類別</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">介面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E9%9D%A2%E8%88%87%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E7%9A%84%E6%AF%94%E8%BC%83"><span class="nav-number">2.1.</span> <span class="nav-text">介面與抽象類別的比較</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML-Helper"><span class="nav-number">1.</span> <span class="nav-text">HTML Helper</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E8%A8%82HTML-Helper"><span class="nav-number">2.</span> <span class="nav-text">自訂HTML Helper</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -480,9 +499,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://jasonhsieh-web.github.io/2021/11/21/2021-11-21-Csharp%20%E2%80%94%20%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2/";
-    this.page.identifier = "2021/11/21/2021-11-21-Csharp — 抽象類別與介面/";
-    this.page.title = "C# — 抽象類別與介面";
+    this.page.url = "https://jasonhsieh-web.github.io/2021/11/23/2021-11-23-ASP.NET%20MVC%20%E2%80%94%20HTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper/";
+    this.page.identifier = "2021/11/23/2021-11-23-ASP.NET MVC — HTML Helper與自訂HTML Helper/";
+    this.page.title = "ASP.NET MVC — HTML Helper與自訂HTML Helper";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jasonhsieh-web.github.io/2021/11/22/2021-11-22-ASP.NET%20MVC%20%E2%80%94%20Razor/</loc>
+    
+    <lastmod>2022-02-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jasonhsieh-web.github.io/2021/11/23/2021-11-23-ASP.NET%20MVC%20%E2%80%94%20HTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper/</loc>
+    
+    <lastmod>2022-02-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jasonhsieh-web.github.io/2021/11/24/2021-11-24-ASP.NET%20MVC%20%E2%80%94%20DataAnnotation%20%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%E9%A9%97%E8%AD%89/</loc>
     
     <lastmod>2022-02-13</lastmod>
@@ -56,14 +74,14 @@
 
   
   <url>
-    <loc>https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/</loc>
+    <loc>https://jasonhsieh-web.github.io/tags/Csharp/</loc>
     <lastmod>2022-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jasonhsieh-web.github.io/tags/Csharp/</loc>
+    <loc>https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/</loc>
     <lastmod>2022-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -72,14 +90,14 @@
 
   
   <url>
-    <loc>https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/</loc>
+    <loc>https://jasonhsieh-web.github.io/categories/Csharp/</loc>
     <lastmod>2022-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jasonhsieh-web.github.io/categories/Csharp/</loc>
+    <loc>https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/</loc>
     <lastmod>2022-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
