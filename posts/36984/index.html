@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jasonhsieh-web.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="View的責任View主要負責顯示Controller傳來的資料與指令，因此View中的程式碼只專注於呈現資料的用途，其他的運算邏輯與流程，View都不會介入。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ASP.NET MVC — View">
+<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/36984/index.html">
+<meta property="og:site_name" content="網頁的小宇宙">
+<meta property="og:description" content="View的責任View主要負責顯示Controller傳來的資料與指令，因此View中的程式碼只專注於呈現資料的用途，其他的運算邏輯與流程，View都不會介入。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F1.png?alt=media&token=1b3942dc-3f40-4f69-9684-f234300e927e">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F2.png?alt=media&token=8d26f0e6-98ad-45ec-8ae8-08a5e39e5e5f">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F3.png?alt=media&token=b9f848ec-e14b-4f1c-8eff-036ff3bdeff5">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F4.png?alt=media&token=436f422a-3ad4-4080-be91-8dc03c83de73">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F5.png?alt=media&token=eeb2c5d0-022d-47f0-95c8-ede9c9132011">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F6.png?alt=media&token=8acc03e1-c8e2-4c21-8abb-18210bd07be1">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F7.png?alt=media&token=2e721f6b-a452-436a-a580-99bf026aaaa3">
+<meta property="article:published_time" content="2021-11-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-02-14T12:09:42.723Z">
+<meta property="article:author" content="Jason">
+<meta property="article:tag" content="ASP.NET MVC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F1.png?alt=media&token=1b3942dc-3f40-4f69-9684-f234300e927e">
+
+<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/36984/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>ASP.NET MVC — View | 網頁的小宇宙</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="網頁的小宇宙" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">網頁的小宇宙</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/36984/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/%E5%A4%A7%E9%A0%AD%E8%B2%BC%2Fspacemanguitar.jpg?alt=media&token=e26587a0-8909-4307-bece-114d4722fcd2">
+      <meta itemprop="name" content="Jason">
+      <meta itemprop="description" content="不知道自己無知，乃是雙倍的無知。——柏拉圖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="網頁的小宇宙">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ASP.NET MVC — View
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2021-11-22 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-22T00:00:00+08:00">2021-11-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-02-14 20:09:42" itemprop="dateModified" datetime="2022-02-14T20:09:42+08:00">2022-02-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ASP-NET-MVC/" itemprop="url" rel="index"><span itemprop="name">ASP.NET MVC</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/36984/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/36984/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="View的責任"><a href="#View的責任" class="headerlink" title="View的責任"></a>View的責任</h1><p>View主要負責顯示Controller傳來的資料與指令，因此View中的程式碼只專注於呈現資料的用途，其他的運算邏輯與流程，View都不會介入。</p>
+<span id="more"></span>
+
+<h1 id="View的位置"><a href="#View的位置" class="headerlink" title="View的位置"></a>View的位置</h1><p>View的位置會在專案最外層資料夾下(Views)，並且由各個Controller命名的資料夾進行分類，而Shared裡面放的是Layout為母版頁面，會看到Shared資料夾裡的_Layout.cshtml是含有底線的命名，一般為全站通用的功用型檔案.<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F1.png?alt=media&token=1b3942dc-3f40-4f69-9684-f234300e927e" alt="photo"></p>
+<h2 id="ViewStart-cshtml"><a href="#ViewStart-cshtml" class="headerlink" title="_ViewStart.cshtml"></a>_ViewStart.cshtml</h2><p>執行階段透過ViewResult所執行的View都會先執行_ViewStart.cshtml，所以開發者可以在這個檔案中設定屬於全站View的共同預設特徵，這樣就不用在每個View中各自指定，_ViewStart.cshtml的預設內容如下。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">Layout = <span class="string">&quot;~/Views/Shared/_Layout.cshtml&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但如果在View中指定了Layout，則會以該View設定為主，同樣也可以將Layout設定清空，方式是將Layout設定為null，表示這一個View將不使用任何Layout。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F2.png?alt=media&token=8d26f0e6-98ad-45ec-8ae8-08a5e39e5e5f" alt="photo"></p>
+<h2 id="Layout主版頁面"><a href="#Layout主版頁面" class="headerlink" title="Layout主版頁面"></a>Layout主版頁面</h2><p>主板通常包含網頁布局中共用或最常用到的部分，例如:網站Logo、導覽列、網站頁首、頁尾或是功能列等等，並與內容葉面進行結合。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F3.png?alt=media&token=b9f848ec-e14b-4f1c-8eff-036ff3bdeff5" alt="photo"></p>
+<h2 id="Layout檔案介紹"><a href="#Layout檔案介紹" class="headerlink" title="_Layout檔案介紹"></a>_Layout檔案介紹</h2><blockquote>
+<p>@RenderBody</p>
+</blockquote>
+<p>@RenderBody可設定套用此主版內容頁面所輸出的位置,例如有一個index的View而他套用了_Layout而@RenderBody就是用來呈現這個index的內容。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F4.png?alt=media&token=436f422a-3ad4-4080-be91-8dc03c83de73" alt="photo"></p>
+<blockquote>
+<p>@RenderSection</p>
+</blockquote>
+<p>@RenderSection用於輸出頁面中具名區段的內容。第一個參數為具名區段的名稱，若具名區段對應此名稱，將會載入此處，第二個參數可用於設定該區段是否須確實存在，傳入值為true or false。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F5.png?alt=media&token=eeb2c5d0-022d-47f0-95c8-ede9c9132011" alt="photo"></p>
+<p>而在View中會用@section 具名參數名稱{….內容}來加入該區段的內容。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F6.png?alt=media&token=8acc03e1-c8e2-4c21-8abb-18210bd07be1" alt="photo"></p>
+<blockquote>
+<p>@RenderPage</p>
+</blockquote>
+<p>@RenderPage方法的用途於主版頁面中可載入另一個檢視頁面。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F7.png?alt=media&token=2e721f6b-a452-436a-a580-99bf026aaaa3" alt="photo"></p>
+<hr>
+<p>MVC中的View包含HtmlHelper與Razor我會把他們各自寫一篇來介紹~</p>
+<blockquote>
+<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4Mzk1Nzc=">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ASP-NET-MVC/" rel="tag"># ASP.NET MVC</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/37572/" rel="prev" title="C# — 抽象類別與介面">
+      <i class="fa fa-chevron-left"></i> C# — 抽象類別與介面
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/26594/" rel="next" title="ASP.NET MVC — Razor">
+      ASP.NET MVC — Razor <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#View%E7%9A%84%E8%B2%AC%E4%BB%BB"><span class="nav-number">1.</span> <span class="nav-text">View的責任</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#View%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">View的位置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewStart-cshtml"><span class="nav-number">2.1.</span> <span class="nav-text">_ViewStart.cshtml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Layout%E4%B8%BB%E7%89%88%E9%A0%81%E9%9D%A2"><span class="nav-number">2.2.</span> <span class="nav-text">Layout主版頁面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Layout%E6%AA%94%E6%A1%88%E4%BB%8B%E7%B4%B9"><span class="nav-number">2.3.</span> <span class="nav-text">_Layout檔案介紹</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jason"
+      src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/%E5%A4%A7%E9%A0%AD%E8%B2%BC%2Fspacemanguitar.jpg?alt=media&token=e26587a0-8909-4307-bece-114d4722fcd2">
+  <p class="site-author-name" itemprop="name">Jason</p>
+  <div class="site-description" itemprop="description">不知道自己無知，乃是雙倍的無知。——柏拉圖</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0phc29uSHNpZWgtd2Vi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JasonHsieh-web"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL2phc29uJUU3JTlBJTg0JUU1JTg5JThEJUU3JUFCJUFGJUU0JUI5JThCJUU4JUI3JUFG" title="Medium → https:&#x2F;&#x2F;medium.com&#x2F;jason%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E8%B7%AF"><i class="fab fa-medium fa-fw"></i>Medium</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnE3NTM5NTE0NjhAZ21haWwuY29t" title="E-Mail → mailto:q753951468@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">雖然是小小分享站台，但若要轉載煩請標著作者名稱與連結哦。</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='34,34,34' opacity='0.5' zIndex='-1' count='200' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://jasonhsieh-web.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://jasonhsieh-web.github.io/posts/36984/";
+    this.page.identifier = "posts/36984/";
+    this.page.title = "ASP.NET MVC — View";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://jasonhsieh-web.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
