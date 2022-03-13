@@ -164,4 +164,25 @@
     
   </entry>
   
+  <entry>
+    <title>ASP.NET MVC — Model</title>
+    <link href="https://jasonhsieh-web.github.io/posts/89489/"/>
+    <id>https://jasonhsieh-web.github.io/posts/89489/</id>
+    <published>2021-10-11T16:00:00.000Z</published>
+    <updated>2022-03-13T11:03:59.506Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="何謂Model"><a href="#何謂Model" class="headerlink" title="何謂Model?"></a>何謂Model?</h1><p>MVC中有關「資料」的任務都是皆由Model負責。負責定義資料型態，不管是在Controller或是View中，所有資料的型態都會參考到View。</p><span id="more"></span><h1 id="Model的任務"><a href="#Model的任務" class="headerlink" title="Model的任務"></a>Model的任務</h1><p>MVC強調關注點分離，其中Model只負責與資料有關的商業邏輯，其他如:控制網站流程、資料流向或頁面顯示等工作，Model都不會介入，Model更著重於有效率地提供資料的存取、資料格式驗證、商業邏輯驗證等等。獨立性非常高的Model常會因為撰寫太多商業邏輯後，導致閱讀不易，因此建議在寫大量的商業邏輯可以多加一個Service的資料夾，讓Model只專注在資料存取及格式驗證上。</p><h2 id="動手建立Model看看吧"><a href="#動手建立Model看看吧" class="headerlink" title="動手建立Model看看吧"></a>動手建立Model看看吧</h2><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F1.png?alt=media&token=9bee3d42-3a53-40a4-a11e-f36fb601c78a" alt="photo"></p><p>我們對Model資料夾按右鍵，增加一個Todo的類別，給他幾個屬性，如上圖如果對類別有問題的可以參考我這篇，有介紹類別與物件。</p><p>好我們再建立一個Service的資料夾,並新增一個function來建立物件,如下圖。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F2.png?alt=media&token=1f596ee0-83be-46bd-b449-114d3cc431e3" alt="photo"></p><p>這邊只是簡單介紹Model再MVC的角色,當然實務上Model更容易用來接收資料庫的資料。</p><p>再來有幾個步驟我們在Controller中使用我們寫的function並傳給View。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F3.png?alt=media&token=206e2e26-ba32-46cc-9906-43b6e8721657" alt="photo"></p><p>再來我們要新增Index的View</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F4.png?alt=media&token=aaa47457-4b4f-4314-8aa4-1497ba03e6f7" alt="photo"></p><p>並且把剛剛在Controller上傳過來的Model顯示出來看看，記得在上頭的地方要宣告，在使用時才有參數提示，這是強型別的特性。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F5.png?alt=media&token=17ec4ae4-c717-4fdb-ab91-6651135ce049" alt="photo"></p><p>看看成果~</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F6.png?alt=media&token=ec997836-ef28-406d-b464-5ca96b807248" alt="photo"></p><h1 id="DataAnnotations語意標註"><a href="#DataAnnotations語意標註" class="headerlink" title="DataAnnotations語意標註"></a>DataAnnotations語意標註</h1><p>再來介紹我們可以使用DataAnnotations進行語意標註,例如用「DisplayName」來設定顯示名稱，「Requierd」要求資料必須輸入等等。更多詳細資料可以參考<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1pY3Jvc29mdC5jb20vemgtdHcvZG90bmV0L2FwaS9zeXN0ZW0uY29tcG9uZW50bW9kZWwuZGF0YWFubm90YXRpb25zP3ZpZXc9bmV0LTUuMA==">這裡<i class="fa fa-external-link-alt"></i></span>。本人文章可以參考<a href="https://jasonhsieh-web.github.io/posts/36983/">這裡</a></p><p>使用時記得引用以下命名空間</p><blockquote><p>using System.ComponentModel;<br>using System.ComponentModel.DataAnnotations;</p></blockquote><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F7.png?alt=media&token=fe59c3da-b3df-45cc-be19-0e9e82f1a996" alt="photo"></p><p>修改一下，我們一開始建立的Model，並且在View上試試效果。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F7.png?alt=media&token=fe59c3da-b3df-45cc-be19-0e9e82f1a996" alt="photo"></p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F9.png?alt=media&token=ef50c759-3503-4cc2-913e-49e8e0f48a6f" alt="photo"></p><p>Html.DisplayNameFor是屬於<a href="https://jasonhsieh-web.github.io/posts/64362/#more">HtmlHelper</a>內的一種方法,在View主題的時候會提到。</p><p>以上就是Model的簡單基本介紹，有空會再補充稍微進階的用法。</p><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;何謂Model&quot;&gt;&lt;a href=&quot;#何謂Model&quot; class=&quot;headerlink&quot; title=&quot;何謂Model?&quot;&gt;&lt;/a&gt;何謂Model?&lt;/h1&gt;&lt;p&gt;MVC中有關「資料」的任務都是皆由Model負責。負責定義資料型態，不管是在Controller或是View中，所有資料的型態都會參考到View。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/"/>
+    
+    
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
+    
+  </entry>
+  
 </feed>
