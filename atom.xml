@@ -6,7 +6,7 @@
   <link href="https://jasonhsieh-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://jasonhsieh-web.github.io/"/>
-  <updated>2022-02-17T13:23:55.665Z</updated>
+  <updated>2022-02-17T13:25:12.229Z</updated>
   <id>https://jasonhsieh-web.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://jasonhsieh-web.github.io/posts/78794/"/>
     <id>https://jasonhsieh-web.github.io/posts/78794/</id>
     <published>2022-02-14T16:00:00.000Z</published>
-    <updated>2022-02-17T13:23:55.665Z</updated>
+    <updated>2022-02-17T13:25:12.229Z</updated>
     
     <content type="html"><![CDATA[<h1 id="內聚力-Cohesion"><a href="#內聚力-Cohesion" class="headerlink" title="內聚力 Cohesion"></a>內聚力 Cohesion</h1><ul><li>在一個”模組”內完成”一件工作”的度量指標<span id="more"></span></li></ul><h2 id="高內聚力"><a href="#高內聚力" class="headerlink" title="高內聚力"></a>高內聚力</h2><ul><li>一次專注做一件事情</li><li>內聚力高，意味著該模組可以獨立運作，也意味著更容易重複利用</li><li>ex: 一個class只負責一件事情(例如寫Log)</li></ul><h2 id="低內聚"><a href="#低內聚" class="headerlink" title="低內聚"></a>低內聚</h2><ul><li>在一個”模組”內完成多件事情</li><li>內聚力低，意味著該模組會造成難以維護&#x2F;測試&#x2F;重用&#x2F;理解</li><li>ex: 所有功能寫在一個class內或一個method有5000行程式碼</li></ul><h2 id="較佳的實務設計"><a href="#較佳的實務設計" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul><li>在設計模組的時候，要盡量設計出 <strong>高內聚</strong> 的程式碼</li><li>若有一個模組完成太多項工作，建議拆分成多個不同的類別</li><li>實現 <strong>SRP</strong> 就是<strong>提高內聚力</strong>的一種表現</li></ul><h1 id="耦合力-Coupling"><a href="#耦合力-Coupling" class="headerlink" title="耦合力 Coupling"></a>耦合力 Coupling</h1><ul><li>模組跟模組之間的關聯強度或是依賴程度</li><li>ex: 在B類別內，直接建立了A物件實體，那就會建立類別A與類別B之間的”耦合關係”</li></ul><h2 id="高耦合"><a href="#高耦合" class="headerlink" title="高耦合"></a>高耦合</h2><ul><li>意味著當改了A模組時，相關聯的B模組就容易被影響(改A壞B)</li></ul><h2 id="低耦合"><a href="#低耦合" class="headerlink" title="低耦合"></a>低耦合</h2><ul><li>當修改模組時，越少模組被引響，那意味著耦合力較低</li></ul><h2 id="較佳的實務設計-1"><a href="#較佳的實務設計-1" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul><li>在設計模組的時候，要盡量設計出 <strong>低耦合力</strong> 的程式碼</li><li>實現 <strong>DIP</strong> 就是實現<strong>降低耦合力</strong>的一個原則</li></ul><blockquote><p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推<i class="fa fa-external-link-alt"></i></span></p></blockquote><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
