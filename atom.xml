@@ -6,7 +6,7 @@
   <link href="https://jasonhsieh-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://jasonhsieh-web.github.io/"/>
-  <updated>2023-05-17T14:45:56.068Z</updated>
+  <updated>2023-05-17T14:55:44.735Z</updated>
   <id>https://jasonhsieh-web.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Design Pattern — SRP 單一責任原則</title>
+    <link href="https://jasonhsieh-web.github.io/posts/847489/"/>
+    <id>https://jasonhsieh-web.github.io/posts/847489/</id>
+    <published>2023-05-17T16:00:00.000Z</published>
+    <updated>2023-05-17T14:55:44.735Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="待…"><a href="#待…" class="headerlink" title="待…"></a>待…</h1><blockquote><p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推<i class="fa fa-external-link-alt"></i></span></p></blockquote><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;待…&quot;&gt;&lt;a href=&quot;#待…&quot; class=&quot;headerlink&quot; title=&quot;待…&quot;&gt;&lt;/a&gt;待…&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;參考至: &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cudWRlb</summary>
+      
+    
+    
+    
+    <category term="Design Pattern" scheme="https://jasonhsieh-web.github.io/categories/Design-Pattern/"/>
+    
+    
+    <category term="Design Pattern" scheme="https://jasonhsieh-web.github.io/tags/Design-Pattern/"/>
+    
+  </entry>
   
   <entry>
     <title>ASP.NET MVC — Model</title>

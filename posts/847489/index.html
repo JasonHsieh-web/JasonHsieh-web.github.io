@@ -22,30 +22,20 @@
     var CONFIG = {"hostname":"jasonhsieh-web.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="RazorRazor又稱Razor Syntax，是用來將Server Side的C#程式嵌入到HTML中的標記語法，如下圖。">
+  <meta name="description" content="待… 參考至: 保哥的(打造堅固耐用的 C# 程式碼) 大推    文章若有錯誤或想交流，還不吝嗇給予指教哦">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ASP.NET MVC — Razor">
-<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/26594/index.html">
+<meta property="og:title" content="Design Pattern — SRP 單一責任原則">
+<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/847489/index.html">
 <meta property="og:site_name" content="網頁的小宇宙">
-<meta property="og:description" content="RazorRazor又稱Razor Syntax，是用來將Server Side的C#程式嵌入到HTML中的標記語法，如下圖。">
+<meta property="og:description" content="待… 參考至: 保哥的(打造堅固耐用的 C# 程式碼) 大推    文章若有錯誤或想交流，還不吝嗇給予指教哦">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F1.png?alt=media&token=1c21ef9e-0bd6-4516-be7e-3ea1889358bf">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F2.png?alt=media&token=7a71d1d9-3363-4247-a79b-ab4e836af377">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F3.png?alt=media&token=479f15a3-1601-4716-a413-233e2b55b266">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F4.png?alt=media&token=fafd3275-a994-4936-8912-354dd10edfbc">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F5.png?alt=media&token=4a121fdf-7e89-48a7-8940-6595b5d3a5b0">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F6.png?alt=media&token=416212ef-aa06-4623-b645-eb7e61e4c387">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F7.png?alt=media&token=cfeebe0b-47b0-47d9-8c68-5dc1d82dbfd5">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F8.png?alt=media&token=6e5a1452-5c40-4769-ac47-3a85a9b6f47b">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F9.png?alt=media&token=a2d3a33a-6520-4709-b506-a020a7836221">
-<meta property="article:published_time" content="2021-11-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-14T11:58:49.528Z">
+<meta property="article:published_time" content="2023-05-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-17T14:55:44.735Z">
 <meta property="article:author" content="Jason">
-<meta property="article:tag" content="ASP.NET MVC">
+<meta property="article:tag" content="Design Pattern">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F1.png?alt=media&token=1c21ef9e-0bd6-4516-be7e-3ea1889358bf">
 
-<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/26594/">
+<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/847489/">
 
 
 <script id="page-configurations">
@@ -58,7 +48,7 @@
   };
 </script>
 
-  <title>ASP.NET MVC — Razor | 網頁的小宇宙</title>
+  <title>Design Pattern — SRP 單一責任原則 | 網頁的小宇宙</title>
   
 
 
@@ -175,7 +165,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/26594/">
+    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/847489/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/SpaceMan%2F%E9%A0%AD%E8%B2%BC.png?alt=media&token=d5386314-4bb8-495e-88bd-cb8bf18dbd4f">
@@ -188,7 +178,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ASP.NET MVC — Razor
+          Design Pattern — SRP 單一責任原則
         </h1>
 
         <div class="post-meta">
@@ -198,14 +188,14 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2021-11-22 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-22T00:00:00+08:00">2021-11-22</time>
+              <time title="創建時間：2023-05-18 00:00:00" itemprop="dateCreated datePublished" datetime="2023-05-18T00:00:00+08:00">2023-05-18</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-02-14 19:58:49" itemprop="dateModified" datetime="2022-02-14T19:58:49+08:00">2022-02-14</time>
+                <time title="修改時間：2023-05-17 22:55:44" itemprop="dateModified" datetime="2023-05-17T22:55:44+08:00">2023-05-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -213,7 +203,7 @@
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ASP-NET-MVC/" itemprop="url" rel="index"><span itemprop="name">ASP.NET MVC</span></a>
+                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
                 </span>
             </span>
 
@@ -233,8 +223,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/posts/26594/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/26594/" itemprop="commentCount"></span>
+    <a title="disqus" href="/posts/847489/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/847489/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -249,49 +239,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Razor"><a href="#Razor" class="headerlink" title="Razor"></a>Razor</h1><p>Razor又稱Razor Syntax，是用來將Server Side的C#程式嵌入到HTML中的標記語法，如下圖。</p>
-<span id="more"></span>
-
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F1.png?alt=media&token=1c21ef9e-0bd6-4516-be7e-3ea1889358bf" alt="photo"></p>
-<blockquote>
-<p>Razor中只有HTML及C#兩種元素，結合再一起就形成了Razor語法。</p>
-</blockquote>
-<blockquote>
-<p>C#程式區塊是以@{…}包覆，裡面是一般C#程式。</p>
-</blockquote>
-<blockquote>
-<p>Razor inline表達式是指C#變數穿插在HTML中，而Razor中預設是Html語言，若遇到@符號，表示後面接的是C#指令。</p>
-</blockquote>
-<blockquote>
-<p>Razor會依不同的規則或符號在HTML和c#間切換。</p>
-</blockquote>
-<h2 id="Razor支援的保留關鍵字"><a href="#Razor支援的保留關鍵字" class="headerlink" title="Razor支援的保留關鍵字"></a><strong>Razor支援的保留關鍵字</strong></h2><p>不是所有C#指令或關鍵字都能在Razor中使用，Razor支援的保留關鍵字，分為兩大類:</p>
-<ol>
-<li><p>Razor關鍵字:section、model、helper、inherits和functions五個關鍵字是Razor創造的，用來支持Razor語法所需功能。</p>
-</li>
-<li><p>C#關鍵字:源自既有的C#，而不是Razor創造的，如:using、if…else、switch…case、for、foreach、while…..等等</p>
-</li>
-</ol>
-<p> Razor只能在View檢視(.cshtml)中使用，而不能再.html中使用，所以View也稱為Razor View 或 View Template。</p>
-<h3 id="Razor語法規則"><a href="#Razor語法規則" class="headerlink" title="Razor語法規則"></a><strong>Razor語法規則</strong></h3><p>規則1:以@符號作為C#開頭</p>
-<p>規則2:以@{…}宣告單行的C#程式<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F2.png?alt=media&token=7a71d1d9-3363-4247-a79b-ab4e836af377" alt="photo"></p>
-<p>規則3:以@{…}宣告多行的C#程式<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F3.png?alt=media&token=479f15a3-1601-4716-a413-233e2b55b266" alt="photo"></p>
-<p>規則4:C#的inline表達式<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F4.png?alt=media&token=fafd3275-a994-4936-8912-354dd10edfbc" alt="photo"></p>
-<p>規則5:C#程式區塊中的HTML隱式轉換</p>
-<p>@{….}程式區塊中預設語言是C#，但若夾雜了HTML語法，Razor會自動做隱式轉換。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F5.png?alt=media&token=4a121fdf-7e89-48a7-8940-6595b5d3a5b0" alt="photo"></p>
-<p>規則6:C#關鍵字嚴格區分大小寫</p>
-<p>規則7:Razor明確表達式為@(….)符號</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F6.png?alt=media&token=416212ef-aa06-4623-b645-eb7e61e4c387" alt="photo"></p>
-<p>規則8:以文字顯示@符號，需用@@表示</p>
-<p>規則9:用@Html.Raw()顯示原始字串，不做HTML編碼</p>
-<p>規則10:磁碟路徑表示法</p>
-<p>字串變數入包含磁碟路徑，可在最前面加上@符號,若要把檔案虛擬路徑轉成實體路徑，可用Server.MapPath()方法。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F7.png?alt=media&token=cfeebe0b-47b0-47d9-8c68-5dc1d82dbfd5" alt="photo"></p>
-<h3 id="Razor判斷式與流程控制"><a href="#Razor判斷式與流程控制" class="headerlink" title="Razor判斷式與流程控制"></a><strong>Razor判斷式與流程控制</strong></h3><p>Razor若要做判斷式或迴圈流程控制，可用C#的if、for、foreach等指令</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F8.png?alt=media&token=6e5a1452-5c40-4769-ac47-3a85a9b6f47b" alt="photo"></p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F9.png?alt=media&token=a2d3a33a-6520-4709-b506-a020a7836221" alt="photo"></p>
-<blockquote>
-<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4MjY4MjM/c2xvYz1tYWlu">網頁程式設計ASP.NET MVC 5.X範例完美演繹(適用Visual C# 2019&#x2F;2017)（第三版）<i class="fa fa-external-link-alt"></i></span></p>
+        <h1 id="待…"><a href="#待…" class="headerlink" title="待…"></a>待…</h1><blockquote>
+<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推
+<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
 <blockquote>
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
@@ -305,7 +255,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/ASP-NET-MVC/" rel="tag"># ASP.NET MVC</a>
+              <a href="/tags/Design-Pattern/" rel="tag"># Design Pattern</a>
           </div>
 
         
@@ -314,13 +264,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/36984/" rel="prev" title="ASP.NET MVC — View">
-      <i class="fa fa-chevron-left"></i> ASP.NET MVC — View
+    <a href="/posts/89489/" rel="prev" title="ASP.NET MVC — Model">
+      <i class="fa fa-chevron-left"></i> ASP.NET MVC — Model
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/64362/" rel="next" title="ASP.NET MVC — HTML Helper與自訂HTML Helper">
-      ASP.NET MVC — HTML Helper與自訂HTML Helper <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -386,7 +333,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Razor"><span class="nav-number">1.</span> <span class="nav-text">Razor</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Razor%E6%94%AF%E6%8F%B4%E7%9A%84%E4%BF%9D%E7%95%99%E9%97%9C%E9%8D%B5%E5%AD%97"><span class="nav-number">1.1.</span> <span class="nav-text">Razor支援的保留關鍵字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Razor%E8%AA%9E%E6%B3%95%E8%A6%8F%E5%89%87"><span class="nav-number">1.1.1.</span> <span class="nav-text">Razor語法規則</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Razor%E5%88%A4%E6%96%B7%E5%BC%8F%E8%88%87%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">1.1.2.</span> <span class="nav-text">Razor判斷式與流程控制</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%85%E2%80%A6"><span class="nav-number">1.</span> <span class="nav-text">待…</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -546,9 +493,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://jasonhsieh-web.github.io/posts/26594/";
-    this.page.identifier = "posts/26594/";
-    this.page.title = "ASP.NET MVC — Razor";
+    this.page.url = "https://jasonhsieh-web.github.io/posts/847489/";
+    this.page.identifier = "posts/847489/";
+    this.page.title = "Design Pattern — SRP 單一責任原則";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
