@@ -186,7 +186,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2023-05-24 00:00:00 / 修改時間：23:09:46" itemprop="dateCreated datePublished" datetime="2023-05-24T00:00:00+08:00">2023-05-24</time>
+              <time title="創建時間：2023-05-24 00:00:00 / 修改時間：23:13:06" itemprop="dateCreated datePublished" datetime="2023-05-24T00:00:00+08:00">2023-05-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,66 +224,14 @@
 
       
           <h1 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a><strong>ArrayList</strong></h1><p>它和陣列非常類似,它比陣列有彈性可以動態地增加ArrayList中的項目,陣列則不行。當需要一個資料結構可以動態新增或移除成員時便可使用ArrayList物件來記錄。使用前須引用命名空間</p>
-<blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLXR3L2RvdG5ldC9hcGkvc3lzdGVtLmNvbGxlY3Rpb25zP3ZpZXc9bmV0LTUuMA==">System.Collections<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F1.webp?alt=media&token=0262e711-b95e-4bd8-87d5-63bb580a360c" alt="&quot;photo&quot;"></p>
-<h1 id="陣列-vs-集合"><a href="#陣列-vs-集合" class="headerlink" title="陣列 vs 集合"></a><strong>陣列 vs 集合</strong></h1><h2 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a><strong>陣列</strong></h2><ol>
-<li>透過索引值存取成員ex:arr[0]&#x3D;123</li>
-<li>無法變更陣列大小</li>
-<li>若要儲存較多或較少成員時只能宣告新陣列</li>
-<li>陣列中所有成員都必須是同一種資料型別<blockquote>
-<p>因此陣列適合用來儲存固定個數、型別相同的資料</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a><strong>集合</strong></h2><ol>
-<li>可以動態新增或減少</li>
-<li>透過索引值或健值存取成員</li>
-</ol>
-<hr>
-<h1 id="List-lt-T-gt"><a href="#List-lt-T-gt" class="headerlink" title="List &lt;T&gt;"></a><strong>List &lt;T&gt;</strong></h1><ol>
-<li>具備索引值</li>
-<li>可透過方法增加或減少成員</li>
-<li>透過<strong>泛型</strong>指定成員型別</li>
-</ol>
-<p>使用前一樣先使用它的命名空間</p>
-<blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLXR3L2RvdG5ldC9hcGkvc3lzdGVtLmNvbGxlY3Rpb25zLmdlbmVyaWM/dmlldz1uZXQtNS4w">System.Collections.Generic<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-<p>在宣告時將型別參數&lt;T&gt;設為自己想要的型別</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F2.webp?alt=media&token=c9ef143d-6a49-4e7b-8a14-a745f3be65ef" alt="&quot;photo&quot;"></p>
-<p>此外可用.Count來得到List的總數</p>
-<h2 id="List好用的method"><a href="#List好用的method" class="headerlink" title="List好用的method"></a><strong>List好用的method</strong></h2><ol>
-<li>Sort() 排序</li>
-</ol>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F3.webp?alt=media&token=c924c7d6-8143-494a-8e66-35f250eb4815" alt="&quot;photo&quot;"></p>
-<ol start="2">
-<li>Contain() 檢查是否有物件x</li>
-</ol>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F4.webp?alt=media&token=e9869b08-02e7-4672-ab91-40464d12ffea" alt="&quot;photo&quot;"></h2><h1 id="Dictionary"><a href="#Dictionary" class="headerlink" title="Dictionary"></a><strong>Dictionary</strong></h1><ol>
-<li>適合儲存具備鍵值的資料</li>
-<li>可以透過方法增加或減少成員項目</li>
-<li>透過泛型指定成員型別</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dictionary是一種索引鍵/值組(key/Value)成對的資料結過,透過Key找到對應的Value,特別注意使用Dictionary時需要傳兩個型別參數,代表Key跟Value,並且每個Key都必須是唯一的</span><br></pre></td></tr></table></figure>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F5.webp?alt=media&token=4de30449-74c0-42ee-abb2-f7032d9873dc" alt="&quot;photo&quot;"></p>
-<h2 id="集合初始式"><a href="#集合初始式" class="headerlink" title="集合初始式"></a><strong>集合初始式</strong></h2><p>簡單來說就是宣告集合變數時順帶<strong>初始化集合成員</strong>可以使用兩種語法:</p>
-<p><strong>集合初始式與索引初始式</strong>,如此一來可以簡短程式碼</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F6.webp?alt=media&token=8351feae-f7cc-4a89-b05b-ac7fcac87b20" alt="&quot;photo&quot;"></p>
-<h2 id="最後小小補充一下-泛型Generic"><a href="#最後小小補充一下-泛型Generic" class="headerlink" title="最後小小補充一下 泛型Generic"></a><strong>最後小小補充一下 泛型<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLXR3L2RvdG5ldC9hcGkvc3lzdGVtLmNvbGxlY3Rpb25zLmdlbmVyaWM/dmlldz1uZXQtNS4w">Generic<i class="fa fa-external-link-alt"></i></span></strong></h2><p>在之前我們要宣告方法的話輸入跟輸出都必須是相同型別,那如果今天我想要輸入跟輸出的型別不同的話,就要定義多個方法,儘管他們做一樣的事情</p>
-<p>泛型出現後,我們可以使用它定義一個方法,<strong>滿足不同參數類型</strong>,做相同的事情</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先定義一個型別為&lt;T&gt;的方法,&lt;T&gt;為暫時替代型別,所以說我們可以先不用定義它是什麼型別,就可以完成class或method的設計</span><br></pre></td></tr></table></figure>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F7.webp?alt=media&token=ec11326d-bfb9-477f-9650-1ff8868aa201" alt="&quot;photo&quot;"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">定義型別的時間,延後到我們真正要使用它的時候才來定義</span><br></pre></td></tr></table></figure>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F8.webp?alt=media&token=188dc4d0-1ef0-4295-a70e-1c8d6ee9a72f" alt="&quot;photo&quot;"></p>
-<p>參考及推薦:</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj0yQ204S3hFdXRqSQ==">小山的 C# 教學 - 第 49 課 - 串列 (List)<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1MbzZkb3JLQjB0aw==">小山的 C# 教學 - 第 50 課 - 泛型 (Generics) 的初步介紹<i class="fa fa-external-link-alt"></i></span></p>
-<blockquote>
-<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
-</blockquote>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/24896/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
