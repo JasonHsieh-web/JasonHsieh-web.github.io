@@ -22,29 +22,28 @@
     var CONFIG = {"hostname":"jasonhsieh-web.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="何謂Model?MVC中有關「資料」的任務都是皆由Model負責。負責定義資料型態，不管是在Controller或是View中，所有資料的型態都會參考到View。">
+  <meta name="description" content="LINQ語法擴充了C#語言的查詢語法,可適用LINQ查詢的資料類型有">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ASP.NET MVC — Model">
-<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/89489/index.html">
+<meta property="og:title" content="C# —— LINQ">
+<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/75770/index.html">
 <meta property="og:site_name" content="網頁的小宇宙">
-<meta property="og:description" content="何謂Model?MVC中有關「資料」的任務都是皆由Model負責。負責定義資料型態，不管是在Controller或是View中，所有資料的型態都會參考到View。">
+<meta property="og:description" content="LINQ語法擴充了C#語言的查詢語法,可適用LINQ查詢的資料類型有">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F1.png?alt=media&token=9bee3d42-3a53-40a4-a11e-f36fb601c78a">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F2.png?alt=media&token=1f596ee0-83be-46bd-b449-114d3cc431e3">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F3.png?alt=media&token=206e2e26-ba32-46cc-9906-43b6e8721657">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F4.png?alt=media&token=aaa47457-4b4f-4314-8aa4-1497ba03e6f7">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F5.png?alt=media&token=17ec4ae4-c717-4fdb-ab91-6651135ce049">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F6.png?alt=media&token=ec997836-ef28-406d-b464-5ca96b807248">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F7.png?alt=media&token=fe59c3da-b3df-45cc-be19-0e9e82f1a996">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F7.png?alt=media&token=fe59c3da-b3df-45cc-be19-0e9e82f1a996">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F9.png?alt=media&token=ef50c759-3503-4cc2-913e-49e8e0f48a6f">
-<meta property="article:published_time" content="2022-03-13T10:56:21.387Z">
-<meta property="article:modified_time" content="2023-05-17T14:45:56.068Z">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F1.gif?alt=media&token=5b5ed3ae-1504-46a7-a39f-fd60f1323d3a">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F2.webp?alt=media&token=6d860cf7-5a0a-4dac-bb89-42ed1fff9642">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F3.webp?alt=media&token=c1d7e25c-3b70-4d98-a83e-dbf0599571ba">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F4.webp?alt=media&token=877a7500-eb1d-4ae7-bcb1-256a6c0c5e86">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F5.webp?alt=media&token=38ab86d2-4ec5-4922-9c85-77bc7801f051">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F6.webp?alt=media&token=a8d84a31-50f2-4a54-99b3-775ee350b39b">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F7.webp?alt=media&token=1e7ca7fd-8424-4efa-98a4-7253ee7d4f6d">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F8.webp?alt=media&token=f5a97a97-d386-4736-a8dc-142f229795e4">
+<meta property="article:published_time" content="2023-05-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-25T15:05:20.459Z">
 <meta property="article:author" content="Jason">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F1.png?alt=media&token=9bee3d42-3a53-40a4-a11e-f36fb601c78a">
+<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F1.gif?alt=media&token=5b5ed3ae-1504-46a7-a39f-fd60f1323d3a">
 
-<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/89489/">
+<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/75770/">
 
 
 <script id="page-configurations">
@@ -57,7 +56,7 @@
   };
 </script>
 
-  <title>ASP.NET MVC — Model | 網頁的小宇宙</title>
+  <title>C# —— LINQ | 網頁的小宇宙</title>
   
 
 
@@ -202,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/89489/">
+    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/75770/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/SpaceMan%2F%E9%A0%AD%E8%B2%BC.png?alt=media&token=d5386314-4bb8-495e-88bd-cb8bf18dbd4f">
@@ -215,7 +214,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ASP.NET MVC — Model
+          C# —— LINQ
         </h1>
 
         <div class="post-meta">
@@ -224,16 +223,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2022-03-13 18:56:21" itemprop="dateCreated datePublished" datetime="2022-03-13T18:56:21+08:00">2022-03-13</time>
+              <time title="創建時間：2023-05-25 00:00:00 / 修改時間：23:05:20" itemprop="dateCreated datePublished" datetime="2023-05-25T00:00:00+08:00">2023-05-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2023-05-17 22:45:56" itemprop="dateModified" datetime="2023-05-17T22:45:56+08:00">2023-05-17</time>
-              </span>
 
           
             <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
@@ -251,8 +244,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/posts/89489/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/89489/" itemprop="commentCount"></span>
+    <a title="disqus" href="/posts/75770/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/75770/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -267,34 +260,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="何謂Model"><a href="#何謂Model" class="headerlink" title="何謂Model?"></a>何謂Model?</h1><p>MVC中有關「資料」的任務都是皆由Model負責。負責定義資料型態，不管是在Controller或是View中，所有資料的型態都會參考到View。</p>
+        <p>LINQ語法擴充了C#語言的查詢語法,可適用LINQ查詢的資料類型有</p>
 <span id="more"></span>
+<ol>
+<li>SQL Server</li>
+<li>XML文件</li>
+<li>ADO.NET資料集</li>
+<li>Entity Framework</li>
+<li>任何有實作IEnumerable介面或IEnumerable&lt;T&gt;泛型介面的集合物,像是Array及Collection等等</li>
+</ol>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F1.gif?alt=media&token=5b5ed3ae-1504-46a7-a39f-fd60f1323d3a" alt="&quot;photo&quot;"></p>
+<p>過去在寫程式比對Array或List的資料時,不免會用到for或foreach迴圈,使用LINQ後你會發現它是個簡潔好懂、好維護的東西。</p>
+<p>使用LINQ前記得引用它的命名空間</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Linq;</span><br></pre></td></tr></table></figure>
 
-<h1 id="Model的任務"><a href="#Model的任務" class="headerlink" title="Model的任務"></a>Model的任務</h1><p>MVC強調關注點分離，其中Model只負責與資料有關的商業邏輯，其他如:控制網站流程、資料流向或頁面顯示等工作，Model都不會介入，Model更著重於有效率地提供資料的存取、資料格式驗證、商業邏輯驗證等等。獨立性非常高的Model常會因為撰寫太多商業邏輯後，導致閱讀不易，因此建議在寫大量的商業邏輯可以多加一個Service的資料夾，讓Model只專注在資料存取及格式驗證上。</p>
-<h2 id="動手建立Model看看吧"><a href="#動手建立Model看看吧" class="headerlink" title="動手建立Model看看吧"></a>動手建立Model看看吧</h2><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F1.png?alt=media&token=9bee3d42-3a53-40a4-a11e-f36fb601c78a" alt="photo"></p>
-<p>我們對Model資料夾按右鍵，增加一個Todo的類別，給他幾個屬性，如上圖如果對類別有問題的可以參考我這篇，有介紹類別與物件。</p>
-<p>好我們再建立一個Service的資料夾,並新增一個function來建立物件,如下圖。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F2.png?alt=media&token=1f596ee0-83be-46bd-b449-114d3cc431e3" alt="photo"></p>
-<p>這邊只是簡單介紹Model再MVC的角色,當然實務上Model更容易用來接收資料庫的資料。</p>
-<p>再來有幾個步驟我們在Controller中使用我們寫的function並傳給View。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F3.png?alt=media&token=206e2e26-ba32-46cc-9906-43b6e8721657" alt="photo"></p>
-<p>再來我們要新增Index的View</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F4.png?alt=media&token=aaa47457-4b4f-4314-8aa4-1497ba03e6f7" alt="photo"></p>
-<p>並且把剛剛在Controller上傳過來的Model顯示出來看看，記得在上頭的地方要宣告，在使用時才有參數提示，這是強型別的特性。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F5.png?alt=media&token=17ec4ae4-c717-4fdb-ab91-6651135ce049" alt="photo"></p>
-<p>看看成果~</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F6.png?alt=media&token=ec997836-ef28-406d-b464-5ca96b807248" alt="photo"></p>
-<h1 id="DataAnnotations語意標註"><a href="#DataAnnotations語意標註" class="headerlink" title="DataAnnotations語意標註"></a>DataAnnotations語意標註</h1><p>再來介紹我們可以使用DataAnnotations進行語意標註,例如用「DisplayName」來設定顯示名稱，「Requierd」要求資料必須輸入等等。更多詳細資料可以參考<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1pY3Jvc29mdC5jb20vemgtdHcvZG90bmV0L2FwaS9zeXN0ZW0uY29tcG9uZW50bW9kZWwuZGF0YWFubm90YXRpb25zP3ZpZXc9bmV0LTUuMA==">這裡<i class="fa fa-external-link-alt"></i></span>。本人文章可以參考<a href="https://jasonhsieh-web.github.io/posts/36983/">這裡</a></p>
-<p>使用時記得引用以下命名空間</p>
-<blockquote>
-<p>using System.ComponentModel;<br>using System.ComponentModel.DataAnnotations;</p>
-</blockquote>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F7.png?alt=media&token=fe59c3da-b3df-45cc-be19-0e9e82f1a996" alt="photo"></p>
-<p>修改一下，我們一開始建立的Model，並且在View上試試效果。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F7.png?alt=media&token=fe59c3da-b3df-45cc-be19-0e9e82f1a996" alt="photo"></p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F9.png?alt=media&token=ef50c759-3503-4cc2-913e-49e8e0f48a6f" alt="photo"></p>
-<p>Html.DisplayNameFor是屬於<a href="https://jasonhsieh-web.github.io/posts/64362/#more">HtmlHelper</a>內的一種方法,在View主題的時候會提到。</p>
-<p>以上就是Model的簡單基本介紹，有空會再補充稍微進階的用法。</p>
+<h2 id="LINQ基本查詢語法"><a href="#LINQ基本查詢語法" class="headerlink" title="LINQ基本查詢語法"></a>LINQ基本查詢語法</h2><p>STEP.1 指定資料來源這邊是 names陣列</p>
+<p>STEP.2 用form關鍵字指定一個變數用以取得集合中每個成員,使用in關鍵字指定資料來源</p>
+<p>STEP.3 執行查詢</p>
+<p>以下範例使用變數s代表names集合：</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F2.webp?alt=media&token=6d860cf7-5a0a-4dac-bb89-42ed1fff9642" alt="&quot;photo&quot;"></p>
+<h2 id="LINQ指定篩選條件-where"><a href="#LINQ指定篩選條件-where" class="headerlink" title="LINQ指定篩選條件(where)"></a>LINQ指定篩選條件(where)</h2><p>資料來源跟上面的一樣,使用where來挑選開頭是a的字串</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F3.webp?alt=media&token=c1d7e25c-3b70-4d98-a83e-dbf0599571ba" alt="&quot;photo&quot;"></p>
+<p>where運算式可以出現多次,先找開頭是a的字串,再找結尾是e的字串</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F4.webp?alt=media&token=877a7500-eb1d-4ae7-bcb1-256a6c0c5e86" alt="&quot;photo&quot;"></p>
+<h2 id="LINQ指定排序-orderby"><a href="#LINQ指定排序-orderby" class="headerlink" title="LINQ指定排序(orderby)"></a>LINQ指定排序(orderby)</h2><p>若要做降冪排序,則在orderby後加上descending</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F5.webp?alt=media&token=38ab86d2-4ec5-4922-9c85-77bc7801f051" alt="&quot;photo&quot;"></p>
+<h2 id="LINQ執行查詢分為兩種"><a href="#LINQ執行查詢分為兩種" class="headerlink" title="LINQ執行查詢分為兩種"></a>LINQ執行查詢分為兩種</h2><ol>
+<li><strong>延後執行查詢</strong></li>
+</ol>
+<p>剛剛以上的範例都屬於<strong>延後執行查詢</strong>,因實際執行查詢作業會延後至使用foreach來取回符合查詢的結果,因查詢變數本身並不會保留查詢結果,所以可以多次查詢變數來取得最新資料</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F6.webp?alt=media&token=a8d84a31-50f2-4a54-99b3-775ee350b39b" alt="&quot;photo&quot;"></p>
+<ol start="2">
+<li><strong>強制立即查詢</strong></li>
+</ol>
+<p>某些執行彙總函式不須使用foreach來啟動LINQ執行</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F7.webp?alt=media&token=1e7ca7fd-8424-4efa-98a4-7253ee7d4f6d" alt="&quot;photo&quot;"></p>
+<h3 id="LINQ方法補充"><a href="#LINQ方法補充" class="headerlink" title="LINQ方法補充"></a>LINQ方法補充</h3><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F8.webp?alt=media&token=f5a97a97-d386-4736-a8dc-142f229795e4" alt="&quot;photo&quot;"></p>
+<h3 id="LINQ查詢運算式語法與方法"><a href="#LINQ查詢運算式語法與方法" class="headerlink" title="LINQ查詢運算式語法與方法"></a>LINQ查詢運算式語法與方法</h3><h3 id="查詢運算式語法類似SQL語法"><a href="#查詢運算式語法類似SQL語法" class="headerlink" title="查詢運算式語法類似SQL語法"></a>查詢運算式語法類似SQL語法</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> query = <span class="keyword">from</span> n <span class="keyword">in</span> numbers</span><br><span class="line">            <span class="keyword">where</span> n% <span class="number">2</span> ==<span class="number">0</span></span><br><span class="line">            <span class="keyword">select</span> n;</span><br></pre></td></tr></table></figure>
+<p>其實經過編譯後LINQ查詢語法會變成方法語法上面這段等同於</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> query = numbers.Where(i =&gt; i % <span class="number">2</span> == <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p>Where方法裡使用條件運算式稱為<strong>Lambda運算式</strong>,用這種方式撰寫很方便,不須而外宣告方法。</p>
+<p>以上面程式碼為例, &#x3D;&gt;是<strong>Lambda運算式</strong>,可讀成<strong>移至</strong>,它左邊的i是輸入變數,代表資料集合中的每一個物件,上面例子裡就是numbers,運算時每一個數值會被<strong>移至</strong>右邊的查詢運算式處理。</p>
+<p>參考:<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vd2lsbGljay9wLzEzNTg2MDI0Lmh0bWw=">[C#.NET 拾遗补漏]08：强大的LINQ<i class="fa fa-external-link-alt"></i></span></p>
 <blockquote>
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
@@ -313,13 +321,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/78794/" rel="prev" title="Design Pattern — 內聚力與耦合力">
-      <i class="fa fa-chevron-left"></i> Design Pattern — 內聚力與耦合力
+    <a href="/posts/24896/" rel="prev" title="C# —集合(ArrayList、List、Dictionary)">
+      <i class="fa fa-chevron-left"></i> C# —集合(ArrayList、List、Dictionary)
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/847489/" rel="next" title="Design Pattern — SRP 單一責任原則">
-      Design Pattern — SRP 單一責任原則 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -385,7 +390,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%95%E8%AC%82Model"><span class="nav-number">1.</span> <span class="nav-text">何謂Model?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model%E7%9A%84%E4%BB%BB%E5%8B%99"><span class="nav-number">2.</span> <span class="nav-text">Model的任務</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8B%95%E6%89%8B%E5%BB%BA%E7%AB%8BModel%E7%9C%8B%E7%9C%8B%E5%90%A7"><span class="nav-number">2.1.</span> <span class="nav-text">動手建立Model看看吧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DataAnnotations%E8%AA%9E%E6%84%8F%E6%A8%99%E8%A8%BB"><span class="nav-number">3.</span> <span class="nav-text">DataAnnotations語意標註</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LINQ%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%A9%A2%E8%AA%9E%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">LINQ基本查詢語法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LINQ%E6%8C%87%E5%AE%9A%E7%AF%A9%E9%81%B8%E6%A2%9D%E4%BB%B6-where"><span class="nav-number">2.</span> <span class="nav-text">LINQ指定篩選條件(where)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LINQ%E6%8C%87%E5%AE%9A%E6%8E%92%E5%BA%8F-orderby"><span class="nav-number">3.</span> <span class="nav-text">LINQ指定排序(orderby)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LINQ%E5%9F%B7%E8%A1%8C%E6%9F%A5%E8%A9%A2%E5%88%86%E7%82%BA%E5%85%A9%E7%A8%AE"><span class="nav-number">4.</span> <span class="nav-text">LINQ執行查詢分為兩種</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LINQ%E6%96%B9%E6%B3%95%E8%A3%9C%E5%85%85"><span class="nav-number">4.1.</span> <span class="nav-text">LINQ方法補充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LINQ%E6%9F%A5%E8%A9%A2%E9%81%8B%E7%AE%97%E5%BC%8F%E8%AA%9E%E6%B3%95%E8%88%87%E6%96%B9%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">LINQ查詢運算式語法與方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%A9%A2%E9%81%8B%E7%AE%97%E5%BC%8F%E8%AA%9E%E6%B3%95%E9%A1%9E%E4%BC%BCSQL%E8%AA%9E%E6%B3%95"><span class="nav-number">4.3.</span> <span class="nav-text">查詢運算式語法類似SQL語法</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -537,9 +542,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://jasonhsieh-web.github.io/posts/89489/";
-    this.page.identifier = "posts/89489/";
-    this.page.title = "ASP.NET MVC — Model";
+    this.page.url = "https://jasonhsieh-web.github.io/posts/75770/";
+    this.page.identifier = "posts/75770/";
+    this.page.title = "C# —— LINQ";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

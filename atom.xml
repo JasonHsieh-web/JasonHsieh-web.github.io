@@ -6,7 +6,7 @@
   <link href="https://jasonhsieh-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://jasonhsieh-web.github.io/"/>
-  <updated>2023-05-24T15:27:27.761Z</updated>
+  <updated>2023-05-25T15:05:20.459Z</updated>
   <id>https://jasonhsieh-web.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C# —— LINQ</title>
+    <link href="https://jasonhsieh-web.github.io/posts/75770/"/>
+    <id>https://jasonhsieh-web.github.io/posts/75770/</id>
+    <published>2023-05-24T16:00:00.000Z</published>
+    <updated>2023-05-25T15:05:20.459Z</updated>
+    
+    <content type="html"><![CDATA[<p>LINQ語法擴充了C#語言的查詢語法,可適用LINQ查詢的資料類型有</p><span id="more"></span><ol><li>SQL Server</li><li>XML文件</li><li>ADO.NET資料集</li><li>Entity Framework</li><li>任何有實作IEnumerable介面或IEnumerable&lt;T&gt;泛型介面的集合物,像是Array及Collection等等</li></ol><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F1.gif?alt=media&token=5b5ed3ae-1504-46a7-a39f-fd60f1323d3a" alt="&quot;photo&quot;"></p><p>過去在寫程式比對Array或List的資料時,不免會用到for或foreach迴圈,使用LINQ後你會發現它是個簡潔好懂、好維護的東西。</p><p>使用LINQ前記得引用它的命名空間</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Linq;</span><br></pre></td></tr></table></figure><h2 id="LINQ基本查詢語法"><a href="#LINQ基本查詢語法" class="headerlink" title="LINQ基本查詢語法"></a>LINQ基本查詢語法</h2><p>STEP.1 指定資料來源這邊是 names陣列</p><p>STEP.2 用form關鍵字指定一個變數用以取得集合中每個成員,使用in關鍵字指定資料來源</p><p>STEP.3 執行查詢</p><p>以下範例使用變數s代表names集合：</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F2.webp?alt=media&token=6d860cf7-5a0a-4dac-bb89-42ed1fff9642" alt="&quot;photo&quot;"></p><h2 id="LINQ指定篩選條件-where"><a href="#LINQ指定篩選條件-where" class="headerlink" title="LINQ指定篩選條件(where)"></a>LINQ指定篩選條件(where)</h2><p>資料來源跟上面的一樣,使用where來挑選開頭是a的字串</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F3.webp?alt=media&token=c1d7e25c-3b70-4d98-a83e-dbf0599571ba" alt="&quot;photo&quot;"></p><p>where運算式可以出現多次,先找開頭是a的字串,再找結尾是e的字串</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F4.webp?alt=media&token=877a7500-eb1d-4ae7-bcb1-256a6c0c5e86" alt="&quot;photo&quot;"></p><h2 id="LINQ指定排序-orderby"><a href="#LINQ指定排序-orderby" class="headerlink" title="LINQ指定排序(orderby)"></a>LINQ指定排序(orderby)</h2><p>若要做降冪排序,則在orderby後加上descending</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F5.webp?alt=media&token=38ab86d2-4ec5-4922-9c85-77bc7801f051" alt="&quot;photo&quot;"></p><h2 id="LINQ執行查詢分為兩種"><a href="#LINQ執行查詢分為兩種" class="headerlink" title="LINQ執行查詢分為兩種"></a>LINQ執行查詢分為兩種</h2><ol><li><strong>延後執行查詢</strong></li></ol><p>剛剛以上的範例都屬於<strong>延後執行查詢</strong>,因實際執行查詢作業會延後至使用foreach來取回符合查詢的結果,因查詢變數本身並不會保留查詢結果,所以可以多次查詢變數來取得最新資料</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F6.webp?alt=media&token=a8d84a31-50f2-4a54-99b3-775ee350b39b" alt="&quot;photo&quot;"></p><ol start="2"><li><strong>強制立即查詢</strong></li></ol><p>某些執行彙總函式不須使用foreach來啟動LINQ執行</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F7.webp?alt=media&token=1e7ca7fd-8424-4efa-98a4-7253ee7d4f6d" alt="&quot;photo&quot;"></p><h3 id="LINQ方法補充"><a href="#LINQ方法補充" class="headerlink" title="LINQ方法補充"></a>LINQ方法補充</h3><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F8.webp?alt=media&token=f5a97a97-d386-4736-a8dc-142f229795e4" alt="&quot;photo&quot;"></p><h3 id="LINQ查詢運算式語法與方法"><a href="#LINQ查詢運算式語法與方法" class="headerlink" title="LINQ查詢運算式語法與方法"></a>LINQ查詢運算式語法與方法</h3><h3 id="查詢運算式語法類似SQL語法"><a href="#查詢運算式語法類似SQL語法" class="headerlink" title="查詢運算式語法類似SQL語法"></a>查詢運算式語法類似SQL語法</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> query = <span class="keyword">from</span> n <span class="keyword">in</span> numbers</span><br><span class="line">            <span class="keyword">where</span> n% <span class="number">2</span> ==<span class="number">0</span></span><br><span class="line">            <span class="keyword">select</span> n;</span><br></pre></td></tr></table></figure><p>其實經過編譯後LINQ查詢語法會變成方法語法上面這段等同於</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> query = numbers.Where(i =&gt; i % <span class="number">2</span> == <span class="number">0</span>);</span><br></pre></td></tr></table></figure><p>Where方法裡使用條件運算式稱為<strong>Lambda運算式</strong>,用這種方式撰寫很方便,不須而外宣告方法。</p><p>以上面程式碼為例, &#x3D;&gt;是<strong>Lambda運算式</strong>,可讀成<strong>移至</strong>,它左邊的i是輸入變數,代表資料集合中的每一個物件,上面例子裡就是numbers,運算時每一個數值會被<strong>移至</strong>右邊的查詢運算式處理。</p><p>參考:<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vd2lsbGljay9wLzEzNTg2MDI0Lmh0bWw=">[C#.NET 拾遗补漏]08：强大的LINQ<i class="fa fa-external-link-alt"></i></span></p><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;LINQ語法擴充了C#語言的查詢語法,可適用LINQ查詢的資料類型有&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>C# —集合(ArrayList、List、Dictionary)</title>
@@ -30,10 +47,6 @@
     
     
     
-    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/categories/Csharp/"/>
-    
-    
-    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/tags/Csharp/"/>
     
   </entry>
   
@@ -55,10 +68,6 @@
     
     
     
-    <category term="Design Pattern" scheme="https://jasonhsieh-web.github.io/categories/Design-Pattern/"/>
-    
-    
-    <category term="Design Pattern" scheme="https://jasonhsieh-web.github.io/tags/Design-Pattern/"/>
     
   </entry>
   
@@ -76,10 +85,6 @@
     
     
     
-    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/"/>
-    
-    
-    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
     
   </entry>
   
@@ -98,10 +103,6 @@
     
     
     
-    <category term="Design Pattern" scheme="https://jasonhsieh-web.github.io/categories/Design-Pattern/"/>
-    
-    
-    <category term="Design Pattern" scheme="https://jasonhsieh-web.github.io/tags/Design-Pattern/"/>
     
   </entry>
   
@@ -119,10 +120,6 @@
     
     
     
-    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/"/>
-    
-    
-    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
     
   </entry>
   
@@ -140,10 +137,6 @@
     
     
     
-    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/"/>
-    
-    
-    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
     
   </entry>
   
@@ -161,10 +154,6 @@
     
     
     
-    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/"/>
-    
-    
-    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
     
   </entry>
   
@@ -182,10 +171,6 @@
     
     
     
-    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/"/>
-    
-    
-    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
     
   </entry>
   
@@ -203,10 +188,6 @@
     
     
     
-    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/categories/Csharp/"/>
-    
-    
-    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/tags/Csharp/"/>
     
   </entry>
   
@@ -224,10 +205,6 @@
     
     
     
-    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/"/>
-    
-    
-    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
     
   </entry>
   

@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jasonhsieh-web.github.io/posts/75770/</loc>
+    
+    <lastmod>2023-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jasonhsieh-web.github.io/posts/24896/</loc>
     
     <lastmod>2023-05-24</lastmod>
@@ -139,54 +148,12 @@
 
   <url>
     <loc>https://jasonhsieh-web.github.io/</loc>
-    <lastmod>2023-05-24</lastmod>
+    <lastmod>2023-05-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
-  <url>
-    <loc>https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/</loc>
-    <lastmod>2023-05-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jasonhsieh-web.github.io/tags/Csharp/</loc>
-    <lastmod>2023-05-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jasonhsieh-web.github.io/tags/Design-Pattern/</loc>
-    <lastmod>2023-05-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
-  
-  <url>
-    <loc>https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/</loc>
-    <lastmod>2023-05-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jasonhsieh-web.github.io/categories/Csharp/</loc>
-    <lastmod>2023-05-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jasonhsieh-web.github.io/categories/Design-Pattern/</loc>
-    <lastmod>2023-05-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
 </urlset>
