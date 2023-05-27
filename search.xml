@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ASP.NET MVC — Model</title>
+    <url>/posts/89489/</url>
+    <content><![CDATA[<h1 id="何謂Model"><a href="#何謂Model" class="headerlink" title="何謂Model?"></a>何謂Model?</h1><p>MVC中有關「資料」的任務都是皆由Model負責。負責定義資料型態，不管是在Controller或是View中，所有資料的型態都會參考到View。</p>
+<span id="more"></span>
+
+<h1 id="Model的任務"><a href="#Model的任務" class="headerlink" title="Model的任務"></a>Model的任務</h1><p>MVC強調關注點分離，其中Model只負責與資料有關的商業邏輯，其他如:控制網站流程、資料流向或頁面顯示等工作，Model都不會介入，Model更著重於有效率地提供資料的存取、資料格式驗證、商業邏輯驗證等等。獨立性非常高的Model常會因為撰寫太多商業邏輯後，導致閱讀不易，因此建議在寫大量的商業邏輯可以多加一個Service的資料夾，讓Model只專注在資料存取及格式驗證上。</p>
+<h2 id="動手建立Model看看吧"><a href="#動手建立Model看看吧" class="headerlink" title="動手建立Model看看吧"></a>動手建立Model看看吧</h2><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F1.png?alt=media&token=9bee3d42-3a53-40a4-a11e-f36fb601c78a" alt="photo"></p>
+<p>我們對Model資料夾按右鍵，增加一個Todo的類別，給他幾個屬性，如上圖如果對類別有問題的可以參考我這篇，有介紹類別與物件。</p>
+<p>好我們再建立一個Service的資料夾,並新增一個function來建立物件,如下圖。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F2.png?alt=media&token=1f596ee0-83be-46bd-b449-114d3cc431e3" alt="photo"></p>
+<p>這邊只是簡單介紹Model再MVC的角色,當然實務上Model更容易用來接收資料庫的資料。</p>
+<p>再來有幾個步驟我們在Controller中使用我們寫的function並傳給View。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F3.png?alt=media&token=206e2e26-ba32-46cc-9906-43b6e8721657" alt="photo"></p>
+<p>再來我們要新增Index的View</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F4.png?alt=media&token=aaa47457-4b4f-4314-8aa4-1497ba03e6f7" alt="photo"></p>
+<p>並且把剛剛在Controller上傳過來的Model顯示出來看看，記得在上頭的地方要宣告，在使用時才有參數提示，這是強型別的特性。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F5.png?alt=media&token=17ec4ae4-c717-4fdb-ab91-6651135ce049" alt="photo"></p>
+<p>看看成果~</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F6.png?alt=media&token=ec997836-ef28-406d-b464-5ca96b807248" alt="photo"></p>
+<h1 id="DataAnnotations語意標註"><a href="#DataAnnotations語意標註" class="headerlink" title="DataAnnotations語意標註"></a>DataAnnotations語意標註</h1><p>再來介紹我們可以使用DataAnnotations進行語意標註,例如用「DisplayName」來設定顯示名稱，「Requierd」要求資料必須輸入等等。更多詳細資料可以參考<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1pY3Jvc29mdC5jb20vemgtdHcvZG90bmV0L2FwaS9zeXN0ZW0uY29tcG9uZW50bW9kZWwuZGF0YWFubm90YXRpb25zP3ZpZXc9bmV0LTUuMA==">這裡<i class="fa fa-external-link-alt"></i></span>。本人文章可以參考<a href="https://jasonhsieh-web.github.io/posts/36983/">這裡</a></p>
+<p>使用時記得引用以下命名空間</p>
+<blockquote>
+<p>using System.ComponentModel;<br>using System.ComponentModel.DataAnnotations;</p>
+</blockquote>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F7.png?alt=media&token=fe59c3da-b3df-45cc-be19-0e9e82f1a996" alt="photo"></p>
+<p>修改一下，我們一開始建立的Model，並且在View上試試效果。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F7.png?alt=media&token=fe59c3da-b3df-45cc-be19-0e9e82f1a996" alt="photo"></p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F9.png?alt=media&token=ef50c759-3503-4cc2-913e-49e8e0f48a6f" alt="photo"></p>
+<p>Html.DisplayNameFor是屬於<a href="https://jasonhsieh-web.github.io/posts/64362/#more">HtmlHelper</a>內的一種方法,在View主題的時候會提到。</p>
+<p>以上就是Model的簡單基本介紹，有空會再補充稍微進階的用法。</p>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>ASP.NET MVC — Controller</title>
     <url>/posts/36985/</url>
     <content><![CDATA[<h1 id="Controller的責任"><a href="#Controller的責任" class="headerlink" title="Controller的責任"></a>Controller的責任</h1><p>MVC強調關注點分離,其中Controller只負責網站流程相關,其他像是商業邏輯或頁面顯示等工作,Controller一律不會介入,主要著重在控制網站及使用路由傳遞資料等認識。</p>
@@ -101,36 +137,28 @@
 ]]></content>
   </entry>
   <entry>
-    <title>ASP.NET MVC — Model</title>
-    <url>/posts/89489/</url>
-    <content><![CDATA[<h1 id="何謂Model"><a href="#何謂Model" class="headerlink" title="何謂Model?"></a>何謂Model?</h1><p>MVC中有關「資料」的任務都是皆由Model負責。負責定義資料型態，不管是在Controller或是View中，所有資料的型態都會參考到View。</p>
+    <title>C# — 抽象類別與介面</title>
+    <url>/posts/37572/</url>
+    <content><![CDATA[<h1 id="抽象類別"><a href="#抽象類別" class="headerlink" title="抽象類別"></a><strong>抽象類別</strong></h1><p>將類別之間的共同特性,從類別中萃取出來的動作,就稱之為「抽象化」,如交通工具封裝一些特性,再透過繼承的方式由子類別來展現這一些特性：如汽車、腳踏車、機車。如果是不同類型物件間的共同特性，則可以定義成介面。</p>
 <span id="more"></span>
 
-<h1 id="Model的任務"><a href="#Model的任務" class="headerlink" title="Model的任務"></a>Model的任務</h1><p>MVC強調關注點分離，其中Model只負責與資料有關的商業邏輯，其他如:控制網站流程、資料流向或頁面顯示等工作，Model都不會介入，Model更著重於有效率地提供資料的存取、資料格式驗證、商業邏輯驗證等等。獨立性非常高的Model常會因為撰寫太多商業邏輯後，導致閱讀不易，因此建議在寫大量的商業邏輯可以多加一個Service的資料夾，讓Model只專注在資料存取及格式驗證上。</p>
-<h2 id="動手建立Model看看吧"><a href="#動手建立Model看看吧" class="headerlink" title="動手建立Model看看吧"></a>動手建立Model看看吧</h2><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F1.png?alt=media&token=9bee3d42-3a53-40a4-a11e-f36fb601c78a" alt="photo"></p>
-<p>我們對Model資料夾按右鍵，增加一個Todo的類別，給他幾個屬性，如上圖如果對類別有問題的可以參考我這篇，有介紹類別與物件。</p>
-<p>好我們再建立一個Service的資料夾,並新增一個function來建立物件,如下圖。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F2.png?alt=media&token=1f596ee0-83be-46bd-b449-114d3cc431e3" alt="photo"></p>
-<p>這邊只是簡單介紹Model再MVC的角色,當然實務上Model更容易用來接收資料庫的資料。</p>
-<p>再來有幾個步驟我們在Controller中使用我們寫的function並傳給View。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F3.png?alt=media&token=206e2e26-ba32-46cc-9906-43b6e8721657" alt="photo"></p>
-<p>再來我們要新增Index的View</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F4.png?alt=media&token=aaa47457-4b4f-4314-8aa4-1497ba03e6f7" alt="photo"></p>
-<p>並且把剛剛在Controller上傳過來的Model顯示出來看看，記得在上頭的地方要宣告，在使用時才有參數提示，這是強型別的特性。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F5.png?alt=media&token=17ec4ae4-c717-4fdb-ab91-6651135ce049" alt="photo"></p>
-<p>看看成果~</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F6.png?alt=media&token=ec997836-ef28-406d-b464-5ca96b807248" alt="photo"></p>
-<h1 id="DataAnnotations語意標註"><a href="#DataAnnotations語意標註" class="headerlink" title="DataAnnotations語意標註"></a>DataAnnotations語意標註</h1><p>再來介紹我們可以使用DataAnnotations進行語意標註,例如用「DisplayName」來設定顯示名稱，「Requierd」要求資料必須輸入等等。更多詳細資料可以參考<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1pY3Jvc29mdC5jb20vemgtdHcvZG90bmV0L2FwaS9zeXN0ZW0uY29tcG9uZW50bW9kZWwuZGF0YWFubm90YXRpb25zP3ZpZXc9bmV0LTUuMA==">這裡<i class="fa fa-external-link-alt"></i></span>。本人文章可以參考<a href="https://jasonhsieh-web.github.io/posts/36983/">這裡</a></p>
-<p>使用時記得引用以下命名空間</p>
+<p>抽象類別就是將同種類類別的共通特性，定義到父類別中，再透過繼承的動作，讓子類別都可以具備一致的特性。以上面交通工具的角色就是用來定義所有交通工具的”共同特性”。像這種類別，就稱為「抽象類別」。</p>
+<p>抽象類別可以含抽象成員的類別，但無法使用「new」關鍵字建立物件。<br>現在假設定義一個「Shape」類別來描述所有形狀的共同特性,而在此類別中設計一個「ShowInfo」方法,但不同種類的「Shape」，要顯示的訊息不同，因此「ShowInfo」需要加上virtual關鍵字讓子類別可以override。像「ShowInfo」這一種在每個子類別中，都需要覆寫才可以使用的方法，在物件導向中可以宣告為「抽象方法」。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F1.png?alt=media&token=bfc19677-e407-4c6f-b333-a853d63d6be6" alt="&quot;photo&quot;"></p>
+<p>繼承抽象類別的子類別中，必須實作所有抽象成員，子類別使用override宣告抽象方法實作。</p>
+<p>下圖宣告Rectangle和Circle繼承Shape，可以看到不同的子類別因各自定義不同的抽象成員的實作方法，因此也會產生多型的現象。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F2.png?alt=media&token=6d8ca9e4-22d7-4f7a-a72f-7450774540c1" alt="&quot;photo&quot;"></p>
+<hr>
+<h1 id="介面"><a href="#介面" class="headerlink" title="介面"></a><strong>介面</strong></h1><p>在C#中可以利用interface定義介面來模擬多重繼承，界面和類別一樣可以定義屬性、方法、事件。不同的地方在於介面僅可定義抽象成員，不包含實作的部分，實作部分留給繼承此介面的類別來實作。定義介面習慣以大寫I來命名。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F3.png?alt=media&token=f7685c29-bcea-4249-b6ab-5575b980abf6" alt="&quot;photo&quot;"><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F4.png?alt=media&token=a534396a-ce0c-4eaf-b1c4-7185d4d395cc" alt="&quot;photo&quot;"></p>
+<h2 id="介面與抽象類別的比較"><a href="#介面與抽象類別的比較" class="headerlink" title="介面與抽象類別的比較"></a><strong>介面與抽象類別的比較</strong></h2><p>介面跟抽象類別都是屬於物件導向抽象化的產物，但有兩個主要不同點：</p>
 <blockquote>
-<p>using System.ComponentModel;<br>using System.ComponentModel.DataAnnotations;</p>
+<p>抽象類別主要是定義同種類物件所需要具備的基本特性，因此需要被繼承之後，這些特性才會展現在子類別中。</p>
 </blockquote>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F7.png?alt=media&token=fe59c3da-b3df-45cc-be19-0e9e82f1a996" alt="photo"></p>
-<p>修改一下，我們一開始建立的Model，並且在View上試試效果。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F7.png?alt=media&token=fe59c3da-b3df-45cc-be19-0e9e82f1a996" alt="photo"></p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F9.png?alt=media&token=ef50c759-3503-4cc2-913e-49e8e0f48a6f" alt="photo"></p>
-<p>Html.DisplayNameFor是屬於<a href="https://jasonhsieh-web.github.io/posts/64362/#more">HtmlHelper</a>內的一種方法,在View主題的時候會提到。</p>
-<p>以上就是Model的簡單基本介紹，有空會再補充稍微進階的用法。</p>
+<blockquote>
+<p>介面則是用來定義不同種類物件，提供相同功能所需要具備的特性。因此不同種類的物件，實作相同的介面就會有相同的功能。</p>
+</blockquote>
+<blockquote>
+<p>抽象類別中，可以定義實體成員。雖然抽象類別不能直接建立實體，但是這些實體的特性會被繼承到子類別中。</p>
+</blockquote>
 <blockquote>
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
@@ -189,27 +217,39 @@
 ]]></content>
   </entry>
   <entry>
-    <title>C# — 抽象類別與介面</title>
-    <url>/posts/37572/</url>
-    <content><![CDATA[<h1 id="抽象類別"><a href="#抽象類別" class="headerlink" title="抽象類別"></a><strong>抽象類別</strong></h1><p>將類別之間的共同特性,從類別中萃取出來的動作,就稱之為「抽象化」,如交通工具封裝一些特性,再透過繼承的方式由子類別來展現這一些特性：如汽車、腳踏車、機車。如果是不同類型物件間的共同特性，則可以定義成介面。</p>
+    <title>ASP.NET MVC — View</title>
+    <url>/posts/36984/</url>
+    <content><![CDATA[<h1 id="View的責任"><a href="#View的責任" class="headerlink" title="View的責任"></a>View的責任</h1><p>View主要負責顯示Controller傳來的資料與指令，因此View中的程式碼只專注於呈現資料的用途，其他的運算邏輯與流程，View都不會介入。</p>
 <span id="more"></span>
 
-<p>抽象類別就是將同種類類別的共通特性，定義到父類別中，再透過繼承的動作，讓子類別都可以具備一致的特性。以上面交通工具的角色就是用來定義所有交通工具的”共同特性”。像這種類別，就稱為「抽象類別」。</p>
-<p>抽象類別可以含抽象成員的類別，但無法使用「new」關鍵字建立物件。<br>現在假設定義一個「Shape」類別來描述所有形狀的共同特性,而在此類別中設計一個「ShowInfo」方法,但不同種類的「Shape」，要顯示的訊息不同，因此「ShowInfo」需要加上virtual關鍵字讓子類別可以override。像「ShowInfo」這一種在每個子類別中，都需要覆寫才可以使用的方法，在物件導向中可以宣告為「抽象方法」。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F1.png?alt=media&token=bfc19677-e407-4c6f-b333-a853d63d6be6" alt="&quot;photo&quot;"></p>
-<p>繼承抽象類別的子類別中，必須實作所有抽象成員，子類別使用override宣告抽象方法實作。</p>
-<p>下圖宣告Rectangle和Circle繼承Shape，可以看到不同的子類別因各自定義不同的抽象成員的實作方法，因此也會產生多型的現象。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F2.png?alt=media&token=6d8ca9e4-22d7-4f7a-a72f-7450774540c1" alt="&quot;photo&quot;"></p>
+<h1 id="View的位置"><a href="#View的位置" class="headerlink" title="View的位置"></a>View的位置</h1><p>View的位置會在專案最外層資料夾下(Views)，並且由各個Controller命名的資料夾進行分類，而Shared裡面放的是Layout為母版頁面，會看到Shared資料夾裡的_Layout.cshtml是含有底線的命名，一般為全站通用的功用型檔案.<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F1.png?alt=media&token=1b3942dc-3f40-4f69-9684-f234300e927e" alt="photo"></p>
+<h2 id="ViewStart-cshtml"><a href="#ViewStart-cshtml" class="headerlink" title="_ViewStart.cshtml"></a>_ViewStart.cshtml</h2><p>執行階段透過ViewResult所執行的View都會先執行_ViewStart.cshtml，所以開發者可以在這個檔案中設定屬於全站View的共同預設特徵，這樣就不用在每個View中各自指定，_ViewStart.cshtml的預設內容如下。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">Layout = <span class="string">&quot;~/Views/Shared/_Layout.cshtml&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但如果在View中指定了Layout，則會以該View設定為主，同樣也可以將Layout設定清空，方式是將Layout設定為null，表示這一個View將不使用任何Layout。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F2.png?alt=media&token=8d26f0e6-98ad-45ec-8ae8-08a5e39e5e5f" alt="photo"></p>
+<h2 id="Layout主版頁面"><a href="#Layout主版頁面" class="headerlink" title="Layout主版頁面"></a>Layout主版頁面</h2><p>主板通常包含網頁布局中共用或最常用到的部分，例如:網站Logo、導覽列、網站頁首、頁尾或是功能列等等，並與內容葉面進行結合。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F3.png?alt=media&token=b9f848ec-e14b-4f1c-8eff-036ff3bdeff5" alt="photo"></p>
+<h2 id="Layout檔案介紹"><a href="#Layout檔案介紹" class="headerlink" title="_Layout檔案介紹"></a>_Layout檔案介紹</h2><blockquote>
+<p>@RenderBody</p>
+</blockquote>
+<p>@RenderBody可設定套用此主版內容頁面所輸出的位置,例如有一個index的View而他套用了_Layout而@RenderBody就是用來呈現這個index的內容。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F4.png?alt=media&token=436f422a-3ad4-4080-be91-8dc03c83de73" alt="photo"></p>
+<blockquote>
+<p>@RenderSection</p>
+</blockquote>
+<p>@RenderSection用於輸出頁面中具名區段的內容。第一個參數為具名區段的名稱，若具名區段對應此名稱，將會載入此處，第二個參數可用於設定該區段是否須確實存在，傳入值為true or false。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F5.png?alt=media&token=eeb2c5d0-022d-47f0-95c8-ede9c9132011" alt="photo"></p>
+<p>而在View中會用@section 具名參數名稱{….內容}來加入該區段的內容。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F6.png?alt=media&token=8acc03e1-c8e2-4c21-8abb-18210bd07be1" alt="photo"></p>
+<blockquote>
+<p>@RenderPage</p>
+</blockquote>
+<p>@RenderPage方法的用途於主版頁面中可載入另一個檢視頁面。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F7.png?alt=media&token=2e721f6b-a452-436a-a580-99bf026aaaa3" alt="photo"></p>
 <hr>
-<h1 id="介面"><a href="#介面" class="headerlink" title="介面"></a><strong>介面</strong></h1><p>在C#中可以利用interface定義介面來模擬多重繼承，界面和類別一樣可以定義屬性、方法、事件。不同的地方在於介面僅可定義抽象成員，不包含實作的部分，實作部分留給繼承此介面的類別來實作。定義介面習慣以大寫I來命名。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F3.png?alt=media&token=f7685c29-bcea-4249-b6ab-5575b980abf6" alt="&quot;photo&quot;"><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F4.png?alt=media&token=a534396a-ce0c-4eaf-b1c4-7185d4d395cc" alt="&quot;photo&quot;"></p>
-<h2 id="介面與抽象類別的比較"><a href="#介面與抽象類別的比較" class="headerlink" title="介面與抽象類別的比較"></a><strong>介面與抽象類別的比較</strong></h2><p>介面跟抽象類別都是屬於物件導向抽象化的產物，但有兩個主要不同點：</p>
+<p>MVC中的View包含HtmlHelper與Razor我會把他們各自寫一篇來介紹~</p>
 <blockquote>
-<p>抽象類別主要是定義同種類物件所需要具備的基本特性，因此需要被繼承之後，這些特性才會展現在子類別中。</p>
-</blockquote>
-<blockquote>
-<p>介面則是用來定義不同種類物件，提供相同功能所需要具備的特性。因此不同種類的物件，實作相同的介面就會有相同的功能。</p>
-</blockquote>
-<blockquote>
-<p>抽象類別中，可以定義實體成員。雖然抽象類別不能直接建立實體，但是這些實體的特性會被繼承到子類別中。</p>
+<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4Mzk1Nzc=">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
 <blockquote>
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
@@ -254,90 +294,6 @@
 </blockquote>
 <blockquote>
 <p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4MjY4MjM/c2xvYz1tYWlu">網頁程式設計ASP.NET MVC 5.X範例完美演繹(適用Visual C# 2019&#x2F;2017)（第三版）<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-<blockquote>
-<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>ASP.NET MVC — View</title>
-    <url>/posts/36984/</url>
-    <content><![CDATA[<h1 id="View的責任"><a href="#View的責任" class="headerlink" title="View的責任"></a>View的責任</h1><p>View主要負責顯示Controller傳來的資料與指令，因此View中的程式碼只專注於呈現資料的用途，其他的運算邏輯與流程，View都不會介入。</p>
-<span id="more"></span>
-
-<h1 id="View的位置"><a href="#View的位置" class="headerlink" title="View的位置"></a>View的位置</h1><p>View的位置會在專案最外層資料夾下(Views)，並且由各個Controller命名的資料夾進行分類，而Shared裡面放的是Layout為母版頁面，會看到Shared資料夾裡的_Layout.cshtml是含有底線的命名，一般為全站通用的功用型檔案.<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F1.png?alt=media&token=1b3942dc-3f40-4f69-9684-f234300e927e" alt="photo"></p>
-<h2 id="ViewStart-cshtml"><a href="#ViewStart-cshtml" class="headerlink" title="_ViewStart.cshtml"></a>_ViewStart.cshtml</h2><p>執行階段透過ViewResult所執行的View都會先執行_ViewStart.cshtml，所以開發者可以在這個檔案中設定屬於全站View的共同預設特徵，這樣就不用在每個View中各自指定，_ViewStart.cshtml的預設內容如下。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">Layout = <span class="string">&quot;~/Views/Shared/_Layout.cshtml&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但如果在View中指定了Layout，則會以該View設定為主，同樣也可以將Layout設定清空，方式是將Layout設定為null，表示這一個View將不使用任何Layout。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F2.png?alt=media&token=8d26f0e6-98ad-45ec-8ae8-08a5e39e5e5f" alt="photo"></p>
-<h2 id="Layout主版頁面"><a href="#Layout主版頁面" class="headerlink" title="Layout主版頁面"></a>Layout主版頁面</h2><p>主板通常包含網頁布局中共用或最常用到的部分，例如:網站Logo、導覽列、網站頁首、頁尾或是功能列等等，並與內容葉面進行結合。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F3.png?alt=media&token=b9f848ec-e14b-4f1c-8eff-036ff3bdeff5" alt="photo"></p>
-<h2 id="Layout檔案介紹"><a href="#Layout檔案介紹" class="headerlink" title="_Layout檔案介紹"></a>_Layout檔案介紹</h2><blockquote>
-<p>@RenderBody</p>
-</blockquote>
-<p>@RenderBody可設定套用此主版內容頁面所輸出的位置,例如有一個index的View而他套用了_Layout而@RenderBody就是用來呈現這個index的內容。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F4.png?alt=media&token=436f422a-3ad4-4080-be91-8dc03c83de73" alt="photo"></p>
-<blockquote>
-<p>@RenderSection</p>
-</blockquote>
-<p>@RenderSection用於輸出頁面中具名區段的內容。第一個參數為具名區段的名稱，若具名區段對應此名稱，將會載入此處，第二個參數可用於設定該區段是否須確實存在，傳入值為true or false。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F5.png?alt=media&token=eeb2c5d0-022d-47f0-95c8-ede9c9132011" alt="photo"></p>
-<p>而在View中會用@section 具名參數名稱{….內容}來加入該區段的內容。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F6.png?alt=media&token=8acc03e1-c8e2-4c21-8abb-18210bd07be1" alt="photo"></p>
-<blockquote>
-<p>@RenderPage</p>
-</blockquote>
-<p>@RenderPage方法的用途於主版頁面中可載入另一個檢視頁面。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F7.png?alt=media&token=2e721f6b-a452-436a-a580-99bf026aaaa3" alt="photo"></p>
-<hr>
-<p>MVC中的View包含HtmlHelper與Razor我會把他們各自寫一篇來介紹~</p>
-<blockquote>
-<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4Mzk1Nzc=">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-<blockquote>
-<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>Design Pattern — 內聚力與耦合力</title>
-    <url>/posts/78794/</url>
-    <content><![CDATA[<h1 id="內聚力-Cohesion"><a href="#內聚力-Cohesion" class="headerlink" title="內聚力 Cohesion"></a>內聚力 Cohesion</h1><ul>
-<li>在一個”模組”內完成”一件工作”的度量指標<span id="more"></span></li>
-</ul>
-<h2 id="高內聚力"><a href="#高內聚力" class="headerlink" title="高內聚力"></a>高內聚力</h2><ul>
-<li>一次專注做一件事情</li>
-<li>內聚力高，意味著該模組可以獨立運作，也意味著更容易重複利用</li>
-<li>ex: 一個class只負責一件事情(例如寫Log)</li>
-</ul>
-<h2 id="低內聚"><a href="#低內聚" class="headerlink" title="低內聚"></a>低內聚</h2><ul>
-<li>在一個”模組”內完成多件事情</li>
-<li>內聚力低，意味著該模組會造成難以維護&#x2F;測試&#x2F;重用&#x2F;理解</li>
-<li>ex: 所有功能寫在一個class內或一個method有5000行程式碼</li>
-</ul>
-<h2 id="較佳的實務設計"><a href="#較佳的實務設計" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul>
-<li>在設計模組的時候，要盡量設計出 <strong>高內聚</strong> 的程式碼</li>
-<li>若有一個模組完成太多項工作，建議拆分成多個不同的類別</li>
-<li>實現 <strong>SRP</strong> 就是<strong>提高內聚力</strong>的一種表現</li>
-</ul>
-<h1 id="耦合力-Coupling"><a href="#耦合力-Coupling" class="headerlink" title="耦合力 Coupling"></a>耦合力 Coupling</h1><ul>
-<li>模組跟模組之間的關聯強度或是依賴程度</li>
-<li>ex: 在B類別內，直接建立了A物件實體，那就會建立類別A與類別B之間的”耦合關係”</li>
-</ul>
-<h2 id="高耦合"><a href="#高耦合" class="headerlink" title="高耦合"></a>高耦合</h2><ul>
-<li>意味著當改了A模組時，相關聯的B模組就容易被影響(改A壞B)</li>
-</ul>
-<h2 id="低耦合"><a href="#低耦合" class="headerlink" title="低耦合"></a>低耦合</h2><ul>
-<li>當修改模組時，越少模組被引響，那意味著耦合力較低</li>
-</ul>
-<h2 id="較佳的實務設計-1"><a href="#較佳的實務設計-1" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul>
-<li>在設計模組的時候，要盡量設計出 <strong>低耦合力</strong> 的程式碼</li>
-<li>實現 <strong>DIP</strong> 就是實現<strong>降低耦合力</strong>的一個原則</li>
-</ul>
-<blockquote>
-<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推
-<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
 <blockquote>
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
@@ -399,6 +355,50 @@
     <title>Design Pattern — SRP 單一責任原則</title>
     <url>/posts/847489/</url>
     <content><![CDATA[<h1 id="待…"><a href="#待…" class="headerlink" title="待…"></a>待…</h1><blockquote>
+<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推
+<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>Design Pattern — 內聚力與耦合力</title>
+    <url>/posts/78794/</url>
+    <content><![CDATA[<h1 id="內聚力-Cohesion"><a href="#內聚力-Cohesion" class="headerlink" title="內聚力 Cohesion"></a>內聚力 Cohesion</h1><ul>
+<li>在一個”模組”內完成”一件工作”的度量指標<span id="more"></span></li>
+</ul>
+<h2 id="高內聚力"><a href="#高內聚力" class="headerlink" title="高內聚力"></a>高內聚力</h2><ul>
+<li>一次專注做一件事情</li>
+<li>內聚力高，意味著該模組可以獨立運作，也意味著更容易重複利用</li>
+<li>ex: 一個class只負責一件事情(例如寫Log)</li>
+</ul>
+<h2 id="低內聚"><a href="#低內聚" class="headerlink" title="低內聚"></a>低內聚</h2><ul>
+<li>在一個”模組”內完成多件事情</li>
+<li>內聚力低，意味著該模組會造成難以維護&#x2F;測試&#x2F;重用&#x2F;理解</li>
+<li>ex: 所有功能寫在一個class內或一個method有5000行程式碼</li>
+</ul>
+<h2 id="較佳的實務設計"><a href="#較佳的實務設計" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul>
+<li>在設計模組的時候，要盡量設計出 <strong>高內聚</strong> 的程式碼</li>
+<li>若有一個模組完成太多項工作，建議拆分成多個不同的類別</li>
+<li>實現 <strong>SRP</strong> 就是<strong>提高內聚力</strong>的一種表現</li>
+</ul>
+<h1 id="耦合力-Coupling"><a href="#耦合力-Coupling" class="headerlink" title="耦合力 Coupling"></a>耦合力 Coupling</h1><ul>
+<li>模組跟模組之間的關聯強度或是依賴程度</li>
+<li>ex: 在B類別內，直接建立了A物件實體，那就會建立類別A與類別B之間的”耦合關係”</li>
+</ul>
+<h2 id="高耦合"><a href="#高耦合" class="headerlink" title="高耦合"></a>高耦合</h2><ul>
+<li>意味著當改了A模組時，相關聯的B模組就容易被影響(改A壞B)</li>
+</ul>
+<h2 id="低耦合"><a href="#低耦合" class="headerlink" title="低耦合"></a>低耦合</h2><ul>
+<li>當修改模組時，越少模組被引響，那意味著耦合力較低</li>
+</ul>
+<h2 id="較佳的實務設計-1"><a href="#較佳的實務設計-1" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul>
+<li>在設計模組的時候，要盡量設計出 <strong>低耦合力</strong> 的程式碼</li>
+<li>實現 <strong>DIP</strong> 就是實現<strong>降低耦合力</strong>的一個原則</li>
+</ul>
+<blockquote>
 <p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推
 <i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
@@ -523,5 +523,42 @@
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
 ]]></content>
+  </entry>
+  <entry>
+    <title>C# —— 多型性(Polymorphism)</title>
+    <url>/posts/75771/</url>
+    <content><![CDATA[<h2 id="多型性"><a href="#多型性" class="headerlink" title="多型性"></a>多型性</h2><p>多型讓你可以用相同的方式操作同類型各式各樣的東西,而各式各樣的東西會展現它自己的特性,因此只要注意如何操作而不必在意東西是什麼。</p>
+<span id="more"></span>
+
+<p>多型可以讓子類別<strong>覆寫</strong>繼承的方法,讓子類別有專屬的功能。</p>
+<p>子類別可以覆寫父類別中以<strong>virtual</strong>關鍵字標示的成員,此外覆寫參數必須與父類別定義的一樣。</p>
+<blockquote>
+<p><strong>this與base關鍵字</strong></p>
+</blockquote>
+<p><strong>『this』</strong> 關鍵字指向目前代表自身的這個物件</p>
+<p><strong>『base』</strong> 關鍵字可以取得目前這個類別的父類別實體成員</p>
+<blockquote>
+<p><strong>virtual與override關鍵字</strong></p>
+</blockquote>
+<p><strong>『virtual』</strong> 在父類別中標示代表允許子類別覆寫此屬性或方法</p>
+<p><strong>『override』</strong> 在子類別中使用override覆寫父類別的屬性或方法</p>
+<p><strong>『abstract』</strong>在父類別中標示一定要繼承之子類別來覆寫的屬性或方法,只要定義成員名稱及相關引數即可,不需加入任何程式碼內容,而留給子類別實作,此外<strong>abstract</strong>關鍵字只能用在標示為<strong>abstract</strong>的類別中</p>
+<hr>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F1.webp?alt=media&token=382ea29b-9d36-45de-9869-9325654e3788" alt="&quot;photo&quot;"></p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F2.webp?alt=media&token=4c1795a0-5093-4634-b4b3-c6bcbafa9716" alt="&quot;photo&quot;"></p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F3.webp?alt=media&token=da446724-d60c-4ad2-affa-95fdd0c41dae" alt="&quot;photo&quot;"></p>
+<p>未實作則會出現錯誤訊息</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F4.webp?alt=media&token=25896b7b-6af2-45fe-9aa0-41a36e5c36d7" alt="&quot;photo&quot;"></p>
+<p>參考:<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vd2lsbGljay9wLzEzNTg2MDI0Lmh0bWw=">[C#.NET 拾遗补漏]08：强大的LINQ<i class="fa fa-external-link-alt"></i></span></p>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Csharp</category>
+      </categories>
+      <tags>
+        <tag>Csharp</tag>
+      </tags>
   </entry>
 </search>

@@ -22,24 +22,17 @@
     var CONFIG = {"hostname":"jasonhsieh-web.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="抽象類別將類別之間的共同特性,從類別中萃取出來的動作,就稱之為「抽象化」,如交通工具封裝一些特性,再透過繼承的方式由子類別來展現這一些特性：如汽車、腳踏車、機車。如果是不同類型物件間的共同特性，則可以定義成介面。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="C# — 抽象類別與介面">
-<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/37572/index.html">
+  <meta name="description" content="不知道自己無知，乃是雙倍的無知。——柏拉圖">
+<meta property="og:type" content="website">
+<meta property="og:title" content="網頁的小宇宙">
+<meta property="og:url" content="https://jasonhsieh-web.github.io/categories/Csharp/index.html">
 <meta property="og:site_name" content="網頁的小宇宙">
-<meta property="og:description" content="抽象類別將類別之間的共同特性,從類別中萃取出來的動作,就稱之為「抽象化」,如交通工具封裝一些特性,再透過繼承的方式由子類別來展現這一些特性：如汽車、腳踏車、機車。如果是不同類型物件間的共同特性，則可以定義成介面。">
+<meta property="og:description" content="不知道自己無知，乃是雙倍的無知。——柏拉圖">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F1.png?alt=media&token=bfc19677-e407-4c6f-b333-a853d63d6be6">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F2.png?alt=media&token=6d8ca9e4-22d7-4f7a-a72f-7450774540c1">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F3.png?alt=media&token=f7685c29-bcea-4249-b6ab-5575b980abf6">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F4.png?alt=media&token=a534396a-ce0c-4eaf-b1c4-7185d4d395cc">
-<meta property="article:published_time" content="2021-11-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-27T18:11:36.588Z">
 <meta property="article:author" content="Jason">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F1.png?alt=media&token=bfc19677-e407-4c6f-b333-a853d63d6be6">
 
-<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/37572/">
+<link rel="canonical" href="https://jasonhsieh-web.github.io/categories/Csharp/">
 
 
 <script id="page-configurations">
@@ -47,12 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>C# — 抽象類別與介面 | 網頁的小宇宙</title>
+  <title>分類: Csharp | 網頁的小宇宙</title>
   
 
 
@@ -190,142 +183,57 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content category">
             
 
-    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/37572/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/SpaceMan%2F%E9%A0%AD%E8%B2%BC.png?alt=media&token=d5386314-4bb8-495e-88bd-cb8bf18dbd4f">
-      <meta itemprop="name" content="Jason">
-      <meta itemprop="description" content="不知道自己無知，乃是雙倍的無知。——柏拉圖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="網頁的小宇宙">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          C# — 抽象類別與介面
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2021-11-21 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-21T00:00:00+08:00">2021-11-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2023-05-28 02:11:36" itemprop="dateModified" datetime="2023-05-28T02:11:36+08:00">2023-05-28</time>
-              </span>
-
-          
-            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">閱讀次數：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
   
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/posts/37572/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/37572/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h2 class="collection-header">Csharp
+          <small>分類</small>
+        </h2>
+      </div>
 
       
-        <h1 id="抽象類別"><a href="#抽象類別" class="headerlink" title="抽象類別"></a><strong>抽象類別</strong></h1><p>將類別之間的共同特性,從類別中萃取出來的動作,就稱之為「抽象化」,如交通工具封裝一些特性,再透過繼承的方式由子類別來展現這一些特性：如汽車、腳踏車、機車。如果是不同類型物件間的共同特性，則可以定義成介面。</p>
-<span id="more"></span>
-
-<p>抽象類別就是將同種類類別的共通特性，定義到父類別中，再透過繼承的動作，讓子類別都可以具備一致的特性。以上面交通工具的角色就是用來定義所有交通工具的”共同特性”。像這種類別，就稱為「抽象類別」。</p>
-<p>抽象類別可以含抽象成員的類別，但無法使用「new」關鍵字建立物件。<br>現在假設定義一個「Shape」類別來描述所有形狀的共同特性,而在此類別中設計一個「ShowInfo」方法,但不同種類的「Shape」，要顯示的訊息不同，因此「ShowInfo」需要加上virtual關鍵字讓子類別可以override。像「ShowInfo」這一種在每個子類別中，都需要覆寫才可以使用的方法，在物件導向中可以宣告為「抽象方法」。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F1.png?alt=media&token=bfc19677-e407-4c6f-b333-a853d63d6be6" alt="&quot;photo&quot;"></p>
-<p>繼承抽象類別的子類別中，必須實作所有抽象成員，子類別使用override宣告抽象方法實作。</p>
-<p>下圖宣告Rectangle和Circle繼承Shape，可以看到不同的子類別因各自定義不同的抽象成員的實作方法，因此也會產生多型的現象。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F2.png?alt=media&token=6d8ca9e4-22d7-4f7a-a72f-7450774540c1" alt="&quot;photo&quot;"></p>
-<hr>
-<h1 id="介面"><a href="#介面" class="headerlink" title="介面"></a><strong>介面</strong></h1><p>在C#中可以利用interface定義介面來模擬多重繼承，界面和類別一樣可以定義屬性、方法、事件。不同的地方在於介面僅可定義抽象成員，不包含實作的部分，實作部分留給繼承此介面的類別來實作。定義介面習慣以大寫I來命名。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F3.png?alt=media&token=f7685c29-bcea-4249-b6ab-5575b980abf6" alt="&quot;photo&quot;"><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F4.png?alt=media&token=a534396a-ce0c-4eaf-b1c4-7185d4d395cc" alt="&quot;photo&quot;"></p>
-<h2 id="介面與抽象類別的比較"><a href="#介面與抽象類別的比較" class="headerlink" title="介面與抽象類別的比較"></a><strong>介面與抽象類別的比較</strong></h2><p>介面跟抽象類別都是屬於物件導向抽象化的產物，但有兩個主要不同點：</p>
-<blockquote>
-<p>抽象類別主要是定義同種類物件所需要具備的基本特性，因此需要被繼承之後，這些特性才會展現在子類別中。</p>
-</blockquote>
-<blockquote>
-<p>介面則是用來定義不同種類物件，提供相同功能所需要具備的特性。因此不同種類的物件，實作相同的介面就會有相同的功能。</p>
-</blockquote>
-<blockquote>
-<p>抽象類別中，可以定義實體成員。雖然抽象類別不能直接建立實體，但是這些實體的特性會被繼承到子類別中。</p>
-</blockquote>
-<blockquote>
-<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
-</blockquote>
-
+    <div class="collection-year">
+      <span class="collection-header">2023</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <footer class="post-footer">
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2023-05-28T00:00:00+08:00"
+              content="2023-05-28">
+          05-28
+        </time>
+      </div>
 
-        
+      <div class="post-title">
+          <a class="post-title-link" href="/posts/75771/" itemprop="url">
+            <span itemprop="name">C# —— 多型性(Polymorphism)</span>
+          </a>
+      </div>
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/posts/36985/" rel="prev" title="ASP.NET MVC — Controller">
-      <i class="fa fa-chevron-left"></i> ASP.NET MVC — Controller
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/36984/" rel="next" title="ASP.NET MVC — View">
-      ASP.NET MVC — View <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+
+    </div>
+  </div>
   
   
+  
+
   
 
 
 
           </div>
           
-    
-  <div class="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-    </div>
-  </div>
-  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -372,7 +280,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5"><span class="nav-number">1.</span> <span class="nav-text">抽象類別</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">介面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E9%9D%A2%E8%88%87%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E7%9A%84%E6%AF%94%E8%BC%83"><span class="nav-number">2.1.</span> <span class="nav-text">介面與抽象類別的比較</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -533,26 +440,6 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
-</script>
-<script>
-  var disqus_config = function() {
-    this.page.url = "https://jasonhsieh-web.github.io/posts/37572/";
-    this.page.identifier = "posts/37572/";
-    this.page.title = "C# — 抽象類別與介面";
-    };
-  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-    if (window.DISQUS) {
-      DISQUS.reset({
-        reload: true,
-        config: disqus_config
-      });
-    } else {
-      var d = document, s = d.createElement('script');
-      s.src = 'https://jasonhsieh-web.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', '' + +new Date());
-      (d.head || d.body).appendChild(s);
-    }
-  });
 </script>
 
 </body>
