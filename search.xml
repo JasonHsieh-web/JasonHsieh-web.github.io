@@ -301,6 +301,62 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Design Pattern — 內聚力與耦合力</title>
+    <url>/posts/78794/</url>
+    <content><![CDATA[<h1 id="內聚力-Cohesion"><a href="#內聚力-Cohesion" class="headerlink" title="內聚力 Cohesion"></a>內聚力 Cohesion</h1><ul>
+<li>在一個”模組”內完成”一件工作”的度量指標<span id="more"></span></li>
+</ul>
+<h2 id="高內聚力"><a href="#高內聚力" class="headerlink" title="高內聚力"></a>高內聚力</h2><ul>
+<li>一次專注做一件事情</li>
+<li>內聚力高，意味著該模組可以獨立運作，也意味著更容易重複利用</li>
+<li>ex: 一個class只負責一件事情(例如寫Log)</li>
+</ul>
+<h2 id="低內聚"><a href="#低內聚" class="headerlink" title="低內聚"></a>低內聚</h2><ul>
+<li>在一個”模組”內完成多件事情</li>
+<li>內聚力低，意味著該模組會造成難以維護&#x2F;測試&#x2F;重用&#x2F;理解</li>
+<li>ex: 所有功能寫在一個class內或一個method有5000行程式碼</li>
+</ul>
+<h2 id="較佳的實務設計"><a href="#較佳的實務設計" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul>
+<li>在設計模組的時候，要盡量設計出 <strong>高內聚</strong> 的程式碼</li>
+<li>若有一個模組完成太多項工作，建議拆分成多個不同的類別</li>
+<li>實現 <strong>SRP</strong> 就是<strong>提高內聚力</strong>的一種表現</li>
+</ul>
+<h1 id="耦合力-Coupling"><a href="#耦合力-Coupling" class="headerlink" title="耦合力 Coupling"></a>耦合力 Coupling</h1><ul>
+<li>模組跟模組之間的關聯強度或是依賴程度</li>
+<li>ex: 在B類別內，直接建立了A物件實體，那就會建立類別A與類別B之間的”耦合關係”</li>
+</ul>
+<h2 id="高耦合"><a href="#高耦合" class="headerlink" title="高耦合"></a>高耦合</h2><ul>
+<li>意味著當改了A模組時，相關聯的B模組就容易被影響(改A壞B)</li>
+</ul>
+<h2 id="低耦合"><a href="#低耦合" class="headerlink" title="低耦合"></a>低耦合</h2><ul>
+<li>當修改模組時，越少模組被引響，那意味著耦合力較低</li>
+</ul>
+<h2 id="較佳的實務設計-1"><a href="#較佳的實務設計-1" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul>
+<li>在設計模組的時候，要盡量設計出 <strong>低耦合力</strong> 的程式碼</li>
+<li>實現 <strong>DIP</strong> 就是實現<strong>降低耦合力</strong>的一個原則</li>
+</ul>
+<blockquote>
+<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推
+<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>Design Pattern — SRP 單一責任原則</title>
+    <url>/posts/847489/</url>
+    <content><![CDATA[<h1 id="待…"><a href="#待…" class="headerlink" title="待…"></a>待…</h1><blockquote>
+<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推
+<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>ASP.NET MVC — DataAnnotation 資料模型驗證</title>
     <url>/posts/36983/</url>
     <content><![CDATA[<p>網站中，開發者會為頁面資料，進行欄位驗證確保資料的正確性，因此開發者一般會使用JavaScript來進行客戶端驗證，而ASP.NET MVC中，無提供自動化的客戶端驗證，而是須使用模型驗證(Model Validate)。</p>
@@ -345,62 +401,6 @@
 </ol>
 <blockquote>
 <p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4Mzk1Nzc=">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-<blockquote>
-<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>Design Pattern — SRP 單一責任原則</title>
-    <url>/posts/847489/</url>
-    <content><![CDATA[<h1 id="待…"><a href="#待…" class="headerlink" title="待…"></a>待…</h1><blockquote>
-<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推
-<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-<blockquote>
-<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>Design Pattern — 內聚力與耦合力</title>
-    <url>/posts/78794/</url>
-    <content><![CDATA[<h1 id="內聚力-Cohesion"><a href="#內聚力-Cohesion" class="headerlink" title="內聚力 Cohesion"></a>內聚力 Cohesion</h1><ul>
-<li>在一個”模組”內完成”一件工作”的度量指標<span id="more"></span></li>
-</ul>
-<h2 id="高內聚力"><a href="#高內聚力" class="headerlink" title="高內聚力"></a>高內聚力</h2><ul>
-<li>一次專注做一件事情</li>
-<li>內聚力高，意味著該模組可以獨立運作，也意味著更容易重複利用</li>
-<li>ex: 一個class只負責一件事情(例如寫Log)</li>
-</ul>
-<h2 id="低內聚"><a href="#低內聚" class="headerlink" title="低內聚"></a>低內聚</h2><ul>
-<li>在一個”模組”內完成多件事情</li>
-<li>內聚力低，意味著該模組會造成難以維護&#x2F;測試&#x2F;重用&#x2F;理解</li>
-<li>ex: 所有功能寫在一個class內或一個method有5000行程式碼</li>
-</ul>
-<h2 id="較佳的實務設計"><a href="#較佳的實務設計" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul>
-<li>在設計模組的時候，要盡量設計出 <strong>高內聚</strong> 的程式碼</li>
-<li>若有一個模組完成太多項工作，建議拆分成多個不同的類別</li>
-<li>實現 <strong>SRP</strong> 就是<strong>提高內聚力</strong>的一種表現</li>
-</ul>
-<h1 id="耦合力-Coupling"><a href="#耦合力-Coupling" class="headerlink" title="耦合力 Coupling"></a>耦合力 Coupling</h1><ul>
-<li>模組跟模組之間的關聯強度或是依賴程度</li>
-<li>ex: 在B類別內，直接建立了A物件實體，那就會建立類別A與類別B之間的”耦合關係”</li>
-</ul>
-<h2 id="高耦合"><a href="#高耦合" class="headerlink" title="高耦合"></a>高耦合</h2><ul>
-<li>意味著當改了A模組時，相關聯的B模組就容易被影響(改A壞B)</li>
-</ul>
-<h2 id="低耦合"><a href="#低耦合" class="headerlink" title="低耦合"></a>低耦合</h2><ul>
-<li>當修改模組時，越少模組被引響，那意味著耦合力較低</li>
-</ul>
-<h2 id="較佳的實務設計-1"><a href="#較佳的實務設計-1" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul>
-<li>在設計模組的時候，要盡量設計出 <strong>低耦合力</strong> 的程式碼</li>
-<li>實現 <strong>DIP</strong> 就是實現<strong>降低耦合力</strong>的一個原則</li>
-</ul>
-<blockquote>
-<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推
-<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
 <blockquote>
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
@@ -554,11 +554,80 @@
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
 ]]></content>
-      <categories>
-        <category>Csharp</category>
-      </categories>
-      <tags>
-        <tag>Csharp</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>C# —— 繼承性(Inheritance)</title>
+    <url>/posts/75773/</url>
+    <content><![CDATA[<h2 id="繼承性"><a href="#繼承性" class="headerlink" title="繼承性"></a>繼承性</h2><p>今天要介紹物件導向三大特性之一 : <strong>繼承性(Inheritance)</strong></p>
+<span id="more"></span>
+
+<p>所謂的繼承性，指的就是「物件可以透過繼承，獲得其他物件的屬性與行為」</p>
+<p>先想像一下今天我們先規畫一個”車子”的藍圖,比如它有多少油量,前進時會扣多少油量,加油可以加多少油量,像下面這樣!</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E7%B9%BC%E6%89%BF%E6%80%A7%2F1.webp?alt=media&token=4721b623-bfa2-48fd-9ff5-abc9d8be05cb" alt="&quot;photo&quot;"></p>
+<p>ok,後我們新增一個toyota的class,當然它也有車子的一些屬性或方法</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E7%B9%BC%E6%89%BF%E6%80%A7%2F2.webp?alt=media&token=7058d3d5-9ead-4bc0-b4d0-7e766d3c3422" alt="&quot;photo&quot;"></p>
+<p>這時候你可能會增加更多品牌車子的class,例如:BMW,Honda,Ford等等,這時候你可能會想在其中一個class的方法裡面增加一些程式碼,例如在Goahead裡增加前進多少公里,那其他品牌的class就也要加上這段程式碼,因為大家都是車子嘛,這種時候就不是很方便要一個一個加上去.</p>
+<p>那這時候<strong>繼承性</strong>就派上用場了,它可以讓物件繼承其他物件的行為與屬性</p>
+<p>好你可能會發現上面兩段程式長的差不多,只差在toyota多了個Connect方法</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E7%B9%BC%E6%89%BF%E6%80%A7%2F3.webp?alt=media&token=8e752722-e23f-42b6-918d-92265580f48d" alt="&quot;photo&quot;"></p>
+<p>那我們就可以讓Toyota來繼承Car的屬性以及方法,並且Toyota也有自己的屬性及方法,繼承的方法 Toyota : Car</p>
+<blockquote>
+<p>ex: ClassA繼承ClassB   class A : B { … }</p>
+</blockquote>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E7%B9%BC%E6%89%BF%E6%80%A7%2F4.webp?alt=media&token=50b1d8cd-0a8c-4253-a961-016d2c7efa0a" alt="&quot;photo&quot;"></p>
+<p>我們建立一個Toyota的物件,可以看到它的確繼承了Car的方法Goahead</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E7%B9%BC%E6%89%BF%E6%80%A7%2F5.webp?alt=media&token=56dbb268-ae0d-4fd0-a849-e588c03c305b" alt="&quot;photo&quot;"></p>
+<p>如果同時有好幾個class都具有一樣的方法或屬性,我們就可以用繼承的方式,將重複的程式碼寫在一個class,並讓其他class來繼承它喔!</p>
+<p>參考:<br><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1zUmRkaktoeDloayZsaXN0PVBMYlhnaFNvUWNMWnRXcVRBOHExTnNCeVZwSU5vUk9ISGUmaW5kZXg9MzI=">小山的 C# 教學-第29課-繼承性<i class="fa fa-external-link-alt"></i></span></p>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>C# —— 類別與物件</title>
+    <url>/posts/75774/</url>
+    <content><![CDATA[<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>首先來介紹”類別”,類別你可以幫它想像一個設計圖,例如我們創立一個”車”的類別,那這台車可能有些<strong>屬性</strong>(名字、車輪數、顏色)以及一些<strong>方法</strong>例如車可以倒退、可以前進、可以左右轉。</p>
+<span id="more"></span>
+
+<h2 id="建立類別"><a href="#建立類別" class="headerlink" title="建立類別"></a>建立類別</h2><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F1.webp?alt=media&token=c23ea6b9-eadf-4254-a827-149be7066ee6" alt="&quot;photo&quot;"></p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F2.webp?alt=media&token=d808f221-659a-4029-aade-62c1f3a8a310" alt="&quot;photo&quot;"></p>
+<p>建立好類別後我們給它一些屬性跟方法</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F3.webp?alt=media&token=dff34c4e-5be1-40ba-8af4-4d16900b6d34" alt="&quot;photo&quot;"></p>
+<h2 id="屬性"><a href="#屬性" class="headerlink" title="屬性"></a>屬性</h2><p>若要在類別中存取資料,可以用欄位,但若要再加入一些商業邏輯的檢查,這時候須以屬性成員設定。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F4.webp?alt=media&token=fadc847a-d750-416e-adcb-b9dc89183a4e" alt="&quot;photo&quot;"></p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F5.webp?alt=media&token=9c8b1cc3-447c-4fa5-a973-309580a87ad9" alt="&quot;photo&quot;"></p>
+<blockquote>
+<p>使用 &#x3D; 可以給予預設值</p>
+</blockquote>
+<p>建立類別可以想像成建立一個設計圖,建立完類別後我們會需要建立<strong>物件</strong></p>
+<h2 id="物件是什麼"><a href="#物件是什麼" class="headerlink" title="物件是什麼?"></a>物件是什麼?</h2><p>其實生活周遭的東西你都可以把它看成一個物件,例如:房子、杯子、車子、狗，那每個物件都有它的<strong>屬性</strong>跟<strong>方法</strong>,屬性可以把它想成車子的特徵像是車子有黑色白色、有四輪二輪,而方法可以把它想成行為,像是車子可以往前倒退,左轉右轉.</p>
+<p>剛剛已經設計了一個車子的基本屬性跟方法,接下來我們要把它”實體化”</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F6.webp?alt=media&token=0cb92d98-b7e5-4a89-a01d-a0afee29ee2b" alt="&quot;photo&quot;"></p>
+<p>我們透過”new”這個關鍵字來實體化物件,實體化之後我們就可以對這個a,b分別設定屬性,用.來連結屬性跟方法</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F7.webp?alt=media&token=28b4ea2f-e81d-4589-b46a-7a884dc6a764" alt="&quot;photo&quot;"></p>
+<p>這邊分別對兩個物件來設定它的名子、車子顏色、車輪數,從這邊你可以了解到剛剛上面介紹的”設計圖”或”藍圖”是什麼意思了!</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F8.webp?alt=media&token=43ed358d-5c03-48a3-95f4-902a7db3cb26" alt="&quot;photo&quot;"></p>
+<blockquote>
+<p>此外我可以讓a,b執行方法</p>
+</blockquote>
+<hr>
+<h2 id="結構"><a href="#結構" class="headerlink" title="結構"></a>結構</h2><p>除了類別以外，另一種描述複雜資料的方式就是<strong>結構</strong>,有幾個特點:</p>
+<ol>
+<li>不能被繼承 </li>
+<li>無須使用new來建立物件</li>
+<li>屬於實值型別</li>
+</ol>
+<p>結構和類別很像,都可以宣告欄位、方法、屬性等成員,結構適用在表示 “少量”資料”的強況,例如: 『System.Date.Time』結構就無需使用new關鍵字,便可以直接使用.</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">DateTime getday = DateTime.Now;  </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F9.webp?alt=media&token=10e70125-07c7-41a5-8c39-3fec368cf371" alt="&quot;photo&quot;"></p>
+<p>參考:</p>
+<p><span class="exturl" data-url="aHR0cDovL2RvZzA0MTYuYmxvZ3Nwb3QuY29tLzIwMTcvMTEvY3Zpc3VhbC1zdHVkaW8tY2xhc3MtYW5kLW9iamVjdC5odG1s">類別與物件<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1ncGpBRkJoM0dKNA==">小山的 C# 教學-第14課-物件導向基礎 Class<i class="fa fa-external-link-alt"></i></span></p>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+]]></content>
   </entry>
 </search>
