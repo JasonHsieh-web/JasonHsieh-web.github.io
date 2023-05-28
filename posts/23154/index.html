@@ -22,24 +22,25 @@
     var CONFIG = {"hostname":"jasonhsieh-web.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="HTML Helper在ASP.NET MVC中可以使用HTML Helper輔助產生需要的HTML語法，進而增加專案開發的效率。以下介紹HTML Helper的方法。">
+  <meta name="description" content="多型性多型讓你可以用相同的方式操作同類型各式各樣的東西,而各式各樣的東西會展現它自己的特性,因此只要注意如何操作而不必在意東西是什麼。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ASP.NET MVC — HTML Helper與自訂HTML Helper">
-<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/64362/index.html">
+<meta property="og:title" content="C# —— 多型性(Polymorphism)">
+<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/23154/index.html">
 <meta property="og:site_name" content="網頁的小宇宙">
-<meta property="og:description" content="HTML Helper在ASP.NET MVC中可以使用HTML Helper輔助產生需要的HTML語法，進而增加專案開發的效率。以下介紹HTML Helper的方法。">
+<meta property="og:description" content="多型性多型讓你可以用相同的方式操作同類型各式各樣的東西,而各式各樣的東西會展現它自己的特性,因此只要注意如何操作而不必在意東西是什麼。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F1.png?alt=media&token=1f7d1f07-17dd-48f7-b0f6-9b1b55e30ef2">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F2.png?alt=media&token=fae84b15-3a05-4b12-bf51-ba95fae8574a">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F3.png?alt=media&token=7ff9295e-42b2-4f6f-92b1-9ab2c0fe0d52">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F4.png?alt=media&token=09087c6b-5be0-4170-995d-b0883a17717d">
-<meta property="article:published_time" content="2021-11-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-28T11:45:37.426Z">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F1.webp?alt=media&token=382ea29b-9d36-45de-9869-9325654e3788">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F2.webp?alt=media&token=4c1795a0-5093-4634-b4b3-c6bcbafa9716">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F3.webp?alt=media&token=da446724-d60c-4ad2-affa-95fdd0c41dae">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F4.webp?alt=media&token=25896b7b-6af2-45fe-9aa0-41a36e5c36d7">
+<meta property="article:published_time" content="2023-05-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-28T14:16:52.941Z">
 <meta property="article:author" content="Jason">
+<meta property="article:tag" content="Csharp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F1.png?alt=media&token=1f7d1f07-17dd-48f7-b0f6-9b1b55e30ef2">
+<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F1.webp?alt=media&token=382ea29b-9d36-45de-9869-9325654e3788">
 
-<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/64362/">
+<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/23154/">
 
 
 <script id="page-configurations">
@@ -52,7 +53,7 @@
   };
 </script>
 
-  <title>ASP.NET MVC — HTML Helper與自訂HTML Helper | 網頁的小宇宙</title>
+  <title>C# —— 多型性(Polymorphism) | 網頁的小宇宙</title>
   
 
 
@@ -197,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/64362/">
+    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/23154/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/SpaceMan%2F%E9%A0%AD%E8%B2%BC.png?alt=media&token=d5386314-4bb8-495e-88bd-cb8bf18dbd4f">
@@ -210,7 +211,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ASP.NET MVC — HTML Helper與自訂HTML Helper
+          C# —— 多型性(Polymorphism)
         </h1>
 
         <div class="post-meta">
@@ -219,16 +220,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2021-11-23 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-23T00:00:00+08:00">2021-11-23</time>
+              <time title="創建時間：2023-05-28 00:00:00 / 修改時間：22:16:52" itemprop="dateCreated datePublished" datetime="2023-05-28T00:00:00+08:00">2023-05-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2023-05-28 19:45:37" itemprop="dateModified" datetime="2023-05-28T19:45:37+08:00">2023-05-28</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Csharp/" itemprop="url" rel="index"><span itemprop="name">Csharp</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
@@ -246,8 +250,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/posts/64362/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/64362/" itemprop="commentCount"></span>
+    <a title="disqus" href="/posts/23154/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/23154/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -262,42 +266,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="HTML-Helper"><a href="#HTML-Helper" class="headerlink" title="HTML Helper"></a>HTML Helper</h1><p>在ASP.NET MVC中可以使用HTML Helper輔助產生需要的HTML語法，進而增加專案開發的效率。以下介紹HTML Helper的方法。</p>
+        <h2 id="多型性"><a href="#多型性" class="headerlink" title="多型性"></a>多型性</h2><p>多型讓你可以用相同的方式操作同類型各式各樣的東西,而各式各樣的東西會展現它自己的特性,因此只要注意如何操作而不必在意東西是什麼。</p>
 <span id="more"></span>
 
-<ol>
-<li><p>輸出超連結</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>)</span><br><span class="line">第一個參數為想顯示的文字,第二個參數為此View預設Controller中的Action</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;首頁&quot;</span>,<span class="string">&quot;Index&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>1-1</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>,<span class="string">&quot;ControllerName&quot;</span>)</span><br><span class="line">第三個參數可以指定Controller名稱</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;首頁&quot;</span>,<span class="string">&quot;Index&quot;</span>,<span class="string">&quot;Home&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>1-2</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>,RouteValues)</span><br><span class="line">第三個參數為路由的參數</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;關於&quot;</span>,<span class="string">&quot;Aboot&quot;</span>,<span class="keyword">new</span> &#123; id = <span class="number">0</span> &#125;)</span><br></pre></td></tr></table></figure>
-<p>1-3</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>,RouteValues,htmlAttributes)</span><br><span class="line">第四個參數可以設定HTML屬性,需在關鍵字前加上@才能正確編譯,若HTML屬性含有「-」 符號必須用底線「_」代替,如data-<span class="keyword">value</span>需改為data_value</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;關於&quot;</span>,<span class="string">&quot;Aboot&quot;</span>,<span class="keyword">new</span> &#123; id = <span class="number">0</span> &#125;,<span class="keyword">new</span> &#123;@class=<span class="string">&#x27;btn&#x27;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>弱型別Helper<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F1.png?alt=media&token=1f7d1f07-17dd-48f7-b0f6-9b1b55e30ef2" alt="photo"></p>
-</li>
-<li><p>強行別Helper可傳入Model,都是以For作為結尾，若使用強行別Helper，需在View的頂端使用@model 定義此View所參考的Model，才能正確編譯。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F2.png?alt=media&token=fae84b15-3a05-4b12-bf51-ba95fae8574a" alt="photo"></p>
-</li>
-</ol>
+<p>多型可以讓子類別<strong>覆寫</strong>繼承的方法,讓子類別有專屬的功能。</p>
+<p>子類別可以覆寫父類別中以<strong>virtual</strong>關鍵字標示的成員,此外覆寫參數必須與父類別定義的一樣。</p>
 <blockquote>
-<p>強型別好處是，支援Model物件的成員名稱IntelliSense提示及編譯時期的檢查。</p>
+<p><strong>this與base關鍵字</strong></p>
 </blockquote>
-<h1 id="自訂HTML-Helper"><a href="#自訂HTML-Helper" class="headerlink" title="自訂HTML Helper"></a>自訂HTML Helper</h1><p>我們可新增擴充方法自訂全站都可以使用的HTML Helper，建議獨立出一個資料夾。擴充方法為靜態方法，因此定義HTML Helper方法必須宣告為靜態方法(static method)，並存放於一個靜態的類別中(static class)。此外還需注意回傳的型態，若使用string作為字串回傳的型態，回傳的內容將被透過HTML編碼後進行輸出,而使用System.Web.Mvc.MvcHtmlString作為字串回傳時，當內容包含標籤資料，便會直接輸出成HTML標籤。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F3.png?alt=media&token=7ff9295e-42b2-4f6f-92b1-9ab2c0fe0d52" alt="photo"><br>若欲於View中使用自訂的HTML Helper，必須先在View的最上方引用命名空間，便能在View中使用自訂的HTML Helper</p>
+<p><strong>『this』</strong> 關鍵字指向目前代表自身的這個物件</p>
+<p><strong>『base』</strong> 關鍵字可以取得目前這個類別的父類別實體成員</p>
 <blockquote>
-<p>@using  專案名稱.Helpers</p>
+<p><strong>virtual與override關鍵字</strong></p>
 </blockquote>
-<p>除了上述的StringBuilder組自定義的HTML Helper，ASP.NET MVC為了HTML標籤需求而提供TagBuilder類別，因此也可使用TagBuilder類別來自定義HTML Helper，以更物件化的方式產生需要的HTML標籤。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F4.png?alt=media&token=09087c6b-5be0-4170-995d-b0883a17717d" alt="photo"></p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TagBuilder中的Tostring的多載方法</span><br><span class="line">空(預設) = 正常的標籤 &lt;Lable id=<span class="string">&quot;test&quot;</span>&gt;xxx&lt;/Label&gt;</span><br><span class="line">TagRenderMode.Nomal = 正常的標籤 &lt;Lable id=<span class="string">&quot;test&quot;</span>&gt;xxx&lt;/Label&gt;</span><br><span class="line">TagRenderMode.StartTag = 開始標籤 &lt;Lable&gt;</span><br><span class="line">TagRenderMode.EndTag = 結束標籤 &lt;/Label&gt;</span><br><span class="line">TagRenderMode.SelfClosing =自我結束標籤 &lt;Lable id=<span class="string">&quot;test&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
-
+<p><strong>『virtual』</strong> 在父類別中標示代表允許子類別覆寫此屬性或方法</p>
+<p><strong>『override』</strong> 在子類別中使用override覆寫父類別的屬性或方法</p>
+<p><strong>『abstract』</strong>在父類別中標示一定要繼承之子類別來覆寫的屬性或方法,只要定義成員名稱及相關引數即可,不需加入任何程式碼內容,而留給子類別實作,此外<strong>abstract</strong>關鍵字只能用在標示為<strong>abstract</strong>的類別中</p>
 <hr>
-<blockquote>
-<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4Mzk1Nzc=">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-<blockquote>
-<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4MjY4MjM/c2xvYz1tYWlu">網頁程式設計ASP.NET MVC 5.X範例完美演繹(適用Visual C# 2019&#x2F;2017)（第三版）<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F1.webp?alt=media&token=382ea29b-9d36-45de-9869-9325654e3788" alt="&quot;photo&quot;"></p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F2.webp?alt=media&token=4c1795a0-5093-4634-b4b3-c6bcbafa9716" alt="&quot;photo&quot;"></p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F3.webp?alt=media&token=da446724-d60c-4ad2-affa-95fdd0c41dae" alt="&quot;photo&quot;"></p>
+<p>未實作則會出現錯誤訊息</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F4.webp?alt=media&token=25896b7b-6af2-45fe-9aa0-41a36e5c36d7" alt="&quot;photo&quot;"></p>
+<p>參考:<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vd2lsbGljay9wLzEzNTg2MDI0Lmh0bWw=">[C#.NET 拾遗补漏]08：强大的LINQ<i class="fa fa-external-link-alt"></i></span></p>
 <blockquote>
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
@@ -309,6 +300,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Csharp/" rel="tag"># Csharp</a>
+          </div>
 
         
 
@@ -316,12 +310,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/26594/" rel="prev" title="ASP.NET MVC — Razor">
-      <i class="fa fa-chevron-left"></i> ASP.NET MVC — Razor
+    <a href="/posts/39644/" rel="prev" title="C# —— LINQ">
+      <i class="fa fa-chevron-left"></i> C# —— LINQ
     </a></div>
       <div class="post-nav-item">
-    <a href="/posts/36983/" rel="next" title="ASP.NET MVC — DataAnnotation 資料模型驗證">
-      ASP.NET MVC — DataAnnotation 資料模型驗證 <i class="fa fa-chevron-right"></i>
+    <a href="/posts/59073/" rel="next" title="C# —— 繼承性(Inheritance)">
+      C# —— 繼承性(Inheritance) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -388,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML-Helper"><span class="nav-number">1.</span> <span class="nav-text">HTML Helper</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E8%A8%82HTML-Helper"><span class="nav-number">2.</span> <span class="nav-text">自訂HTML Helper</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%9E%8B%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">多型性</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -406,6 +400,18 @@
           <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">文章</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
 </div>
@@ -540,9 +546,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://jasonhsieh-web.github.io/posts/64362/";
-    this.page.identifier = "posts/64362/";
-    this.page.title = "ASP.NET MVC — HTML Helper與自訂HTML Helper";
+    this.page.url = "https://jasonhsieh-web.github.io/posts/23154/";
+    this.page.identifier = "posts/23154/";
+    this.page.title = "C# —— 多型性(Polymorphism)";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

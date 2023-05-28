@@ -22,20 +22,29 @@
     var CONFIG = {"hostname":"jasonhsieh-web.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="內聚力 Cohesion 在一個”模組”內完成”一件工作”的度量指標">
+  <meta name="description" content="ArrayList它和陣列非常類似,它比陣列有彈性可以動態地增加ArrayList中的項目,陣列則不行。當需要一個資料結構可以動態新增或移除成員時便可使用ArrayList物件來記錄。使用前須引用命名空間">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Design Pattern — 內聚力與耦合力">
-<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/78794/index.html">
+<meta property="og:title" content="C# —集合(ArrayList、List、Dictionary)">
+<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/53703/index.html">
 <meta property="og:site_name" content="網頁的小宇宙">
-<meta property="og:description" content="內聚力 Cohesion 在一個”模組”內完成”一件工作”的度量指標">
+<meta property="og:description" content="ArrayList它和陣列非常類似,它比陣列有彈性可以動態地增加ArrayList中的項目,陣列則不行。當需要一個資料結構可以動態新增或移除成員時便可使用ArrayList物件來記錄。使用前須引用命名空間">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2022-02-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-28T11:45:20.638Z">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F1.webp?alt=media&token=0262e711-b95e-4bd8-87d5-63bb580a360c">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F2.webp?alt=media&token=c9ef143d-6a49-4e7b-8a14-a745f3be65ef">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F3.webp?alt=media&token=c924c7d6-8143-494a-8e66-35f250eb4815">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F4.webp?alt=media&token=e9869b08-02e7-4672-ab91-40464d12ffea">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F5.webp?alt=media&token=4de30449-74c0-42ee-abb2-f7032d9873dc">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F6.webp?alt=media&token=8351feae-f7cc-4a89-b05b-ac7fcac87b20">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F7.webp?alt=media&token=ec11326d-bfb9-477f-9650-1ff8868aa201">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F8.webp?alt=media&token=188dc4d0-1ef0-4295-a70e-1c8d6ee9a72f">
+<meta property="article:published_time" content="2023-05-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-28T14:17:05.339Z">
 <meta property="article:author" content="Jason">
-<meta property="article:tag" content="Design Pattern">
+<meta property="article:tag" content="Csharp">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F1.webp?alt=media&token=0262e711-b95e-4bd8-87d5-63bb580a360c">
 
-<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/78794/">
+<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/53703/">
 
 
 <script id="page-configurations">
@@ -48,7 +57,7 @@
   };
 </script>
 
-  <title>Design Pattern — 內聚力與耦合力 | 網頁的小宇宙</title>
+  <title>C# —集合(ArrayList、List、Dictionary) | 網頁的小宇宙</title>
   
 
 
@@ -193,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/78794/">
+    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/53703/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/SpaceMan%2F%E9%A0%AD%E8%B2%BC.png?alt=media&token=d5386314-4bb8-495e-88bd-cb8bf18dbd4f">
@@ -206,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Design Pattern — 內聚力與耦合力
+          C# —集合(ArrayList、List、Dictionary)
         </h1>
 
         <div class="post-meta">
@@ -216,14 +225,14 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2022-02-15 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-15T00:00:00+08:00">2022-02-15</time>
+              <time title="創建時間：2023-05-24 00:00:00" itemprop="dateCreated datePublished" datetime="2023-05-24T00:00:00+08:00">2023-05-24</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2023-05-28 19:45:20" itemprop="dateModified" datetime="2023-05-28T19:45:20+08:00">2023-05-28</time>
+                <time title="修改時間：2023-05-28 22:17:05" itemprop="dateModified" datetime="2023-05-28T22:17:05+08:00">2023-05-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -231,7 +240,7 @@
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+                  <a href="/categories/Csharp/" itemprop="url" rel="index"><span itemprop="name">Csharp</span></a>
                 </span>
             </span>
 
@@ -251,8 +260,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/posts/78794/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/78794/" itemprop="commentCount"></span>
+    <a title="disqus" href="/posts/53703/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/53703/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -267,42 +276,64 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="內聚力-Cohesion"><a href="#內聚力-Cohesion" class="headerlink" title="內聚力 Cohesion"></a>內聚力 Cohesion</h1><ul>
-<li>在一個”模組”內完成”一件工作”的度量指標<span id="more"></span></li>
-</ul>
-<h2 id="高內聚力"><a href="#高內聚力" class="headerlink" title="高內聚力"></a>高內聚力</h2><ul>
-<li>一次專注做一件事情</li>
-<li>內聚力高，意味著該模組可以獨立運作，也意味著更容易重複利用</li>
-<li>ex: 一個class只負責一件事情(例如寫Log)</li>
-</ul>
-<h2 id="低內聚"><a href="#低內聚" class="headerlink" title="低內聚"></a>低內聚</h2><ul>
-<li>在一個”模組”內完成多件事情</li>
-<li>內聚力低，意味著該模組會造成難以維護&#x2F;測試&#x2F;重用&#x2F;理解</li>
-<li>ex: 所有功能寫在一個class內或一個method有5000行程式碼</li>
-</ul>
-<h2 id="較佳的實務設計"><a href="#較佳的實務設計" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul>
-<li>在設計模組的時候，要盡量設計出 <strong>高內聚</strong> 的程式碼</li>
-<li>若有一個模組完成太多項工作，建議拆分成多個不同的類別</li>
-<li>實現 <strong>SRP</strong> 就是<strong>提高內聚力</strong>的一種表現</li>
-</ul>
-<h1 id="耦合力-Coupling"><a href="#耦合力-Coupling" class="headerlink" title="耦合力 Coupling"></a>耦合力 Coupling</h1><ul>
-<li>模組跟模組之間的關聯強度或是依賴程度</li>
-<li>ex: 在B類別內，直接建立了A物件實體，那就會建立類別A與類別B之間的”耦合關係”</li>
-</ul>
-<h2 id="高耦合"><a href="#高耦合" class="headerlink" title="高耦合"></a>高耦合</h2><ul>
-<li>意味著當改了A模組時，相關聯的B模組就容易被影響(改A壞B)</li>
-</ul>
-<h2 id="低耦合"><a href="#低耦合" class="headerlink" title="低耦合"></a>低耦合</h2><ul>
-<li>當修改模組時，越少模組被引響，那意味著耦合力較低</li>
-</ul>
-<h2 id="較佳的實務設計-1"><a href="#較佳的實務設計-1" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul>
-<li>在設計模組的時候，要盡量設計出 <strong>低耦合力</strong> 的程式碼</li>
-<li>實現 <strong>DIP</strong> 就是實現<strong>降低耦合力</strong>的一個原則</li>
-</ul>
+        <h1 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a><strong>ArrayList</strong></h1><p>它和陣列非常類似,它比陣列有彈性可以動態地增加ArrayList中的項目,陣列則不行。當需要一個資料結構可以動態新增或移除成員時便可使用ArrayList物件來記錄。使用前須引用命名空間</p>
+ <span id="more"></span>
 <blockquote>
-<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推
-<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLXR3L2RvdG5ldC9hcGkvc3lzdGVtLmNvbGxlY3Rpb25zP3ZpZXc9bmV0LTUuMA==">System.Collections<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F1.webp?alt=media&token=0262e711-b95e-4bd8-87d5-63bb580a360c" alt="&quot;photo&quot;"></p>
+<h1 id="陣列-vs-集合"><a href="#陣列-vs-集合" class="headerlink" title="陣列 vs 集合"></a><strong>陣列 vs 集合</strong></h1><h2 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a><strong>陣列</strong></h2><ol>
+<li>透過索引值存取成員ex:arr[0]&#x3D;123</li>
+<li>無法變更陣列大小</li>
+<li>若要儲存較多或較少成員時只能宣告新陣列</li>
+<li>陣列中所有成員都必須是同一種資料型別<blockquote>
+<p>因此陣列適合用來儲存固定個數、型別相同的資料</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a><strong>集合</strong></h2><ol>
+<li>可以動態新增或減少</li>
+<li>透過索引值或健值存取成員</li>
+</ol>
+<hr>
+<h1 id="List-lt-T-gt"><a href="#List-lt-T-gt" class="headerlink" title="List &lt;T&gt;"></a><strong>List &lt;T&gt;</strong></h1><ol>
+<li>具備索引值</li>
+<li>可透過方法增加或減少成員</li>
+<li>透過<strong>泛型</strong>指定成員型別</li>
+</ol>
+<p>使用前一樣先使用它的命名空間</p>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLXR3L2RvdG5ldC9hcGkvc3lzdGVtLmNvbGxlY3Rpb25zLmdlbmVyaWM/dmlldz1uZXQtNS4w">System.Collections.Generic<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<p>在宣告時將型別參數&lt;T&gt;設為自己想要的型別</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F2.webp?alt=media&token=c9ef143d-6a49-4e7b-8a14-a745f3be65ef" alt="&quot;photo&quot;"></p>
+<p>此外可用.Count來得到List的總數</p>
+<h2 id="List好用的method"><a href="#List好用的method" class="headerlink" title="List好用的method"></a><strong>List好用的method</strong></h2><ol>
+<li>Sort() 排序</li>
+</ol>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F3.webp?alt=media&token=c924c7d6-8143-494a-8e66-35f250eb4815" alt="&quot;photo&quot;"></p>
+<ol start="2">
+<li>Contain() 檢查是否有物件x</li>
+</ol>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F4.webp?alt=media&token=e9869b08-02e7-4672-ab91-40464d12ffea" alt="&quot;photo&quot;"></h2><h1 id="Dictionary"><a href="#Dictionary" class="headerlink" title="Dictionary"></a><strong>Dictionary</strong></h1><ol>
+<li>適合儲存具備鍵值的資料</li>
+<li>可以透過方法增加或減少成員項目</li>
+<li>透過泛型指定成員型別</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dictionary是一種索引鍵/值組(key/Value)成對的資料結過,透過Key找到對應的Value,特別注意使用Dictionary時需要傳兩個型別參數,代表Key跟Value,並且每個Key都必須是唯一的</span><br></pre></td></tr></table></figure>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F5.webp?alt=media&token=4de30449-74c0-42ee-abb2-f7032d9873dc" alt="&quot;photo&quot;"></p>
+<h2 id="集合初始式"><a href="#集合初始式" class="headerlink" title="集合初始式"></a><strong>集合初始式</strong></h2><p>簡單來說就是宣告集合變數時順帶<strong>初始化集合成員</strong>可以使用兩種語法:</p>
+<p><strong>集合初始式與索引初始式</strong>,如此一來可以簡短程式碼</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F6.webp?alt=media&token=8351feae-f7cc-4a89-b05b-ac7fcac87b20" alt="&quot;photo&quot;"></p>
+<h2 id="最後小小補充一下-泛型Generic"><a href="#最後小小補充一下-泛型Generic" class="headerlink" title="最後小小補充一下 泛型Generic"></a><strong>最後小小補充一下 泛型<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLXR3L2RvdG5ldC9hcGkvc3lzdGVtLmNvbGxlY3Rpb25zLmdlbmVyaWM/dmlldz1uZXQtNS4w">Generic<i class="fa fa-external-link-alt"></i></span></strong></h2><p>在之前我們要宣告方法的話輸入跟輸出都必須是相同型別,那如果今天我想要輸入跟輸出的型別不同的話,就要定義多個方法,儘管他們做一樣的事情</p>
+<p>泛型出現後,我們可以使用它定義一個方法,<strong>滿足不同參數類型</strong>,做相同的事情</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先定義一個型別為&lt;T&gt;的方法,&lt;T&gt;為暫時替代型別,所以說我們可以先不用定義它是什麼型別,就可以完成class或method的設計</span><br></pre></td></tr></table></figure>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F7.webp?alt=media&token=ec11326d-bfb9-477f-9650-1ff8868aa201" alt="&quot;photo&quot;"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">定義型別的時間,延後到我們真正要使用它的時候才來定義</span><br></pre></td></tr></table></figure>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F8.webp?alt=media&token=188dc4d0-1ef0-4295-a70e-1c8d6ee9a72f" alt="&quot;photo&quot;"></p>
+<p>參考及推薦:</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj0yQ204S3hFdXRqSQ==">小山的 C# 教學 - 第 49 課 - 串列 (List)<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1MbzZkb3JLQjB0aw==">小山的 C# 教學 - 第 50 課 - 泛型 (Generics) 的初步介紹<i class="fa fa-external-link-alt"></i></span></p>
 <blockquote>
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
@@ -315,7 +346,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Design-Pattern/" rel="tag"># Design Pattern</a>
+              <a href="/tags/Csharp/" rel="tag"># Csharp</a>
           </div>
 
         
@@ -324,12 +355,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/36985/" rel="prev" title="ASP.NET MVC — DataAnnotation 資料模型驗證">
-      <i class="fa fa-chevron-left"></i> ASP.NET MVC — DataAnnotation 資料模型驗證
+    <a href="/posts/43034/" rel="prev" title="Design Pattern — SRP 單一責任原則">
+      <i class="fa fa-chevron-left"></i> Design Pattern — SRP 單一責任原則
     </a></div>
       <div class="post-nav-item">
-    <a href="/posts/58259/" rel="next" title="ASP.NET MVC — Model">
-      ASP.NET MVC — Model <i class="fa fa-chevron-right"></i>
+    <a href="/posts/39644/" rel="next" title="C# —— LINQ">
+      C# —— LINQ <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -396,7 +427,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%A7%E8%81%9A%E5%8A%9B-Cohesion"><span class="nav-number">1.</span> <span class="nav-text">內聚力 Cohesion</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E5%85%A7%E8%81%9A%E5%8A%9B"><span class="nav-number">1.1.</span> <span class="nav-text">高內聚力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8E%E5%85%A7%E8%81%9A"><span class="nav-number">1.2.</span> <span class="nav-text">低內聚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BC%83%E4%BD%B3%E7%9A%84%E5%AF%A6%E5%8B%99%E8%A8%AD%E8%A8%88"><span class="nav-number">1.3.</span> <span class="nav-text">較佳的實務設計</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%80%A6%E5%90%88%E5%8A%9B-Coupling"><span class="nav-number">2.</span> <span class="nav-text">耦合力 Coupling</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E8%80%A6%E5%90%88"><span class="nav-number">2.1.</span> <span class="nav-text">高耦合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8E%E8%80%A6%E5%90%88"><span class="nav-number">2.2.</span> <span class="nav-text">低耦合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BC%83%E4%BD%B3%E7%9A%84%E5%AF%A6%E5%8B%99%E8%A8%AD%E8%A8%88-1"><span class="nav-number">2.3.</span> <span class="nav-text">較佳的實務設計</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList"><span class="nav-number">1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%A3%E5%88%97-vs-%E9%9B%86%E5%90%88"><span class="nav-number">2.</span> <span class="nav-text">陣列 vs 集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%A3%E5%88%97"><span class="nav-number">2.1.</span> <span class="nav-text">陣列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-number">2.2.</span> <span class="nav-text">集合</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List-lt-T-gt"><span class="nav-number">3.</span> <span class="nav-text">List &lt;T&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#List%E5%A5%BD%E7%94%A8%E7%9A%84method"><span class="nav-number">3.1.</span> <span class="nav-text">List好用的method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.2.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dictionary"><span class="nav-number">4.</span> <span class="nav-text">Dictionary</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E5%88%9D%E5%A7%8B%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">集合初始式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%BE%8C%E5%B0%8F%E5%B0%8F%E8%A3%9C%E5%85%85%E4%B8%80%E4%B8%8B-%E6%B3%9B%E5%9E%8BGeneric"><span class="nav-number">4.2.</span> <span class="nav-text">最後小小補充一下 泛型Generic</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -560,9 +591,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://jasonhsieh-web.github.io/posts/78794/";
-    this.page.identifier = "posts/78794/";
-    this.page.title = "Design Pattern — 內聚力與耦合力";
+    this.page.url = "https://jasonhsieh-web.github.io/posts/53703/";
+    this.page.identifier = "posts/53703/";
+    this.page.title = "C# —集合(ArrayList、List、Dictionary)";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

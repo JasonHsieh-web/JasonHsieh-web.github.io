@@ -22,34 +22,33 @@
     var CONFIG = {"hostname":"jasonhsieh-web.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Controller的責任MVC強調關注點分離,其中Controller只負責網站流程相關,其他像是商業邏輯或頁面顯示等工作,Controller一律不會介入,主要著重在控制網站及使用路由傳遞資料等認識。">
+  <meta name="description" content="網站中，開發者會為頁面資料，進行欄位驗證確保資料的正確性，因此開發者一般會使用JavaScript來進行客戶端驗證，而ASP.NET MVC中，無提供自動化的客戶端驗證，而是須使用模型驗證(Model Validate)。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ASP.NET MVC — Controller">
+<meta property="og:title" content="ASP.NET MVC — DataAnnotation 資料模型驗證">
 <meta property="og:url" content="https://jasonhsieh-web.github.io/posts/36985/index.html">
 <meta property="og:site_name" content="網頁的小宇宙">
-<meta property="og:description" content="Controller的責任MVC強調關注點分離,其中Controller只負責網站流程相關,其他像是商業邏輯或頁面顯示等工作,Controller一律不會介入,主要著重在控制網站及使用路由傳遞資料等認識。">
+<meta property="og:description" content="網站中，開發者會為頁面資料，進行欄位驗證確保資料的正確性，因此開發者一般會使用JavaScript來進行客戶端驗證，而ASP.NET MVC中，無提供自動化的客戶端驗證，而是須使用模型驗證(Model Validate)。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F1.png?alt=media&token=6eb1c530-d8c1-449d-8772-a08dddc76af3">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F2.png?alt=media&token=fe832482-ee07-4447-9656-d6602017c166">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F3.png?alt=media&token=7e2fbcaf-9369-46e7-ae79-6cca29c0bfab">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F4.png?alt=media&token=1bce9916-ef5a-4b7a-beff-f1bf4bcde5f6">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F5.png?alt=media&token=96295ed5-d7db-4bc4-907a-05c79e3b84a4">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F6.png?alt=media&token=f0b43aba-f8f5-43be-ba2d-26ca935ef6b8">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F7.png?alt=media&token=d3e01f62-3ec0-4040-b0aa-b16b57c431f6">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F8.png?alt=media&token=6d79cb8e-d09b-40cb-a9a0-4221045b5715">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F9.png?alt=media&token=a55e84c8-d726-4e88-af21-2a05febb09a9">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F10.png?alt=media&token=eaa94150-961d-42ad-b030-e657b2091ded">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F11.png?alt=media&token=f002c768-086d-47b6-ae78-e8357315f45c">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F12.png?alt=media&token=be0c9961-8a89-4836-ae85-f1189fd12796">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F13.png?alt=media&token=331f3a03-7ec1-4223-b884-b476ef1ef332">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F14.png?alt=media&token=9af17dde-ed36-4615-9085-9358e196e2f4">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F15.png?alt=media&token=a2931d3e-3a05-4a6a-9299-840c8dd17965">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F16.png?alt=media&token=8a9e53ec-77c5-4ba8-8b6b-4a0ee431fc89">
-<meta property="article:published_time" content="2021-10-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-28T11:46:07.854Z">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F1.png?alt=media&token=13ff245d-0de3-4509-a280-39d9ccd1bb19">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F2.png?alt=media&token=7c891d4d-a42a-4fa4-bf11-5415c1fc6921">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F3.png?alt=media&token=9fcb4494-493f-4ef0-8691-c0a0c2f38a5e">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F4.png?alt=media&token=bfb1b6fc-2b86-40a4-99f7-c42f3bc3e11a">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F5.png?alt=media&token=5208e57b-d1d2-4cb4-9206-0a5b32271b4c">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F6.png?alt=media&token=ae5a2010-32f7-4382-a100-b4e6dd38a939">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F7.png?alt=media&token=983f8b9d-b7b0-450f-b9ad-e23671161659">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F8.png?alt=media&token=8594fe72-27d0-410d-a306-16efd87811d9">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F9.png?alt=media&token=af90f592-06a5-4a3d-8e17-ec650a763745">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F10.png?alt=media&token=f5d66f5f-9686-4ba2-8cca-f51e6a0103ec">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F11.png?alt=media&token=b4642c7f-c994-4a58-9d83-f03a30c14fc1">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F12.png?alt=media&token=e53b520f-fb1a-417c-83fc-718f28b87d81">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F13.png?alt=media&token=718affdf-2dba-41a2-8a4d-ac68e9fd8a03">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F14.png?alt=media&token=e59e5daf-b1ab-4213-9135-e7ff89961915">
+<meta property="article:published_time" content="2021-11-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-28T14:17:08.984Z">
 <meta property="article:author" content="Jason">
+<meta property="article:tag" content="ASP.NET MVC">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F1.png?alt=media&token=6eb1c530-d8c1-449d-8772-a08dddc76af3">
+<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F1.png?alt=media&token=13ff245d-0de3-4509-a280-39d9ccd1bb19">
 
 <link rel="canonical" href="https://jasonhsieh-web.github.io/posts/36985/">
 
@@ -64,7 +63,7 @@
   };
 </script>
 
-  <title>ASP.NET MVC — Controller | 網頁的小宇宙</title>
+  <title>ASP.NET MVC — DataAnnotation 資料模型驗證 | 網頁的小宇宙</title>
   
 
 
@@ -222,7 +221,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ASP.NET MVC — Controller
+          ASP.NET MVC — DataAnnotation 資料模型驗證
         </h1>
 
         <div class="post-meta">
@@ -232,15 +231,24 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2021-10-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-25T00:00:00+08:00">2021-10-25</time>
+              <time title="創建時間：2021-11-24 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-24T00:00:00+08:00">2021-11-24</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2023-05-28 19:46:07" itemprop="dateModified" datetime="2023-05-28T19:46:07+08:00">2023-05-28</time>
+                <time title="修改時間：2023-05-28 22:17:08" itemprop="dateModified" datetime="2023-05-28T22:17:08+08:00">2023-05-28</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ASP-NET-MVC/" itemprop="url" rel="index"><span itemprop="name">ASP.NET MVC</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
@@ -274,95 +282,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Controller的責任"><a href="#Controller的責任" class="headerlink" title="Controller的責任"></a>Controller的責任</h1><p>MVC強調關注點分離,其中Controller只負責網站流程相關,其他像是商業邏輯或頁面顯示等工作,Controller一律不會介入,主要著重在控制網站及使用路由傳遞資料等認識。</p>
+        <p>網站中，開發者會為頁面資料，進行欄位驗證確保資料的正確性，因此開發者一般會使用JavaScript來進行客戶端驗證，而ASP.NET MVC中，無提供自動化的客戶端驗證，而是須使用模型驗證(Model Validate)。</p>
 <span id="more"></span>
 
-<h1 id="Controller的基本要求"><a href="#Controller的基本要求" class="headerlink" title="Controller的基本要求"></a>Controller的基本要求</h1><p>Controller為一個類別,此類別可以包含許多方法(Method),這方法會被稱為一個Action或Action方法,透過這些Action,Controller可接受客戶端傳送來的要求與決定回應的View。</p>
-<p><strong>新增Controller時必須注意類別名稱必須是Controller結尾</strong></p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F1.png?alt=media&token=6eb1c530-d8c1-449d-8772-a08dddc76af3" alt="photo"></p>
-<p>Controller接受請求後會依照程式敘述判斷是否需要對Model或Service進行呼叫，若Controller需對其進行呼叫,程式便會執行Model中的商業邏輯或是使用Service進行資料庫處理,然後回傳所需的資料至Controller。</p>
-<h2 id="RouteConfig"><a href="#RouteConfig" class="headerlink" title="RouteConfig"></a>RouteConfig</h2><p>要如何知道網址和Controller的相對應關係呢?我們可以找到&#x2F;APP_Start&#x2F;RouteConfig.cs這支檔案。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F2.png?alt=media&token=fe832482-ee07-4447-9656-d6602017c166" alt="photo"></p>
-<h2 id="IgnoreRoute"><a href="#IgnoreRoute" class="headerlink" title="IgnoreRoute"></a>IgnoreRoute</h2><p>在此語法後的字串,代表的是不要透過Routing處理的網址</p>
-<h2 id="MapRoute"><a href="#MapRoute" class="headerlink" title="MapRoute"></a>MapRoute</h2><p>MapRoute表示Routing設定的規則，參數分別為:</p>
+<h2 id="Model-Validate"><a href="#Model-Validate" class="headerlink" title="Model Validate"></a><strong>Model Validate</strong></h2><p>Model Validate的應用讓開發者可謂Model附加上驗證，使得當使用者傳送輸入資料前，進行Model的驗證邏輯，Model Validate是透過.NET Framework裡的DataAnnotation輔助進行驗證，DataAnnotation提供讓開發者以附加屬性的方式，來添加資料驗證規則，進而完成資料驗證。</p>
+<h2 id="客戶端驗證"><a href="#客戶端驗證" class="headerlink" title="客戶端驗證"></a><strong>客戶端驗證</strong></h2><p>DataAnnotation 配合Javascript的三個檔案jquery.js、jquery.validate.js、jquery.validate.unobtrusive.js，後兩個檔案是在客戶端上輔助進行驗證的JavaScript，在NuGet安裝就行了。如下圖，安裝反白的套件剛說的三個檔案都會安裝下來，使用Html.Helper會自動幫我們產生jquery的驗證屬性。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F1.png?alt=media&token=13ff245d-0de3-4509-a280-39d9ccd1bb19" alt="photo"></p>
+<hr>
+<h2 id="驗證屬性"><a href="#驗證屬性" class="headerlink" title="驗證屬性"></a><strong>驗證屬性</strong></h2><p>在使用驗證屬性前要先using兩個命名空間</p>
+<blockquote>
+<p>using System.ComponentModel;</p>
+</blockquote>
+<blockquote>
+<p>using System.ComponentModel.DataAnnotations;</p>
+</blockquote>
 <ol>
-<li>Name:對於這個Route的命名</li>
-<li>Url:網址條件，當網址符合條件時，會依據這個Route去找對應的程式碼</li>
-<li>Defaults:參數的預設值。第一層為Controller、第二層為Action、第三層為Id。若網址未輸入Controller.Action.Id，預設路由&#x2F;Home&#x2F;Index</li>
+<li><p>DisplayName:用於定義欄位顯示名稱<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F2.png?alt=media&token=7c891d4d-a42a-4fa4-bf11-5415c1fc6921" alt="photo"></p>
+</li>
+<li><p>Required:可藉由傳入參數ErrorMessage來設定顯示的錯誤訊息<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F3.png?alt=media&token=9fcb4494-493f-4ef0-8691-c0a0c2f38a5e" alt="photo"></p>
+</li>
+<li><p>StringLength:定義字串最大長度，也可以傳入MinimumLength來設定最小長度<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F4.png?alt=media&token=bfb1b6fc-2b86-40a4-99f7-c42f3bc3e11a" alt="photo"></p>
+</li>
+<li><p>Range:定義數值欄位的上下限值，可以設定最小跟最大值<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F5.png?alt=media&token=5208e57b-d1d2-4cb4-9206-0a5b32271b4c" alt="photo"></p>
+</li>
+<li><p>Compare:用於比對與另一個欄位的內容是否相同，最常被用在會員註冊，會需要輸入兩次相同的密碼進行驗證<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F6.png?alt=media&token=ae5a2010-32f7-4382-a100-b4e6dd38a939" alt="photo"></p>
+</li>
+<li><p>RegularExpression:用於使欄位輸入的內容必須符合指定的正規表達式，想了解正規表達式可以看我的這篇文章<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F7.png?alt=media&token=983f8b9d-b7b0-450f-b9ad-e23671161659" alt="photo"></p>
+</li>
+<li><p>EmailAddress:驗證是否為電子郵件<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F8.png?alt=media&token=8594fe72-27d0-410d-a306-16efd87811d9" alt="photo"></p>
+</li>
+<li><p>Url]驗證欄位是否是網址格式<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F9.png?alt=media&token=af90f592-06a5-4a3d-8e17-ec650a763745" alt="photo"></p>
+</li>
+<li><p>FileExtension:定義檔案的副檔名，預設為png、jpg、jpeg、gif，若要使用FileExtension必須先用NuGet安裝<strong>jQuery.Validation.AdditionMethods</strong><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F10.png?alt=media&token=f5d66f5f-9686-4ba2-8cca-f51e6a0103ec" alt="photo"><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F11.png?alt=media&token=b4642c7f-c994-4a58-9d83-f03a30c14fc1" alt="photo"></p>
+</li>
+<li><p>creditCard:判斷是否為信用卡卡號</p>
+</li>
+<li><p>DataType:可藉由傳入參數決定欄位資料型態，@Html.EditorFor，會依照資料型態不同產生不同的input type<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F12.png?alt=media&token=e53b520f-fb1a-417c-83fc-718f28b87d81" alt="photo"></p>
+</li>
+<li><p>Remote:可使欄位輸入值透過AJAX方式送到指定的Controller Action進行驗證，並藉由回傳的結果，來驗證是否成功<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F13.png?alt=media&token=718affdf-2dba-41a2-8a4d-ac68e9fd8a03" alt="photo"><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F14.png?alt=media&token=e59e5daf-b1ab-4213-9135-e7ff89961915" alt="photo"></p>
+</li>
 </ol>
-<p>注意:id不像controller跟action都指派到一個很明確的目標預設可有可無因此設值為UrlParameter.Optional(若不是設定UrlParameter.Optional則會變成必帶參數)。詳細路由會在寫一篇來介紹~</p>
-<h2 id="ActionResult"><a href="#ActionResult" class="headerlink" title="ActionResult"></a>ActionResult</h2><p>ActionResult是用來回傳執行結果的抽象類別，以下列出ActionResult及ActionResult的衍生類別</p>
-<ol>
-<li>ContentResult</li>
-</ol>
-<p>會回傳純文字文件</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F3.png?alt=media&token=7e2fbcaf-9369-46e7-ae79-6cca29c0bfab" alt="photo"></p>
-<ol start="2">
-<li>EmptyResult</li>
-</ol>
-<p>會回傳空的結果，通常只要Action的回傳是null，Asp.Net MVC將會使用EmptyResult當作回傳類型。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F4.png?alt=media&token=1bce9916-ef5a-4b7a-beff-f1bf4bcde5f6" alt="photo"></p>
-<ol start="3">
-<li>RedirectResult</li>
-</ol>
-<p>此回傳會重新導向連結,此方法相當於Asp.Net的Response.Redirect。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F5.png?alt=media&token=96295ed5-d7db-4bc4-907a-05c79e3b84a4" alt="photo"></p>
-<p>當在網址輸入&#x2F;Home&#x2F;RedirectResult會被導向到&#x2F;Home&#x2F;Index。</p>
-<ol start="4">
-<li>RedirectToRouteResult</li>
-</ol>
-<p>此回傳與RedirectResult類似會重新導向連結，不同的是RedirectToRouteResult是使用Controller類別的RedirecToAction和RedirecToRoute方法來回傳。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F6.png?alt=media&token=f0b43aba-f8f5-43be-ba2d-26ca935ef6b8" alt="photo"></p>
-<p>注意:RedirectResult是根據網址(Url)進行頁面導向，只需Url撰寫正確，不僅是同一專案下的Controller Action，連同”外部”的網頁都可以進行導向。RedirectToRouteResult是根據路由(Route)來進行導向，主要只會導向至同一專案下的Controller Action。</p>
-<ol start="5">
-<li>ViewResult</li>
-</ol>
-<p>會回傳一個檢視(View)結果</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F7.png?alt=media&token=d3e01f62-3ec0-4040-b0aa-b16b57c431f6" alt="photo"></p>
-<ol start="6">
-<li>PatialViewResult</li>
-</ol>
-<p>與ViewResult類似，都會回傳一個檢視結果，不同的是回傳一個部分檢視(Partial View),而且也不支援主版的應用,詳細用法會在另外寫一篇介紹。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F8.png?alt=media&token=6d79cb8e-d09b-40cb-a9a0-4221045b5715" alt="photo"></p>
-<ol start="7">
-<li>HttpUnauthorizedResult</li>
-</ol>
-<p>會回傳一個未經授權的錯誤，Asp.Net MVC會發送一個HTTP錯誤401的狀態</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F9.png?alt=media&token=a55e84c8-d726-4e88-af21-2a05febb09a9" alt="photo"></p>
-<ol start="8">
-<li>HttpNotFoundResult</li>
-</ol>
-<p>與ViewResult類似，都會回傳一個檢視結果，不同的是回傳一個部分檢視(Partial View),而且也不支援主版的應用,詳細用法會在另外寫一篇介紹。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F10.png?alt=media&token=eaa94150-961d-42ad-b030-e657b2091ded" alt="photo"></p>
-<ol start="9">
-<li>JsonResult</li>
-</ol>
-<p>會傳一個Json結果,Asp.Net MVC將Response.ContentType定義為application&#x2F;json,並透過JavaScriptSerializer將回傳物件序列化成Json字串,Asp.Net MVC會默認不允許GET請求JSON結果,若要使用必須將JsonRequestBehavior設置為AllowGet。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F11.png?alt=media&token=f002c768-086d-47b6-ae78-e8357315f45c" alt="photo"></p>
-<ol start="10">
-<li>FilePathResult</li>
-</ol>
-<p>會回傳一個檔案內容,而FilePathResult是透過路徑來傳送檔案到客戶端,主要是以Controller類別的File方法來回傳FilePathResult。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F12.png?alt=media&token=be0c9961-8a89-4836-ae85-f1189fd12796" alt="photo"></p>
-<ol start="11">
-<li>FileContentResult</li>
-</ol>
-<p>會回傳一個檔案內容,而FileContentResult是透過二進位資料的方式傳遞。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F13.png?alt=media&token=331f3a03-7ec1-4223-b884-b476ef1ef332" alt="photo"></p>
-<ol start="12">
-<li>FileStreamResult</li>
-</ol>
-<p>會回傳一個檔案內容,是透過Stream的方式傳遞。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F14.png?alt=media&token=9af17dde-ed36-4615-9085-9358e196e2f4" alt="photo"></p>
-<ol start="13">
-<li>ActionResult</li>
-</ol>
-<p>ActionResult是Controller Action執行後的回傳結果類型,上述所講的類別都是直接或間接繼承自ActionResult,所以在基本上上述幾點所用的方法都可以用在ActionResult上。ActionResult的回傳可使用直接或間接繼承至ActionResult的類別,所以ActionResult的回傳結果比較廣泛。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F15.png?alt=media&token=a2931d3e-3a05-4a6a-9299-840c8dd17965" alt="photo"></p>
-<h2 id="ViewData、ViewBag、TempData"><a href="#ViewData、ViewBag、TempData" class="headerlink" title="ViewData、ViewBag、TempData"></a>ViewData、ViewBag、TempData</h2><h3 id="ViewData"><a href="#ViewData" class="headerlink" title="ViewData"></a><strong>ViewData</strong></h3><p>利用ViewData可設定顯示在前端的資訊,在頁面中只要透過ViewData就可取得後端傳來的資料,ViewData只能對一個Action有作用,若頁面導向後ViewData中的資料便會清除。</p>
-<h3 id="ViewBag"><a href="#ViewBag" class="headerlink" title="ViewBag"></a><strong>ViewBag</strong></h3><p>ViewBag與ViewData有一樣的功用,差別在於ViewBag可產生動態屬性,利用dynamic這個型別包裝，使用ViewBag時不需再進行類別的轉換,資料可直接取用。</p>
-<h3 id="TempData"><a href="#TempData" class="headerlink" title="TempData"></a><strong>TempData</strong></h3><p>TempData預設會將資料存放在Session,因此生命週期存在於一整個Request的範圍,就算網頁進行導向,還是能夠取得資料,但只允許一次的導向,在經過第二次後TempData的資料會清楚,而TempData可在Controller與Controller之間做傳遞。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F16.png?alt=media&token=8a9e53ec-77c5-4ba8-8b6b-4a0ee431fc89" alt="photo"></p>
 <blockquote>
 <p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4Mzk1Nzc=">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
@@ -377,16 +336,22 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ASP-NET-MVC/" rel="tag"># ASP.NET MVC</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/posts/37572/" rel="next" title="C# — 抽象類別與介面">
-      C# — 抽象類別與介面 <i class="fa fa-chevron-right"></i>
+    <a href="/posts/64363/" rel="prev" title="ASP.NET MVC — HTML Helper與自訂HTML Helper">
+      <i class="fa fa-chevron-left"></i> ASP.NET MVC — HTML Helper與自訂HTML Helper
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/78794/" rel="next" title="Design Pattern — 內聚力與耦合力">
+      Design Pattern — 內聚力與耦合力 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -453,7 +418,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Controller%E7%9A%84%E8%B2%AC%E4%BB%BB"><span class="nav-number">1.</span> <span class="nav-text">Controller的責任</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Controller%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">Controller的基本要求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RouteConfig"><span class="nav-number">2.1.</span> <span class="nav-text">RouteConfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IgnoreRoute"><span class="nav-number">2.2.</span> <span class="nav-text">IgnoreRoute</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MapRoute"><span class="nav-number">2.3.</span> <span class="nav-text">MapRoute</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ActionResult"><span class="nav-number">2.4.</span> <span class="nav-text">ActionResult</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewData%E3%80%81ViewBag%E3%80%81TempData"><span class="nav-number">2.5.</span> <span class="nav-text">ViewData、ViewBag、TempData</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ViewData"><span class="nav-number">2.5.1.</span> <span class="nav-text">ViewData</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ViewBag"><span class="nav-number">2.5.2.</span> <span class="nav-text">ViewBag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TempData"><span class="nav-number">2.5.3.</span> <span class="nav-text">TempData</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-Validate"><span class="nav-number">1.</span> <span class="nav-text">Model Validate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B6%E7%AB%AF%E9%A9%97%E8%AD%89"><span class="nav-number">2.</span> <span class="nav-text">客戶端驗證</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A9%97%E8%AD%89%E5%B1%AC%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">驗證屬性</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -471,6 +436,18 @@
           <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">文章</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
 </div>
@@ -607,7 +584,7 @@
   var disqus_config = function() {
     this.page.url = "https://jasonhsieh-web.github.io/posts/36985/";
     this.page.identifier = "posts/36985/";
-    this.page.title = "ASP.NET MVC — Controller";
+    this.page.title = "ASP.NET MVC — DataAnnotation 資料模型驗證";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

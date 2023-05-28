@@ -22,29 +22,29 @@
     var CONFIG = {"hostname":"jasonhsieh-web.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="介紹首先來介紹”類別”,類別你可以幫它想像一個設計圖,例如我們創立一個”車”的類別,那這台車可能有些屬性(名字、車輪數、顏色)以及一些方法例如車可以倒退、可以前進、可以左右轉。">
+  <meta name="description" content="LINQ語法擴充了C#語言的查詢語法,可適用LINQ查詢的資料類型有">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C# —— 類別與物件">
-<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/75774/index.html">
+<meta property="og:title" content="C# —— LINQ">
+<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/39644/index.html">
 <meta property="og:site_name" content="網頁的小宇宙">
-<meta property="og:description" content="介紹首先來介紹”類別”,類別你可以幫它想像一個設計圖,例如我們創立一個”車”的類別,那這台車可能有些屬性(名字、車輪數、顏色)以及一些方法例如車可以倒退、可以前進、可以左右轉。">
+<meta property="og:description" content="LINQ語法擴充了C#語言的查詢語法,可適用LINQ查詢的資料類型有">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F1.webp?alt=media&token=c23ea6b9-eadf-4254-a827-149be7066ee6">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F2.webp?alt=media&token=d808f221-659a-4029-aade-62c1f3a8a310">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F3.webp?alt=media&token=dff34c4e-5be1-40ba-8af4-4d16900b6d34">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F4.webp?alt=media&token=fadc847a-d750-416e-adcb-b9dc89183a4e">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F5.webp?alt=media&token=9c8b1cc3-447c-4fa5-a973-309580a87ad9">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F6.webp?alt=media&token=0cb92d98-b7e5-4a89-a01d-a0afee29ee2b">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F7.webp?alt=media&token=28b4ea2f-e81d-4589-b46a-7a884dc6a764">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F8.webp?alt=media&token=43ed358d-5c03-48a3-95f4-902a7db3cb26">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F9.webp?alt=media&token=10e70125-07c7-41a5-8c39-3fec368cf371">
-<meta property="article:published_time" content="2023-05-28T11:50:00.000Z">
-<meta property="article:modified_time" content="2023-05-28T12:00:39.118Z">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F1.gif?alt=media&token=5b5ed3ae-1504-46a7-a39f-fd60f1323d3a">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F2.webp?alt=media&token=6d860cf7-5a0a-4dac-bb89-42ed1fff9642">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F3.webp?alt=media&token=c1d7e25c-3b70-4d98-a83e-dbf0599571ba">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F4.webp?alt=media&token=877a7500-eb1d-4ae7-bcb1-256a6c0c5e86">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F5.webp?alt=media&token=38ab86d2-4ec5-4922-9c85-77bc7801f051">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F6.webp?alt=media&token=a8d84a31-50f2-4a54-99b3-775ee350b39b">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F7.webp?alt=media&token=1e7ca7fd-8424-4efa-98a4-7253ee7d4f6d">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F8.webp?alt=media&token=f5a97a97-d386-4736-a8dc-142f229795e4">
+<meta property="article:published_time" content="2023-05-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-28T14:16:46.961Z">
 <meta property="article:author" content="Jason">
+<meta property="article:tag" content="Csharp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F1.webp?alt=media&token=c23ea6b9-eadf-4254-a827-149be7066ee6">
+<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F1.gif?alt=media&token=5b5ed3ae-1504-46a7-a39f-fd60f1323d3a">
 
-<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/75774/">
+<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/39644/">
 
 
 <script id="page-configurations">
@@ -57,7 +57,7 @@
   };
 </script>
 
-  <title>C# —— 類別與物件 | 網頁的小宇宙</title>
+  <title>C# —— LINQ | 網頁的小宇宙</title>
   
 
 
@@ -202,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/75774/">
+    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/39644/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/SpaceMan%2F%E9%A0%AD%E8%B2%BC.png?alt=media&token=d5386314-4bb8-495e-88bd-cb8bf18dbd4f">
@@ -215,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C# —— 類別與物件
+          C# —— LINQ
         </h1>
 
         <div class="post-meta">
@@ -224,9 +224,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2023-05-28 19:50:00 / 修改時間：20:00:39" itemprop="dateCreated datePublished" datetime="2023-05-28T19:50:00+08:00">2023-05-28</time>
+              <time title="創建時間：2023-05-25 00:00:00" itemprop="dateCreated datePublished" datetime="2023-05-25T00:00:00+08:00">2023-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2023-05-28 22:16:46" itemprop="dateModified" datetime="2023-05-28T22:16:46+08:00">2023-05-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Csharp/" itemprop="url" rel="index"><span itemprop="name">Csharp</span></a>
+                </span>
             </span>
 
           
@@ -245,8 +260,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/posts/75774/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/75774/" itemprop="commentCount"></span>
+    <a title="disqus" href="/posts/39644/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/39644/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -261,44 +276,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>首先來介紹”類別”,類別你可以幫它想像一個設計圖,例如我們創立一個”車”的類別,那這台車可能有些<strong>屬性</strong>(名字、車輪數、顏色)以及一些<strong>方法</strong>例如車可以倒退、可以前進、可以左右轉。</p>
+        <p>LINQ語法擴充了C#語言的查詢語法,可適用LINQ查詢的資料類型有</p>
 <span id="more"></span>
-
-<h2 id="建立類別"><a href="#建立類別" class="headerlink" title="建立類別"></a>建立類別</h2><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F1.webp?alt=media&token=c23ea6b9-eadf-4254-a827-149be7066ee6" alt="&quot;photo&quot;"></p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F2.webp?alt=media&token=d808f221-659a-4029-aade-62c1f3a8a310" alt="&quot;photo&quot;"></p>
-<p>建立好類別後我們給它一些屬性跟方法</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F3.webp?alt=media&token=dff34c4e-5be1-40ba-8af4-4d16900b6d34" alt="&quot;photo&quot;"></p>
-<h2 id="屬性"><a href="#屬性" class="headerlink" title="屬性"></a>屬性</h2><p>若要在類別中存取資料,可以用欄位,但若要再加入一些商業邏輯的檢查,這時候須以屬性成員設定。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F4.webp?alt=media&token=fadc847a-d750-416e-adcb-b9dc89183a4e" alt="&quot;photo&quot;"></p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F5.webp?alt=media&token=9c8b1cc3-447c-4fa5-a973-309580a87ad9" alt="&quot;photo&quot;"></p>
-<blockquote>
-<p>使用 &#x3D; 可以給予預設值</p>
-</blockquote>
-<p>建立類別可以想像成建立一個設計圖,建立完類別後我們會需要建立<strong>物件</strong></p>
-<h2 id="物件是什麼"><a href="#物件是什麼" class="headerlink" title="物件是什麼?"></a>物件是什麼?</h2><p>其實生活周遭的東西你都可以把它看成一個物件,例如:房子、杯子、車子、狗，那每個物件都有它的<strong>屬性</strong>跟<strong>方法</strong>,屬性可以把它想成車子的特徵像是車子有黑色白色、有四輪二輪,而方法可以把它想成行為,像是車子可以往前倒退,左轉右轉.</p>
-<p>剛剛已經設計了一個車子的基本屬性跟方法,接下來我們要把它”實體化”</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F6.webp?alt=media&token=0cb92d98-b7e5-4a89-a01d-a0afee29ee2b" alt="&quot;photo&quot;"></p>
-<p>我們透過”new”這個關鍵字來實體化物件,實體化之後我們就可以對這個a,b分別設定屬性,用.來連結屬性跟方法</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F7.webp?alt=media&token=28b4ea2f-e81d-4589-b46a-7a884dc6a764" alt="&quot;photo&quot;"></p>
-<p>這邊分別對兩個物件來設定它的名子、車子顏色、車輪數,從這邊你可以了解到剛剛上面介紹的”設計圖”或”藍圖”是什麼意思了!</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F8.webp?alt=media&token=43ed358d-5c03-48a3-95f4-902a7db3cb26" alt="&quot;photo&quot;"></p>
-<blockquote>
-<p>此外我可以讓a,b執行方法</p>
-</blockquote>
-<hr>
-<h2 id="結構"><a href="#結構" class="headerlink" title="結構"></a>結構</h2><p>除了類別以外，另一種描述複雜資料的方式就是<strong>結構</strong>,有幾個特點:</p>
 <ol>
-<li>不能被繼承 </li>
-<li>無須使用new來建立物件</li>
-<li>屬於實值型別</li>
+<li>SQL Server</li>
+<li>XML文件</li>
+<li>ADO.NET資料集</li>
+<li>Entity Framework</li>
+<li>任何有實作IEnumerable介面或IEnumerable&lt;T&gt;泛型介面的集合物,像是Array及Collection等等</li>
 </ol>
-<p>結構和類別很像,都可以宣告欄位、方法、屬性等成員,結構適用在表示 “少量”資料”的強況,例如: 『System.Date.Time』結構就無需使用new關鍵字,便可以直接使用.</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DateTime getday = DateTime.Now;  </span><br></pre></td></tr></table></figure>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F1.gif?alt=media&token=5b5ed3ae-1504-46a7-a39f-fd60f1323d3a" alt="&quot;photo&quot;"></p>
+<p>過去在寫程式比對Array或List的資料時,不免會用到for或foreach迴圈,使用LINQ後你會發現它是個簡潔好懂、好維護的東西。</p>
+<p>使用LINQ前記得引用它的命名空間</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Linq;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F9.webp?alt=media&token=10e70125-07c7-41a5-8c39-3fec368cf371" alt="&quot;photo&quot;"></p>
-<p>參考:</p>
-<p><span class="exturl" data-url="aHR0cDovL2RvZzA0MTYuYmxvZ3Nwb3QuY29tLzIwMTcvMTEvY3Zpc3VhbC1zdHVkaW8tY2xhc3MtYW5kLW9iamVjdC5odG1s">類別與物件<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1ncGpBRkJoM0dKNA==">小山的 C# 教學-第14課-物件導向基礎 Class<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="LINQ基本查詢語法"><a href="#LINQ基本查詢語法" class="headerlink" title="LINQ基本查詢語法"></a>LINQ基本查詢語法</h2><p>STEP.1 指定資料來源這邊是 names陣列</p>
+<p>STEP.2 用form關鍵字指定一個變數用以取得集合中每個成員,使用in關鍵字指定資料來源</p>
+<p>STEP.3 執行查詢</p>
+<p>以下範例使用變數s代表names集合：</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F2.webp?alt=media&token=6d860cf7-5a0a-4dac-bb89-42ed1fff9642" alt="&quot;photo&quot;"></p>
+<h2 id="LINQ指定篩選條件-where"><a href="#LINQ指定篩選條件-where" class="headerlink" title="LINQ指定篩選條件(where)"></a>LINQ指定篩選條件(where)</h2><p>資料來源跟上面的一樣,使用where來挑選開頭是a的字串</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F3.webp?alt=media&token=c1d7e25c-3b70-4d98-a83e-dbf0599571ba" alt="&quot;photo&quot;"></p>
+<p>where運算式可以出現多次,先找開頭是a的字串,再找結尾是e的字串</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F4.webp?alt=media&token=877a7500-eb1d-4ae7-bcb1-256a6c0c5e86" alt="&quot;photo&quot;"></p>
+<h2 id="LINQ指定排序-orderby"><a href="#LINQ指定排序-orderby" class="headerlink" title="LINQ指定排序(orderby)"></a>LINQ指定排序(orderby)</h2><p>若要做降冪排序,則在orderby後加上descending</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F5.webp?alt=media&token=38ab86d2-4ec5-4922-9c85-77bc7801f051" alt="&quot;photo&quot;"></p>
+<h2 id="LINQ執行查詢分為兩種"><a href="#LINQ執行查詢分為兩種" class="headerlink" title="LINQ執行查詢分為兩種"></a>LINQ執行查詢分為兩種</h2><ol>
+<li><strong>延後執行查詢</strong></li>
+</ol>
+<p>剛剛以上的範例都屬於<strong>延後執行查詢</strong>,因實際執行查詢作業會延後至使用foreach來取回符合查詢的結果,因查詢變數本身並不會保留查詢結果,所以可以多次查詢變數來取得最新資料</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F6.webp?alt=media&token=a8d84a31-50f2-4a54-99b3-775ee350b39b" alt="&quot;photo&quot;"></p>
+<ol start="2">
+<li><strong>強制立即查詢</strong></li>
+</ol>
+<p>某些執行彙總函式不須使用foreach來啟動LINQ執行</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F7.webp?alt=media&token=1e7ca7fd-8424-4efa-98a4-7253ee7d4f6d" alt="&quot;photo&quot;"></p>
+<h3 id="LINQ方法補充"><a href="#LINQ方法補充" class="headerlink" title="LINQ方法補充"></a>LINQ方法補充</h3><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F8.webp?alt=media&token=f5a97a97-d386-4736-a8dc-142f229795e4" alt="&quot;photo&quot;"></p>
+<h3 id="LINQ查詢運算式語法與方法"><a href="#LINQ查詢運算式語法與方法" class="headerlink" title="LINQ查詢運算式語法與方法"></a>LINQ查詢運算式語法與方法</h3><h3 id="查詢運算式語法類似SQL語法"><a href="#查詢運算式語法類似SQL語法" class="headerlink" title="查詢運算式語法類似SQL語法"></a>查詢運算式語法類似SQL語法</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> query = <span class="keyword">from</span> n <span class="keyword">in</span> numbers</span><br><span class="line">            <span class="keyword">where</span> n% <span class="number">2</span> ==<span class="number">0</span></span><br><span class="line">            <span class="keyword">select</span> n;</span><br></pre></td></tr></table></figure>
+<p>其實經過編譯後LINQ查詢語法會變成方法語法上面這段等同於</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> query = numbers.Where(i =&gt; i % <span class="number">2</span> == <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p>Where方法裡使用條件運算式稱為<strong>Lambda運算式</strong>,用這種方式撰寫很方便,不須而外宣告方法。</p>
+<p>以上面程式碼為例, &#x3D;&gt;是<strong>Lambda運算式</strong>,可讀成<strong>移至</strong>,它左邊的i是輸入變數,代表資料集合中的每一個物件,上面例子裡就是numbers,運算時每一個數值會被<strong>移至</strong>右邊的查詢運算式處理。</p>
+<p>參考:<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vd2lsbGljay9wLzEzNTg2MDI0Lmh0bWw=">[C#.NET 拾遗补漏]08：强大的LINQ<i class="fa fa-external-link-alt"></i></span></p>
 <blockquote>
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
@@ -310,6 +330,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Csharp/" rel="tag"># Csharp</a>
+          </div>
 
         
 
@@ -317,10 +340,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/75773/" rel="prev" title="C# —— 繼承性(Inheritance)">
-      <i class="fa fa-chevron-left"></i> C# —— 繼承性(Inheritance)
+    <a href="/posts/53703/" rel="prev" title="C# —集合(ArrayList、List、Dictionary)">
+      <i class="fa fa-chevron-left"></i> C# —集合(ArrayList、List、Dictionary)
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/posts/23154/" rel="next" title="C# —— 多型性(Polymorphism)">
+      C# —— 多型性(Polymorphism) <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -386,7 +412,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.</span> <span class="nav-text">介紹</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E9%A1%9E%E5%88%A5"><span class="nav-number">1.1.</span> <span class="nav-text">建立類別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%AC%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">屬性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E6%98%AF%E4%BB%80%E9%BA%BC"><span class="nav-number">1.3.</span> <span class="nav-text">物件是什麼?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E6%A7%8B"><span class="nav-number">1.4.</span> <span class="nav-text">結構</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LINQ%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%A9%A2%E8%AA%9E%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">LINQ基本查詢語法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LINQ%E6%8C%87%E5%AE%9A%E7%AF%A9%E9%81%B8%E6%A2%9D%E4%BB%B6-where"><span class="nav-number">2.</span> <span class="nav-text">LINQ指定篩選條件(where)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LINQ%E6%8C%87%E5%AE%9A%E6%8E%92%E5%BA%8F-orderby"><span class="nav-number">3.</span> <span class="nav-text">LINQ指定排序(orderby)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LINQ%E5%9F%B7%E8%A1%8C%E6%9F%A5%E8%A9%A2%E5%88%86%E7%82%BA%E5%85%A9%E7%A8%AE"><span class="nav-number">4.</span> <span class="nav-text">LINQ執行查詢分為兩種</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LINQ%E6%96%B9%E6%B3%95%E8%A3%9C%E5%85%85"><span class="nav-number">4.1.</span> <span class="nav-text">LINQ方法補充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LINQ%E6%9F%A5%E8%A9%A2%E9%81%8B%E7%AE%97%E5%BC%8F%E8%AA%9E%E6%B3%95%E8%88%87%E6%96%B9%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">LINQ查詢運算式語法與方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%A9%A2%E9%81%8B%E7%AE%97%E5%BC%8F%E8%AA%9E%E6%B3%95%E9%A1%9E%E4%BC%BCSQL%E8%AA%9E%E6%B3%95"><span class="nav-number">4.3.</span> <span class="nav-text">查詢運算式語法類似SQL語法</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -404,6 +430,18 @@
           <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">文章</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
 </div>
@@ -538,9 +576,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://jasonhsieh-web.github.io/posts/75774/";
-    this.page.identifier = "posts/75774/";
-    this.page.title = "C# —— 類別與物件";
+    this.page.url = "https://jasonhsieh-web.github.io/posts/39644/";
+    this.page.identifier = "posts/39644/";
+    this.page.title = "C# —— LINQ";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

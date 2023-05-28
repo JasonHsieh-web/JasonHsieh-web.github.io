@@ -25,7 +25,7 @@
   <meta name="description" content="何謂Model?MVC中有關「資料」的任務都是皆由Model負責。負責定義資料型態，不管是在Controller或是View中，所有資料的型態都會參考到View。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ASP.NET MVC — Model">
-<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/89489/index.html">
+<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/58259/index.html">
 <meta property="og:site_name" content="網頁的小宇宙">
 <meta property="og:description" content="何謂Model?MVC中有關「資料」的任務都是皆由Model負責。負責定義資料型態，不管是在Controller或是View中，所有資料的型態都會參考到View。">
 <meta property="og:locale" content="zh_TW">
@@ -39,12 +39,13 @@
 <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F7.png?alt=media&token=fe59c3da-b3df-45cc-be19-0e9e82f1a996">
 <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F9.png?alt=media&token=ef50c759-3503-4cc2-913e-49e8e0f48a6f">
 <meta property="article:published_time" content="2022-03-13T10:56:21.387Z">
-<meta property="article:modified_time" content="2023-05-28T11:46:11.544Z">
+<meta property="article:modified_time" content="2023-05-28T14:17:28.905Z">
 <meta property="article:author" content="Jason">
+<meta property="article:tag" content="ASP.NET MVC">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F1.png?alt=media&token=9bee3d42-3a53-40a4-a11e-f36fb601c78a">
 
-<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/89489/">
+<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/58259/">
 
 
 <script id="page-configurations">
@@ -202,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/89489/">
+    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/58259/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/SpaceMan%2F%E9%A0%AD%E8%B2%BC.png?alt=media&token=d5386314-4bb8-495e-88bd-cb8bf18dbd4f">
@@ -232,8 +233,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2023-05-28 19:46:11" itemprop="dateModified" datetime="2023-05-28T19:46:11+08:00">2023-05-28</time>
+                <time title="修改時間：2023-05-28 22:17:28" itemprop="dateModified" datetime="2023-05-28T22:17:28+08:00">2023-05-28</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ASP-NET-MVC/" itemprop="url" rel="index"><span itemprop="name">ASP.NET MVC</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
@@ -251,8 +261,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/posts/89489/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/89489/" itemprop="commentCount"></span>
+    <a title="disqus" href="/posts/58259/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/58259/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -306,6 +316,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ASP-NET-MVC/" rel="tag"># ASP.NET MVC</a>
+          </div>
 
         
 
@@ -317,7 +330,7 @@
       <i class="fa fa-chevron-left"></i> Design Pattern — 內聚力與耦合力
     </a></div>
       <div class="post-nav-item">
-    <a href="/posts/847489/" rel="next" title="Design Pattern — SRP 單一責任原則">
+    <a href="/posts/43034/" rel="next" title="Design Pattern — SRP 單一責任原則">
       Design Pattern — SRP 單一責任原則 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -403,6 +416,18 @@
           <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">文章</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
 </div>
@@ -537,8 +562,8 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://jasonhsieh-web.github.io/posts/89489/";
-    this.page.identifier = "posts/89489/";
+    this.page.url = "https://jasonhsieh-web.github.io/posts/58259/";
+    this.page.identifier = "posts/58259/";
     this.page.title = "ASP.NET MVC — Model";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {

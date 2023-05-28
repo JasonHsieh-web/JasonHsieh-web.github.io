@@ -22,24 +22,17 @@
     var CONFIG = {"hostname":"jasonhsieh-web.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="多型性多型讓你可以用相同的方式操作同類型各式各樣的東西,而各式各樣的東西會展現它自己的特性,因此只要注意如何操作而不必在意東西是什麼。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="C# —— 多型性(Polymorphism)">
-<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/75771/index.html">
+  <meta name="description" content="不知道自己無知，乃是雙倍的無知。——柏拉圖">
+<meta property="og:type" content="website">
+<meta property="og:title" content="網頁的小宇宙">
+<meta property="og:url" content="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/index.html">
 <meta property="og:site_name" content="網頁的小宇宙">
-<meta property="og:description" content="多型性多型讓你可以用相同的方式操作同類型各式各樣的東西,而各式各樣的東西會展現它自己的特性,因此只要注意如何操作而不必在意東西是什麼。">
+<meta property="og:description" content="不知道自己無知，乃是雙倍的無知。——柏拉圖">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F1.webp?alt=media&token=382ea29b-9d36-45de-9869-9325654e3788">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F2.webp?alt=media&token=4c1795a0-5093-4634-b4b3-c6bcbafa9716">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F3.webp?alt=media&token=da446724-d60c-4ad2-affa-95fdd0c41dae">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F4.webp?alt=media&token=25896b7b-6af2-45fe-9aa0-41a36e5c36d7">
-<meta property="article:published_time" content="2023-05-27T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-28T11:51:32.832Z">
 <meta property="article:author" content="Jason">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F1.webp?alt=media&token=382ea29b-9d36-45de-9869-9325654e3788">
 
-<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/75771/">
+<link rel="canonical" href="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/">
 
 
 <script id="page-configurations">
@@ -47,12 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>C# —— 多型性(Polymorphism) | 網頁的小宇宙</title>
+  <title>分類: ASP.NET MVC | 網頁的小宇宙</title>
   
 
 
@@ -190,139 +183,160 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content category">
             
 
-    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/75771/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/SpaceMan%2F%E9%A0%AD%E8%B2%BC.png?alt=media&token=d5386314-4bb8-495e-88bd-cb8bf18dbd4f">
-      <meta itemprop="name" content="Jason">
-      <meta itemprop="description" content="不知道自己無知，乃是雙倍的無知。——柏拉圖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="網頁的小宇宙">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          C# —— 多型性(Polymorphism)
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2023-05-28 00:00:00 / 修改時間：19:51:32" itemprop="dateCreated datePublished" datetime="2023-05-28T00:00:00+08:00">2023-05-28</time>
-            </span>
-
-          
-            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">閱讀次數：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
   
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/posts/75771/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/75771/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h2 class="collection-header">ASP.NET MVC
+          <small>分類</small>
+        </h2>
+      </div>
 
       
-        <h2 id="多型性"><a href="#多型性" class="headerlink" title="多型性"></a>多型性</h2><p>多型讓你可以用相同的方式操作同類型各式各樣的東西,而各式各樣的東西會展現它自己的特性,因此只要注意如何操作而不必在意東西是什麼。</p>
-<span id="more"></span>
-
-<p>多型可以讓子類別<strong>覆寫</strong>繼承的方法,讓子類別有專屬的功能。</p>
-<p>子類別可以覆寫父類別中以<strong>virtual</strong>關鍵字標示的成員,此外覆寫參數必須與父類別定義的一樣。</p>
-<blockquote>
-<p><strong>this與base關鍵字</strong></p>
-</blockquote>
-<p><strong>『this』</strong> 關鍵字指向目前代表自身的這個物件</p>
-<p><strong>『base』</strong> 關鍵字可以取得目前這個類別的父類別實體成員</p>
-<blockquote>
-<p><strong>virtual與override關鍵字</strong></p>
-</blockquote>
-<p><strong>『virtual』</strong> 在父類別中標示代表允許子類別覆寫此屬性或方法</p>
-<p><strong>『override』</strong> 在子類別中使用override覆寫父類別的屬性或方法</p>
-<p><strong>『abstract』</strong>在父類別中標示一定要繼承之子類別來覆寫的屬性或方法,只要定義成員名稱及相關引數即可,不需加入任何程式碼內容,而留給子類別實作,此外<strong>abstract</strong>關鍵字只能用在標示為<strong>abstract</strong>的類別中</p>
-<hr>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F1.webp?alt=media&token=382ea29b-9d36-45de-9869-9325654e3788" alt="&quot;photo&quot;"></p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F2.webp?alt=media&token=4c1795a0-5093-4634-b4b3-c6bcbafa9716" alt="&quot;photo&quot;"></p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F3.webp?alt=media&token=da446724-d60c-4ad2-affa-95fdd0c41dae" alt="&quot;photo&quot;"></p>
-<p>未實作則會出現錯誤訊息</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F4.webp?alt=media&token=25896b7b-6af2-45fe-9aa0-41a36e5c36d7" alt="&quot;photo&quot;"></p>
-<p>參考:<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vd2lsbGljay9wLzEzNTg2MDI0Lmh0bWw=">[C#.NET 拾遗补漏]08：强大的LINQ<i class="fa fa-external-link-alt"></i></span></p>
-<blockquote>
-<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
-</blockquote>
-
+    <div class="collection-year">
+      <span class="collection-header">2022</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <footer class="post-footer">
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2022-03-13T18:56:21+08:00"
+              content="2022-03-13">
+          03-13
+        </time>
+      </div>
 
-        
+      <div class="post-title">
+          <a class="post-title-link" href="/posts/58259/" itemprop="url">
+            <span itemprop="name">ASP.NET MVC — Model</span>
+          </a>
+      </div>
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/posts/75770/" rel="prev" title="C# —— LINQ">
-      <i class="fa fa-chevron-left"></i> C# —— LINQ
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/75773/" rel="next" title="C# —— 繼承性(Inheritance)">
-      C# —— 繼承性(Inheritance) <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+    <div class="collection-year">
+      <span class="collection-header">2021</span>
+    </div>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2021-11-24T00:00:00+08:00"
+              content="2021-11-24">
+          11-24
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/posts/36985/" itemprop="url">
+            <span itemprop="name">ASP.NET MVC — DataAnnotation 資料模型驗證</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2021-11-23T00:00:00+08:00"
+              content="2021-11-23">
+          11-23
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/posts/64363/" itemprop="url">
+            <span itemprop="name">ASP.NET MVC — HTML Helper與自訂HTML Helper</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2021-11-22T00:00:00+08:00"
+              content="2021-11-22">
+          11-22
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/posts/26595/" itemprop="url">
+            <span itemprop="name">ASP.NET MVC — Razor</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2021-11-22T00:00:00+08:00"
+              content="2021-11-22">
+          11-22
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/posts/27249/" itemprop="url">
+            <span itemprop="name">ASP.NET MVC — View</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2021-10-25T00:00:00+08:00"
+              content="2021-10-25">
+          10-25
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/posts/40435/" itemprop="url">
+            <span itemprop="name">ASP.NET MVC — Controller</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+
+    </div>
+  </div>
   
   
+  
+
   
 
 
 
           </div>
           
-    
-  <div class="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-    </div>
-  </div>
-  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -369,7 +383,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%9E%8B%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">多型性</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -387,6 +400,18 @@
           <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">文章</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
 </div>
@@ -518,26 +543,6 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
-</script>
-<script>
-  var disqus_config = function() {
-    this.page.url = "https://jasonhsieh-web.github.io/posts/75771/";
-    this.page.identifier = "posts/75771/";
-    this.page.title = "C# —— 多型性(Polymorphism)";
-    };
-  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-    if (window.DISQUS) {
-      DISQUS.reset({
-        reload: true,
-        config: disqus_config
-      });
-    } else {
-      var d = document, s = d.createElement('script');
-      s.src = 'https://jasonhsieh-web.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', '' + +new Date());
-      (d.head || d.body).appendChild(s);
-    }
-  });
 </script>
 
 </body>

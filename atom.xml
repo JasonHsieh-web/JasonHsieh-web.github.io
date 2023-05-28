@@ -6,7 +6,7 @@
   <link href="https://jasonhsieh-web.github.io/atom.xml" rel="self"/>
   
   <link href="https://jasonhsieh-web.github.io/"/>
-  <updated>2023-05-28T12:00:39.118Z</updated>
+  <updated>2023-05-28T14:16:57.557Z</updated>
   <id>https://jasonhsieh-web.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>C# —— 類別與物件</title>
-    <link href="https://jasonhsieh-web.github.io/posts/75774/"/>
-    <id>https://jasonhsieh-web.github.io/posts/75774/</id>
+    <link href="https://jasonhsieh-web.github.io/posts/8749/"/>
+    <id>https://jasonhsieh-web.github.io/posts/8749/</id>
     <published>2023-05-28T11:50:00.000Z</published>
-    <updated>2023-05-28T12:00:39.118Z</updated>
+    <updated>2023-05-28T14:16:57.557Z</updated>
     
     <content type="html"><![CDATA[<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>首先來介紹”類別”,類別你可以幫它想像一個設計圖,例如我們創立一個”車”的類別,那這台車可能有些<strong>屬性</strong>(名字、車輪數、顏色)以及一些<strong>方法</strong>例如車可以倒退、可以前進、可以左右轉。</p><span id="more"></span><h2 id="建立類別"><a href="#建立類別" class="headerlink" title="建立類別"></a>建立類別</h2><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F1.webp?alt=media&token=c23ea6b9-eadf-4254-a827-149be7066ee6" alt="&quot;photo&quot;"></p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F2.webp?alt=media&token=d808f221-659a-4029-aade-62c1f3a8a310" alt="&quot;photo&quot;"></p><p>建立好類別後我們給它一些屬性跟方法</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F3.webp?alt=media&token=dff34c4e-5be1-40ba-8af4-4d16900b6d34" alt="&quot;photo&quot;"></p><h2 id="屬性"><a href="#屬性" class="headerlink" title="屬性"></a>屬性</h2><p>若要在類別中存取資料,可以用欄位,但若要再加入一些商業邏輯的檢查,這時候須以屬性成員設定。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F4.webp?alt=media&token=fadc847a-d750-416e-adcb-b9dc89183a4e" alt="&quot;photo&quot;"></p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F5.webp?alt=media&token=9c8b1cc3-447c-4fa5-a973-309580a87ad9" alt="&quot;photo&quot;"></p><blockquote><p>使用 &#x3D; 可以給予預設值</p></blockquote><p>建立類別可以想像成建立一個設計圖,建立完類別後我們會需要建立<strong>物件</strong></p><h2 id="物件是什麼"><a href="#物件是什麼" class="headerlink" title="物件是什麼?"></a>物件是什麼?</h2><p>其實生活周遭的東西你都可以把它看成一個物件,例如:房子、杯子、車子、狗，那每個物件都有它的<strong>屬性</strong>跟<strong>方法</strong>,屬性可以把它想成車子的特徵像是車子有黑色白色、有四輪二輪,而方法可以把它想成行為,像是車子可以往前倒退,左轉右轉.</p><p>剛剛已經設計了一個車子的基本屬性跟方法,接下來我們要把它”實體化”</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F6.webp?alt=media&token=0cb92d98-b7e5-4a89-a01d-a0afee29ee2b" alt="&quot;photo&quot;"></p><p>我們透過”new”這個關鍵字來實體化物件,實體化之後我們就可以對這個a,b分別設定屬性,用.來連結屬性跟方法</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F7.webp?alt=media&token=28b4ea2f-e81d-4589-b46a-7a884dc6a764" alt="&quot;photo&quot;"></p><p>這邊分別對兩個物件來設定它的名子、車子顏色、車輪數,從這邊你可以了解到剛剛上面介紹的”設計圖”或”藍圖”是什麼意思了!</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F8.webp?alt=media&token=43ed358d-5c03-48a3-95f4-902a7db3cb26" alt="&quot;photo&quot;"></p><blockquote><p>此外我可以讓a,b執行方法</p></blockquote><hr><h2 id="結構"><a href="#結構" class="headerlink" title="結構"></a>結構</h2><p>除了類別以外，另一種描述複雜資料的方式就是<strong>結構</strong>,有幾個特點:</p><ol><li>不能被繼承 </li><li>無須使用new來建立物件</li><li>屬於實值型別</li></ol><p>結構和類別很像,都可以宣告欄位、方法、屬性等成員,結構適用在表示 “少量”資料”的強況,例如: 『System.Date.Time』結構就無需使用new關鍵字,便可以直接使用.</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DateTime getday = DateTime.Now;  </span><br></pre></td></tr></table></figure><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6%2F9.webp?alt=media&token=10e70125-07c7-41a5-8c39-3fec368cf371" alt="&quot;photo&quot;"></p><p>參考:</p><p><span class="exturl" data-url="aHR0cDovL2RvZzA0MTYuYmxvZ3Nwb3QuY29tLzIwMTcvMTEvY3Zpc3VhbC1zdHVkaW8tY2xhc3MtYW5kLW9iamVjdC5odG1s">類別與物件<i class="fa fa-external-link-alt"></i></span></p><p><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1ncGpBRkJoM0dKNA==">小山的 C# 教學-第14課-物件導向基礎 Class<i class="fa fa-external-link-alt"></i></span></p><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
@@ -30,15 +30,19 @@
     
     
     
+    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/categories/Csharp/"/>
+    
+    
+    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/tags/Csharp/"/>
     
   </entry>
   
   <entry>
     <title>C# —— 繼承性(Inheritance)</title>
-    <link href="https://jasonhsieh-web.github.io/posts/75773/"/>
-    <id>https://jasonhsieh-web.github.io/posts/75773/</id>
+    <link href="https://jasonhsieh-web.github.io/posts/59073/"/>
+    <id>https://jasonhsieh-web.github.io/posts/59073/</id>
     <published>2023-05-28T11:00:00.000Z</published>
-    <updated>2023-05-28T11:54:32.293Z</updated>
+    <updated>2023-05-28T14:14:27.295Z</updated>
     
     <content type="html"><![CDATA[<h2 id="繼承性"><a href="#繼承性" class="headerlink" title="繼承性"></a>繼承性</h2><p>今天要介紹物件導向三大特性之一 : <strong>繼承性(Inheritance)</strong></p><span id="more"></span><p>所謂的繼承性，指的就是「物件可以透過繼承，獲得其他物件的屬性與行為」</p><p>先想像一下今天我們先規畫一個”車子”的藍圖,比如它有多少油量,前進時會扣多少油量,加油可以加多少油量,像下面這樣!</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E7%B9%BC%E6%89%BF%E6%80%A7%2F1.webp?alt=media&token=4721b623-bfa2-48fd-9ff5-abc9d8be05cb" alt="&quot;photo&quot;"></p><p>ok,後我們新增一個toyota的class,當然它也有車子的一些屬性或方法</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E7%B9%BC%E6%89%BF%E6%80%A7%2F2.webp?alt=media&token=7058d3d5-9ead-4bc0-b4d0-7e766d3c3422" alt="&quot;photo&quot;"></p><p>這時候你可能會增加更多品牌車子的class,例如:BMW,Honda,Ford等等,這時候你可能會想在其中一個class的方法裡面增加一些程式碼,例如在Goahead裡增加前進多少公里,那其他品牌的class就也要加上這段程式碼,因為大家都是車子嘛,這種時候就不是很方便要一個一個加上去.</p><p>那這時候<strong>繼承性</strong>就派上用場了,它可以讓物件繼承其他物件的行為與屬性</p><p>好你可能會發現上面兩段程式長的差不多,只差在toyota多了個Connect方法</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E7%B9%BC%E6%89%BF%E6%80%A7%2F3.webp?alt=media&token=8e752722-e23f-42b6-918d-92265580f48d" alt="&quot;photo&quot;"></p><p>那我們就可以讓Toyota來繼承Car的屬性以及方法,並且Toyota也有自己的屬性及方法,繼承的方法 Toyota : Car</p><blockquote><p>ex: ClassA繼承ClassB   class A : B { … }</p></blockquote><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E7%B9%BC%E6%89%BF%E6%80%A7%2F4.webp?alt=media&token=50b1d8cd-0a8c-4253-a961-016d2c7efa0a" alt="&quot;photo&quot;"></p><p>我們建立一個Toyota的物件,可以看到它的確繼承了Car的方法Goahead</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E7%B9%BC%E6%89%BF%E6%80%A7%2F5.webp?alt=media&token=56dbb268-ae0d-4fd0-a849-e588c03c305b" alt="&quot;photo&quot;"></p><p>如果同時有好幾個class都具有一樣的方法或屬性,我們就可以用繼承的方式,將重複的程式碼寫在一個class,並讓其他class來繼承它喔!</p><p>參考:<br><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1zUmRkaktoeDloayZsaXN0PVBMYlhnaFNvUWNMWnRXcVRBOHExTnNCeVZwSU5vUk9ISGUmaW5kZXg9MzI=">小山的 C# 教學-第29課-繼承性<i class="fa fa-external-link-alt"></i></span></p><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
@@ -47,15 +51,19 @@
     
     
     
+    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/categories/Csharp/"/>
+    
+    
+    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/tags/Csharp/"/>
     
   </entry>
   
   <entry>
     <title>C# —— 多型性(Polymorphism)</title>
-    <link href="https://jasonhsieh-web.github.io/posts/75771/"/>
-    <id>https://jasonhsieh-web.github.io/posts/75771/</id>
+    <link href="https://jasonhsieh-web.github.io/posts/23154/"/>
+    <id>https://jasonhsieh-web.github.io/posts/23154/</id>
     <published>2023-05-27T16:00:00.000Z</published>
-    <updated>2023-05-28T11:51:32.832Z</updated>
+    <updated>2023-05-28T14:16:52.941Z</updated>
     
     <content type="html"><![CDATA[<h2 id="多型性"><a href="#多型性" class="headerlink" title="多型性"></a>多型性</h2><p>多型讓你可以用相同的方式操作同類型各式各樣的東西,而各式各樣的東西會展現它自己的特性,因此只要注意如何操作而不必在意東西是什麼。</p><span id="more"></span><p>多型可以讓子類別<strong>覆寫</strong>繼承的方法,讓子類別有專屬的功能。</p><p>子類別可以覆寫父類別中以<strong>virtual</strong>關鍵字標示的成員,此外覆寫參數必須與父類別定義的一樣。</p><blockquote><p><strong>this與base關鍵字</strong></p></blockquote><p><strong>『this』</strong> 關鍵字指向目前代表自身的這個物件</p><p><strong>『base』</strong> 關鍵字可以取得目前這個類別的父類別實體成員</p><blockquote><p><strong>virtual與override關鍵字</strong></p></blockquote><p><strong>『virtual』</strong> 在父類別中標示代表允許子類別覆寫此屬性或方法</p><p><strong>『override』</strong> 在子類別中使用override覆寫父類別的屬性或方法</p><p><strong>『abstract』</strong>在父類別中標示一定要繼承之子類別來覆寫的屬性或方法,只要定義成員名稱及相關引數即可,不需加入任何程式碼內容,而留給子類別實作,此外<strong>abstract</strong>關鍵字只能用在標示為<strong>abstract</strong>的類別中</p><hr><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F1.webp?alt=media&token=382ea29b-9d36-45de-9869-9325654e3788" alt="&quot;photo&quot;"></p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F2.webp?alt=media&token=4c1795a0-5093-4634-b4b3-c6bcbafa9716" alt="&quot;photo&quot;"></p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F3.webp?alt=media&token=da446724-d60c-4ad2-affa-95fdd0c41dae" alt="&quot;photo&quot;"></p><p>未實作則會出現錯誤訊息</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%A4%9A%E5%9E%8B%E6%80%A7(Polymorphism)%2F4.webp?alt=media&token=25896b7b-6af2-45fe-9aa0-41a36e5c36d7" alt="&quot;photo&quot;"></p><p>參考:<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vd2lsbGljay9wLzEzNTg2MDI0Lmh0bWw=">[C#.NET 拾遗补漏]08：强大的LINQ<i class="fa fa-external-link-alt"></i></span></p><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
@@ -64,15 +72,19 @@
     
     
     
+    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/categories/Csharp/"/>
+    
+    
+    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/tags/Csharp/"/>
     
   </entry>
   
   <entry>
     <title>C# —— LINQ</title>
-    <link href="https://jasonhsieh-web.github.io/posts/75770/"/>
-    <id>https://jasonhsieh-web.github.io/posts/75770/</id>
+    <link href="https://jasonhsieh-web.github.io/posts/39644/"/>
+    <id>https://jasonhsieh-web.github.io/posts/39644/</id>
     <published>2023-05-24T16:00:00.000Z</published>
-    <updated>2023-05-28T11:42:06.075Z</updated>
+    <updated>2023-05-28T14:16:46.961Z</updated>
     
     <content type="html"><![CDATA[<p>LINQ語法擴充了C#語言的查詢語法,可適用LINQ查詢的資料類型有</p><span id="more"></span><ol><li>SQL Server</li><li>XML文件</li><li>ADO.NET資料集</li><li>Entity Framework</li><li>任何有實作IEnumerable介面或IEnumerable&lt;T&gt;泛型介面的集合物,像是Array及Collection等等</li></ol><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F1.gif?alt=media&token=5b5ed3ae-1504-46a7-a39f-fd60f1323d3a" alt="&quot;photo&quot;"></p><p>過去在寫程式比對Array或List的資料時,不免會用到for或foreach迴圈,使用LINQ後你會發現它是個簡潔好懂、好維護的東西。</p><p>使用LINQ前記得引用它的命名空間</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Linq;</span><br></pre></td></tr></table></figure><h2 id="LINQ基本查詢語法"><a href="#LINQ基本查詢語法" class="headerlink" title="LINQ基本查詢語法"></a>LINQ基本查詢語法</h2><p>STEP.1 指定資料來源這邊是 names陣列</p><p>STEP.2 用form關鍵字指定一個變數用以取得集合中每個成員,使用in關鍵字指定資料來源</p><p>STEP.3 執行查詢</p><p>以下範例使用變數s代表names集合：</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F2.webp?alt=media&token=6d860cf7-5a0a-4dac-bb89-42ed1fff9642" alt="&quot;photo&quot;"></p><h2 id="LINQ指定篩選條件-where"><a href="#LINQ指定篩選條件-where" class="headerlink" title="LINQ指定篩選條件(where)"></a>LINQ指定篩選條件(where)</h2><p>資料來源跟上面的一樣,使用where來挑選開頭是a的字串</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F3.webp?alt=media&token=c1d7e25c-3b70-4d98-a83e-dbf0599571ba" alt="&quot;photo&quot;"></p><p>where運算式可以出現多次,先找開頭是a的字串,再找結尾是e的字串</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F4.webp?alt=media&token=877a7500-eb1d-4ae7-bcb1-256a6c0c5e86" alt="&quot;photo&quot;"></p><h2 id="LINQ指定排序-orderby"><a href="#LINQ指定排序-orderby" class="headerlink" title="LINQ指定排序(orderby)"></a>LINQ指定排序(orderby)</h2><p>若要做降冪排序,則在orderby後加上descending</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F5.webp?alt=media&token=38ab86d2-4ec5-4922-9c85-77bc7801f051" alt="&quot;photo&quot;"></p><h2 id="LINQ執行查詢分為兩種"><a href="#LINQ執行查詢分為兩種" class="headerlink" title="LINQ執行查詢分為兩種"></a>LINQ執行查詢分為兩種</h2><ol><li><strong>延後執行查詢</strong></li></ol><p>剛剛以上的範例都屬於<strong>延後執行查詢</strong>,因實際執行查詢作業會延後至使用foreach來取回符合查詢的結果,因查詢變數本身並不會保留查詢結果,所以可以多次查詢變數來取得最新資料</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F6.webp?alt=media&token=a8d84a31-50f2-4a54-99b3-775ee350b39b" alt="&quot;photo&quot;"></p><ol start="2"><li><strong>強制立即查詢</strong></li></ol><p>某些執行彙總函式不須使用foreach來啟動LINQ執行</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F7.webp?alt=media&token=1e7ca7fd-8424-4efa-98a4-7253ee7d4f6d" alt="&quot;photo&quot;"></p><h3 id="LINQ方法補充"><a href="#LINQ方法補充" class="headerlink" title="LINQ方法補充"></a>LINQ方法補充</h3><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2FLINQ%2F8.webp?alt=media&token=f5a97a97-d386-4736-a8dc-142f229795e4" alt="&quot;photo&quot;"></p><h3 id="LINQ查詢運算式語法與方法"><a href="#LINQ查詢運算式語法與方法" class="headerlink" title="LINQ查詢運算式語法與方法"></a>LINQ查詢運算式語法與方法</h3><h3 id="查詢運算式語法類似SQL語法"><a href="#查詢運算式語法類似SQL語法" class="headerlink" title="查詢運算式語法類似SQL語法"></a>查詢運算式語法類似SQL語法</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> query = <span class="keyword">from</span> n <span class="keyword">in</span> numbers</span><br><span class="line">            <span class="keyword">where</span> n% <span class="number">2</span> ==<span class="number">0</span></span><br><span class="line">            <span class="keyword">select</span> n;</span><br></pre></td></tr></table></figure><p>其實經過編譯後LINQ查詢語法會變成方法語法上面這段等同於</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> query = numbers.Where(i =&gt; i % <span class="number">2</span> == <span class="number">0</span>);</span><br></pre></td></tr></table></figure><p>Where方法裡使用條件運算式稱為<strong>Lambda運算式</strong>,用這種方式撰寫很方便,不須而外宣告方法。</p><p>以上面程式碼為例, &#x3D;&gt;是<strong>Lambda運算式</strong>,可讀成<strong>移至</strong>,它左邊的i是輸入變數,代表資料集合中的每一個物件,上面例子裡就是numbers,運算時每一個數值會被<strong>移至</strong>右邊的查詢運算式處理。</p><p>參考:<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vd2lsbGljay9wLzEzNTg2MDI0Lmh0bWw=">[C#.NET 拾遗补漏]08：强大的LINQ<i class="fa fa-external-link-alt"></i></span></p><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
@@ -81,15 +93,19 @@
     
     
     
+    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/categories/Csharp/"/>
+    
+    
+    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/tags/Csharp/"/>
     
   </entry>
   
   <entry>
     <title>C# —集合(ArrayList、List、Dictionary)</title>
-    <link href="https://jasonhsieh-web.github.io/posts/24896/"/>
-    <id>https://jasonhsieh-web.github.io/posts/24896/</id>
+    <link href="https://jasonhsieh-web.github.io/posts/53703/"/>
+    <id>https://jasonhsieh-web.github.io/posts/53703/</id>
     <published>2023-05-23T16:00:00.000Z</published>
-    <updated>2023-05-28T11:43:43.054Z</updated>
+    <updated>2023-05-28T14:17:05.339Z</updated>
     
     <content type="html"><![CDATA[<h1 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a><strong>ArrayList</strong></h1><p>它和陣列非常類似,它比陣列有彈性可以動態地增加ArrayList中的項目,陣列則不行。當需要一個資料結構可以動態新增或移除成員時便可使用ArrayList物件來記錄。使用前須引用命名空間</p> <span id="more"></span><blockquote><p><span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLXR3L2RvdG5ldC9hcGkvc3lzdGVtLmNvbGxlY3Rpb25zP3ZpZXc9bmV0LTUuMA==">System.Collections<i class="fa fa-external-link-alt"></i></span></p></blockquote><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F1.webp?alt=media&token=0262e711-b95e-4bd8-87d5-63bb580a360c" alt="&quot;photo&quot;"></p><h1 id="陣列-vs-集合"><a href="#陣列-vs-集合" class="headerlink" title="陣列 vs 集合"></a><strong>陣列 vs 集合</strong></h1><h2 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a><strong>陣列</strong></h2><ol><li>透過索引值存取成員ex:arr[0]&#x3D;123</li><li>無法變更陣列大小</li><li>若要儲存較多或較少成員時只能宣告新陣列</li><li>陣列中所有成員都必須是同一種資料型別<blockquote><p>因此陣列適合用來儲存固定個數、型別相同的資料</p></blockquote></li></ol><h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a><strong>集合</strong></h2><ol><li>可以動態新增或減少</li><li>透過索引值或健值存取成員</li></ol><hr><h1 id="List-lt-T-gt"><a href="#List-lt-T-gt" class="headerlink" title="List &lt;T&gt;"></a><strong>List &lt;T&gt;</strong></h1><ol><li>具備索引值</li><li>可透過方法增加或減少成員</li><li>透過<strong>泛型</strong>指定成員型別</li></ol><p>使用前一樣先使用它的命名空間</p><blockquote><p><span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLXR3L2RvdG5ldC9hcGkvc3lzdGVtLmNvbGxlY3Rpb25zLmdlbmVyaWM/dmlldz1uZXQtNS4w">System.Collections.Generic<i class="fa fa-external-link-alt"></i></span></p></blockquote><p>在宣告時將型別參數&lt;T&gt;設為自己想要的型別</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F2.webp?alt=media&token=c9ef143d-6a49-4e7b-8a14-a745f3be65ef" alt="&quot;photo&quot;"></p><p>此外可用.Count來得到List的總數</p><h2 id="List好用的method"><a href="#List好用的method" class="headerlink" title="List好用的method"></a><strong>List好用的method</strong></h2><ol><li>Sort() 排序</li></ol><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F3.webp?alt=media&token=c924c7d6-8143-494a-8e66-35f250eb4815" alt="&quot;photo&quot;"></p><ol start="2"><li>Contain() 檢查是否有物件x</li></ol><h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F4.webp?alt=media&token=e9869b08-02e7-4672-ab91-40464d12ffea" alt="&quot;photo&quot;"></h2><h1 id="Dictionary"><a href="#Dictionary" class="headerlink" title="Dictionary"></a><strong>Dictionary</strong></h1><ol><li>適合儲存具備鍵值的資料</li><li>可以透過方法增加或減少成員項目</li><li>透過泛型指定成員型別</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dictionary是一種索引鍵/值組(key/Value)成對的資料結過,透過Key找到對應的Value,特別注意使用Dictionary時需要傳兩個型別參數,代表Key跟Value,並且每個Key都必須是唯一的</span><br></pre></td></tr></table></figure><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F5.webp?alt=media&token=4de30449-74c0-42ee-abb2-f7032d9873dc" alt="&quot;photo&quot;"></p><h2 id="集合初始式"><a href="#集合初始式" class="headerlink" title="集合初始式"></a><strong>集合初始式</strong></h2><p>簡單來說就是宣告集合變數時順帶<strong>初始化集合成員</strong>可以使用兩種語法:</p><p><strong>集合初始式與索引初始式</strong>,如此一來可以簡短程式碼</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F6.webp?alt=media&token=8351feae-f7cc-4a89-b05b-ac7fcac87b20" alt="&quot;photo&quot;"></p><h2 id="最後小小補充一下-泛型Generic"><a href="#最後小小補充一下-泛型Generic" class="headerlink" title="最後小小補充一下 泛型Generic"></a><strong>最後小小補充一下 泛型<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLXR3L2RvdG5ldC9hcGkvc3lzdGVtLmNvbGxlY3Rpb25zLmdlbmVyaWM/dmlldz1uZXQtNS4w">Generic<i class="fa fa-external-link-alt"></i></span></strong></h2><p>在之前我們要宣告方法的話輸入跟輸出都必須是相同型別,那如果今天我想要輸入跟輸出的型別不同的話,就要定義多個方法,儘管他們做一樣的事情</p><p>泛型出現後,我們可以使用它定義一個方法,<strong>滿足不同參數類型</strong>,做相同的事情</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先定義一個型別為&lt;T&gt;的方法,&lt;T&gt;為暫時替代型別,所以說我們可以先不用定義它是什麼型別,就可以完成class或method的設計</span><br></pre></td></tr></table></figure><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F7.webp?alt=media&token=ec11326d-bfb9-477f-9650-1ff8868aa201" alt="&quot;photo&quot;"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">定義型別的時間,延後到我們真正要使用它的時候才來定義</span><br></pre></td></tr></table></figure><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E9%9B%86%E5%90%88(ArrayList%E3%80%81List%E3%80%81Dictionary)%2F8.webp?alt=media&token=188dc4d0-1ef0-4295-a70e-1c8d6ee9a72f" alt="&quot;photo&quot;"></p><p>參考及推薦:</p><p><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj0yQ204S3hFdXRqSQ==">小山的 C# 教學 - 第 49 課 - 串列 (List)<i class="fa fa-external-link-alt"></i></span></p><p><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1MbzZkb3JLQjB0aw==">小山的 C# 教學 - 第 50 課 - 泛型 (Generics) 的初步介紹<i class="fa fa-external-link-alt"></i></span></p><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
@@ -98,15 +114,19 @@
     
     
     
+    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/categories/Csharp/"/>
+    
+    
+    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/tags/Csharp/"/>
     
   </entry>
   
   <entry>
     <title>Design Pattern — SRP 單一責任原則</title>
-    <link href="https://jasonhsieh-web.github.io/posts/847489/"/>
-    <id>https://jasonhsieh-web.github.io/posts/847489/</id>
+    <link href="https://jasonhsieh-web.github.io/posts/43034/"/>
+    <id>https://jasonhsieh-web.github.io/posts/43034/</id>
     <published>2023-05-17T16:00:00.000Z</published>
-    <updated>2023-05-28T11:45:11.453Z</updated>
+    <updated>2023-05-28T14:17:02.600Z</updated>
     
     <content type="html"><![CDATA[<h1 id="待…"><a href="#待…" class="headerlink" title="待…"></a>待…</h1><blockquote><p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推<i class="fa fa-external-link-alt"></i></span></p></blockquote><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
@@ -119,15 +139,19 @@
     
     
     
+    <category term="Design Pattern" scheme="https://jasonhsieh-web.github.io/categories/Design-Pattern/"/>
+    
+    
+    <category term="Design Pattern" scheme="https://jasonhsieh-web.github.io/tags/Design-Pattern/"/>
     
   </entry>
   
   <entry>
     <title>ASP.NET MVC — Model</title>
-    <link href="https://jasonhsieh-web.github.io/posts/89489/"/>
-    <id>https://jasonhsieh-web.github.io/posts/89489/</id>
+    <link href="https://jasonhsieh-web.github.io/posts/58259/"/>
+    <id>https://jasonhsieh-web.github.io/posts/58259/</id>
     <published>2022-03-13T10:56:21.387Z</published>
-    <updated>2023-05-28T11:46:11.544Z</updated>
+    <updated>2023-05-28T14:17:28.905Z</updated>
     
     <content type="html"><![CDATA[<h1 id="何謂Model"><a href="#何謂Model" class="headerlink" title="何謂Model?"></a>何謂Model?</h1><p>MVC中有關「資料」的任務都是皆由Model負責。負責定義資料型態，不管是在Controller或是View中，所有資料的型態都會參考到View。</p><span id="more"></span><h1 id="Model的任務"><a href="#Model的任務" class="headerlink" title="Model的任務"></a>Model的任務</h1><p>MVC強調關注點分離，其中Model只負責與資料有關的商業邏輯，其他如:控制網站流程、資料流向或頁面顯示等工作，Model都不會介入，Model更著重於有效率地提供資料的存取、資料格式驗證、商業邏輯驗證等等。獨立性非常高的Model常會因為撰寫太多商業邏輯後，導致閱讀不易，因此建議在寫大量的商業邏輯可以多加一個Service的資料夾，讓Model只專注在資料存取及格式驗證上。</p><h2 id="動手建立Model看看吧"><a href="#動手建立Model看看吧" class="headerlink" title="動手建立Model看看吧"></a>動手建立Model看看吧</h2><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F1.png?alt=media&token=9bee3d42-3a53-40a4-a11e-f36fb601c78a" alt="photo"></p><p>我們對Model資料夾按右鍵，增加一個Todo的類別，給他幾個屬性，如上圖如果對類別有問題的可以參考我這篇，有介紹類別與物件。</p><p>好我們再建立一個Service的資料夾,並新增一個function來建立物件,如下圖。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F2.png?alt=media&token=1f596ee0-83be-46bd-b449-114d3cc431e3" alt="photo"></p><p>這邊只是簡單介紹Model再MVC的角色,當然實務上Model更容易用來接收資料庫的資料。</p><p>再來有幾個步驟我們在Controller中使用我們寫的function並傳給View。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F3.png?alt=media&token=206e2e26-ba32-46cc-9906-43b6e8721657" alt="photo"></p><p>再來我們要新增Index的View</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F4.png?alt=media&token=aaa47457-4b4f-4314-8aa4-1497ba03e6f7" alt="photo"></p><p>並且把剛剛在Controller上傳過來的Model顯示出來看看，記得在上頭的地方要宣告，在使用時才有參數提示，這是強型別的特性。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F5.png?alt=media&token=17ec4ae4-c717-4fdb-ab91-6651135ce049" alt="photo"></p><p>看看成果~</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F6.png?alt=media&token=ec997836-ef28-406d-b464-5ca96b807248" alt="photo"></p><h1 id="DataAnnotations語意標註"><a href="#DataAnnotations語意標註" class="headerlink" title="DataAnnotations語意標註"></a>DataAnnotations語意標註</h1><p>再來介紹我們可以使用DataAnnotations進行語意標註,例如用「DisplayName」來設定顯示名稱，「Requierd」要求資料必須輸入等等。更多詳細資料可以參考<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1pY3Jvc29mdC5jb20vemgtdHcvZG90bmV0L2FwaS9zeXN0ZW0uY29tcG9uZW50bW9kZWwuZGF0YWFubm90YXRpb25zP3ZpZXc9bmV0LTUuMA==">這裡<i class="fa fa-external-link-alt"></i></span>。本人文章可以參考<a href="https://jasonhsieh-web.github.io/posts/36983/">這裡</a></p><p>使用時記得引用以下命名空間</p><blockquote><p>using System.ComponentModel;<br>using System.ComponentModel.DataAnnotations;</p></blockquote><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F7.png?alt=media&token=fe59c3da-b3df-45cc-be19-0e9e82f1a996" alt="photo"></p><p>修改一下，我們一開始建立的Model，並且在View上試試效果。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F7.png?alt=media&token=fe59c3da-b3df-45cc-be19-0e9e82f1a996" alt="photo"></p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FModel%2F9.png?alt=media&token=ef50c759-3503-4cc2-913e-49e8e0f48a6f" alt="photo"></p><p>Html.DisplayNameFor是屬於<a href="https://jasonhsieh-web.github.io/posts/64362/#more">HtmlHelper</a>內的一種方法,在View主題的時候會提到。</p><p>以上就是Model的簡單基本介紹，有空會再補充稍微進階的用法。</p><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
@@ -136,6 +160,10 @@
     
     
     
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/"/>
+    
+    
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
     
   </entry>
   
@@ -154,15 +182,19 @@
     
     
     
+    <category term="Design Pattern" scheme="https://jasonhsieh-web.github.io/categories/Design-Pattern/"/>
+    
+    
+    <category term="Design Pattern" scheme="https://jasonhsieh-web.github.io/tags/Design-Pattern/"/>
     
   </entry>
   
   <entry>
     <title>ASP.NET MVC — DataAnnotation 資料模型驗證</title>
-    <link href="https://jasonhsieh-web.github.io/posts/36983/"/>
-    <id>https://jasonhsieh-web.github.io/posts/36983/</id>
+    <link href="https://jasonhsieh-web.github.io/posts/36985/"/>
+    <id>https://jasonhsieh-web.github.io/posts/36985/</id>
     <published>2021-11-23T16:00:00.000Z</published>
-    <updated>2023-05-28T11:42:44.159Z</updated>
+    <updated>2023-05-28T14:17:08.984Z</updated>
     
     <content type="html"><![CDATA[<p>網站中，開發者會為頁面資料，進行欄位驗證確保資料的正確性，因此開發者一般會使用JavaScript來進行客戶端驗證，而ASP.NET MVC中，無提供自動化的客戶端驗證，而是須使用模型驗證(Model Validate)。</p><span id="more"></span><h2 id="Model-Validate"><a href="#Model-Validate" class="headerlink" title="Model Validate"></a><strong>Model Validate</strong></h2><p>Model Validate的應用讓開發者可謂Model附加上驗證，使得當使用者傳送輸入資料前，進行Model的驗證邏輯，Model Validate是透過.NET Framework裡的DataAnnotation輔助進行驗證，DataAnnotation提供讓開發者以附加屬性的方式，來添加資料驗證規則，進而完成資料驗證。</p><h2 id="客戶端驗證"><a href="#客戶端驗證" class="headerlink" title="客戶端驗證"></a><strong>客戶端驗證</strong></h2><p>DataAnnotation 配合Javascript的三個檔案jquery.js、jquery.validate.js、jquery.validate.unobtrusive.js，後兩個檔案是在客戶端上輔助進行驗證的JavaScript，在NuGet安裝就行了。如下圖，安裝反白的套件剛說的三個檔案都會安裝下來，使用Html.Helper會自動幫我們產生jquery的驗證屬性。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F1.png?alt=media&token=13ff245d-0de3-4509-a280-39d9ccd1bb19" alt="photo"></p><hr><h2 id="驗證屬性"><a href="#驗證屬性" class="headerlink" title="驗證屬性"></a><strong>驗證屬性</strong></h2><p>在使用驗證屬性前要先using兩個命名空間</p><blockquote><p>using System.ComponentModel;</p></blockquote><blockquote><p>using System.ComponentModel.DataAnnotations;</p></blockquote><ol><li><p>DisplayName:用於定義欄位顯示名稱<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F2.png?alt=media&token=7c891d4d-a42a-4fa4-bf11-5415c1fc6921" alt="photo"></p></li><li><p>Required:可藉由傳入參數ErrorMessage來設定顯示的錯誤訊息<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F3.png?alt=media&token=9fcb4494-493f-4ef0-8691-c0a0c2f38a5e" alt="photo"></p></li><li><p>StringLength:定義字串最大長度，也可以傳入MinimumLength來設定最小長度<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F4.png?alt=media&token=bfb1b6fc-2b86-40a4-99f7-c42f3bc3e11a" alt="photo"></p></li><li><p>Range:定義數值欄位的上下限值，可以設定最小跟最大值<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F5.png?alt=media&token=5208e57b-d1d2-4cb4-9206-0a5b32271b4c" alt="photo"></p></li><li><p>Compare:用於比對與另一個欄位的內容是否相同，最常被用在會員註冊，會需要輸入兩次相同的密碼進行驗證<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F6.png?alt=media&token=ae5a2010-32f7-4382-a100-b4e6dd38a939" alt="photo"></p></li><li><p>RegularExpression:用於使欄位輸入的內容必須符合指定的正規表達式，想了解正規表達式可以看我的這篇文章<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F7.png?alt=media&token=983f8b9d-b7b0-450f-b9ad-e23671161659" alt="photo"></p></li><li><p>EmailAddress:驗證是否為電子郵件<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F8.png?alt=media&token=8594fe72-27d0-410d-a306-16efd87811d9" alt="photo"></p></li><li><p>Url]驗證欄位是否是網址格式<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F9.png?alt=media&token=af90f592-06a5-4a3d-8e17-ec650a763745" alt="photo"></p></li><li><p>FileExtension:定義檔案的副檔名，預設為png、jpg、jpeg、gif，若要使用FileExtension必須先用NuGet安裝<strong>jQuery.Validation.AdditionMethods</strong><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F10.png?alt=media&token=f5d66f5f-9686-4ba2-8cca-f51e6a0103ec" alt="photo"><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F11.png?alt=media&token=b4642c7f-c994-4a58-9d83-f03a30c14fc1" alt="photo"></p></li><li><p>creditCard:判斷是否為信用卡卡號</p></li><li><p>DataType:可藉由傳入參數決定欄位資料型態，@Html.EditorFor，會依照資料型態不同產生不同的input type<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F12.png?alt=media&token=e53b520f-fb1a-417c-83fc-718f28b87d81" alt="photo"></p></li><li><p>Remote:可使欄位輸入值透過AJAX方式送到指定的Controller Action進行驗證，並藉由回傳的結果，來驗證是否成功<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F13.png?alt=media&token=718affdf-2dba-41a2-8a4d-ac68e9fd8a03" alt="photo"><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/MVC%20DataAnnotation%2F14.png?alt=media&token=e59e5daf-b1ab-4213-9135-e7ff89961915" alt="photo"></p></li></ol><blockquote><p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4Mzk1Nzc=">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)<i class="fa fa-external-link-alt"></i></span></p></blockquote><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
@@ -171,15 +203,19 @@
     
     
     
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/"/>
+    
+    
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
     
   </entry>
   
   <entry>
     <title>ASP.NET MVC — HTML Helper與自訂HTML Helper</title>
-    <link href="https://jasonhsieh-web.github.io/posts/64362/"/>
-    <id>https://jasonhsieh-web.github.io/posts/64362/</id>
+    <link href="https://jasonhsieh-web.github.io/posts/64363/"/>
+    <id>https://jasonhsieh-web.github.io/posts/64363/</id>
     <published>2021-11-22T16:00:00.000Z</published>
-    <updated>2023-05-28T11:45:37.426Z</updated>
+    <updated>2023-05-28T14:17:11.838Z</updated>
     
     <content type="html"><![CDATA[<h1 id="HTML-Helper"><a href="#HTML-Helper" class="headerlink" title="HTML Helper"></a>HTML Helper</h1><p>在ASP.NET MVC中可以使用HTML Helper輔助產生需要的HTML語法，進而增加專案開發的效率。以下介紹HTML Helper的方法。</p><span id="more"></span><ol><li><p>輸出超連結</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>)</span><br><span class="line">第一個參數為想顯示的文字,第二個參數為此View預設Controller中的Action</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;首頁&quot;</span>,<span class="string">&quot;Index&quot;</span>)</span><br></pre></td></tr></table></figure><p>1-1</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>,<span class="string">&quot;ControllerName&quot;</span>)</span><br><span class="line">第三個參數可以指定Controller名稱</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;首頁&quot;</span>,<span class="string">&quot;Index&quot;</span>,<span class="string">&quot;Home&quot;</span>)</span><br></pre></td></tr></table></figure><p>1-2</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>,RouteValues)</span><br><span class="line">第三個參數為路由的參數</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;關於&quot;</span>,<span class="string">&quot;Aboot&quot;</span>,<span class="keyword">new</span> &#123; id = <span class="number">0</span> &#125;)</span><br></pre></td></tr></table></figure><p>1-3</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>,RouteValues,htmlAttributes)</span><br><span class="line">第四個參數可以設定HTML屬性,需在關鍵字前加上@才能正確編譯,若HTML屬性含有「-」 符號必須用底線「_」代替,如data-<span class="keyword">value</span>需改為data_value</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;關於&quot;</span>,<span class="string">&quot;Aboot&quot;</span>,<span class="keyword">new</span> &#123; id = <span class="number">0</span> &#125;,<span class="keyword">new</span> &#123;@class=<span class="string">&#x27;btn&#x27;</span>)</span><br></pre></td></tr></table></figure></li><li><p>弱型別Helper<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F1.png?alt=media&token=1f7d1f07-17dd-48f7-b0f6-9b1b55e30ef2" alt="photo"></p></li><li><p>強行別Helper可傳入Model,都是以For作為結尾，若使用強行別Helper，需在View的頂端使用@model 定義此View所參考的Model，才能正確編譯。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F2.png?alt=media&token=fae84b15-3a05-4b12-bf51-ba95fae8574a" alt="photo"></p></li></ol><blockquote><p>強型別好處是，支援Model物件的成員名稱IntelliSense提示及編譯時期的檢查。</p></blockquote><h1 id="自訂HTML-Helper"><a href="#自訂HTML-Helper" class="headerlink" title="自訂HTML Helper"></a>自訂HTML Helper</h1><p>我們可新增擴充方法自訂全站都可以使用的HTML Helper，建議獨立出一個資料夾。擴充方法為靜態方法，因此定義HTML Helper方法必須宣告為靜態方法(static method)，並存放於一個靜態的類別中(static class)。此外還需注意回傳的型態，若使用string作為字串回傳的型態，回傳的內容將被透過HTML編碼後進行輸出,而使用System.Web.Mvc.MvcHtmlString作為字串回傳時，當內容包含標籤資料，便會直接輸出成HTML標籤。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F3.png?alt=media&token=7ff9295e-42b2-4f6f-92b1-9ab2c0fe0d52" alt="photo"><br>若欲於View中使用自訂的HTML Helper，必須先在View的最上方引用命名空間，便能在View中使用自訂的HTML Helper</p><blockquote><p>@using  專案名稱.Helpers</p></blockquote><p>除了上述的StringBuilder組自定義的HTML Helper，ASP.NET MVC為了HTML標籤需求而提供TagBuilder類別，因此也可使用TagBuilder類別來自定義HTML Helper，以更物件化的方式產生需要的HTML標籤。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F4.png?alt=media&token=09087c6b-5be0-4170-995d-b0883a17717d" alt="photo"></p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TagBuilder中的Tostring的多載方法</span><br><span class="line">空(預設) = 正常的標籤 &lt;Lable id=<span class="string">&quot;test&quot;</span>&gt;xxx&lt;/Label&gt;</span><br><span class="line">TagRenderMode.Nomal = 正常的標籤 &lt;Lable id=<span class="string">&quot;test&quot;</span>&gt;xxx&lt;/Label&gt;</span><br><span class="line">TagRenderMode.StartTag = 開始標籤 &lt;Lable&gt;</span><br><span class="line">TagRenderMode.EndTag = 結束標籤 &lt;/Label&gt;</span><br><span class="line">TagRenderMode.SelfClosing =自我結束標籤 &lt;Lable id=<span class="string">&quot;test&quot;</span>/&gt;</span><br></pre></td></tr></table></figure><hr><blockquote><p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4Mzk1Nzc=">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)<i class="fa fa-external-link-alt"></i></span></p></blockquote><blockquote><p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4MjY4MjM/c2xvYz1tYWlu">網頁程式設計ASP.NET MVC 5.X範例完美演繹(適用Visual C# 2019&#x2F;2017)（第三版）<i class="fa fa-external-link-alt"></i></span></p></blockquote><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
@@ -188,15 +224,19 @@
     
     
     
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/"/>
+    
+    
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
     
   </entry>
   
   <entry>
     <title>ASP.NET MVC — Razor</title>
-    <link href="https://jasonhsieh-web.github.io/posts/26594/"/>
-    <id>https://jasonhsieh-web.github.io/posts/26594/</id>
+    <link href="https://jasonhsieh-web.github.io/posts/26595/"/>
+    <id>https://jasonhsieh-web.github.io/posts/26595/</id>
     <published>2021-11-21T16:00:00.000Z</published>
-    <updated>2023-05-28T11:45:51.043Z</updated>
+    <updated>2023-05-28T14:17:22.986Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Razor"><a href="#Razor" class="headerlink" title="Razor"></a>Razor</h1><p>Razor又稱Razor Syntax，是用來將Server Side的C#程式嵌入到HTML中的標記語法，如下圖。</p><span id="more"></span><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F1.png?alt=media&token=1c21ef9e-0bd6-4516-be7e-3ea1889358bf" alt="photo"></p><blockquote><p>Razor中只有HTML及C#兩種元素，結合再一起就形成了Razor語法。</p></blockquote><blockquote><p>C#程式區塊是以@{…}包覆，裡面是一般C#程式。</p></blockquote><blockquote><p>Razor inline表達式是指C#變數穿插在HTML中，而Razor中預設是Html語言，若遇到@符號，表示後面接的是C#指令。</p></blockquote><blockquote><p>Razor會依不同的規則或符號在HTML和c#間切換。</p></blockquote><h2 id="Razor支援的保留關鍵字"><a href="#Razor支援的保留關鍵字" class="headerlink" title="Razor支援的保留關鍵字"></a><strong>Razor支援的保留關鍵字</strong></h2><p>不是所有C#指令或關鍵字都能在Razor中使用，Razor支援的保留關鍵字，分為兩大類:</p><ol><li><p>Razor關鍵字:section、model、helper、inherits和functions五個關鍵字是Razor創造的，用來支持Razor語法所需功能。</p></li><li><p>C#關鍵字:源自既有的C#，而不是Razor創造的，如:using、if…else、switch…case、for、foreach、while…..等等</p></li></ol><p> Razor只能在View檢視(.cshtml)中使用，而不能再.html中使用，所以View也稱為Razor View 或 View Template。</p><h3 id="Razor語法規則"><a href="#Razor語法規則" class="headerlink" title="Razor語法規則"></a><strong>Razor語法規則</strong></h3><p>規則1:以@符號作為C#開頭</p><p>規則2:以@{…}宣告單行的C#程式<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F2.png?alt=media&token=7a71d1d9-3363-4247-a79b-ab4e836af377" alt="photo"></p><p>規則3:以@{…}宣告多行的C#程式<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F3.png?alt=media&token=479f15a3-1601-4716-a413-233e2b55b266" alt="photo"></p><p>規則4:C#的inline表達式<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F4.png?alt=media&token=fafd3275-a994-4936-8912-354dd10edfbc" alt="photo"></p><p>規則5:C#程式區塊中的HTML隱式轉換</p><p>@{….}程式區塊中預設語言是C#，但若夾雜了HTML語法，Razor會自動做隱式轉換。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F5.png?alt=media&token=4a121fdf-7e89-48a7-8940-6595b5d3a5b0" alt="photo"></p><p>規則6:C#關鍵字嚴格區分大小寫</p><p>規則7:Razor明確表達式為@(….)符號</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F6.png?alt=media&token=416212ef-aa06-4623-b645-eb7e61e4c387" alt="photo"></p><p>規則8:以文字顯示@符號，需用@@表示</p><p>規則9:用@Html.Raw()顯示原始字串，不做HTML編碼</p><p>規則10:磁碟路徑表示法</p><p>字串變數入包含磁碟路徑，可在最前面加上@符號,若要把檔案虛擬路徑轉成實體路徑，可用Server.MapPath()方法。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F7.png?alt=media&token=cfeebe0b-47b0-47d9-8c68-5dc1d82dbfd5" alt="photo"></p><h3 id="Razor判斷式與流程控制"><a href="#Razor判斷式與流程控制" class="headerlink" title="Razor判斷式與流程控制"></a><strong>Razor判斷式與流程控制</strong></h3><p>Razor若要做判斷式或迴圈流程控制，可用C#的if、for、foreach等指令</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F8.png?alt=media&token=6e5a1452-5c40-4769-ac47-3a85a9b6f47b" alt="photo"></p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F9.png?alt=media&token=a2d3a33a-6520-4709-b506-a020a7836221" alt="photo"></p><blockquote><p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4MjY4MjM/c2xvYz1tYWlu">網頁程式設計ASP.NET MVC 5.X範例完美演繹(適用Visual C# 2019&#x2F;2017)（第三版）<i class="fa fa-external-link-alt"></i></span></p></blockquote><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
@@ -205,15 +245,19 @@
     
     
     
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/"/>
+    
+    
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
     
   </entry>
   
   <entry>
     <title>ASP.NET MVC — View</title>
-    <link href="https://jasonhsieh-web.github.io/posts/36984/"/>
-    <id>https://jasonhsieh-web.github.io/posts/36984/</id>
+    <link href="https://jasonhsieh-web.github.io/posts/27249/"/>
+    <id>https://jasonhsieh-web.github.io/posts/27249/</id>
     <published>2021-11-21T16:00:00.000Z</published>
-    <updated>2023-05-28T11:45:47.431Z</updated>
+    <updated>2023-05-28T14:17:20.430Z</updated>
     
     <content type="html"><![CDATA[<h1 id="View的責任"><a href="#View的責任" class="headerlink" title="View的責任"></a>View的責任</h1><p>View主要負責顯示Controller傳來的資料與指令，因此View中的程式碼只專注於呈現資料的用途，其他的運算邏輯與流程，View都不會介入。</p><span id="more"></span><h1 id="View的位置"><a href="#View的位置" class="headerlink" title="View的位置"></a>View的位置</h1><p>View的位置會在專案最外層資料夾下(Views)，並且由各個Controller命名的資料夾進行分類，而Shared裡面放的是Layout為母版頁面，會看到Shared資料夾裡的_Layout.cshtml是含有底線的命名，一般為全站通用的功用型檔案.<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F1.png?alt=media&token=1b3942dc-3f40-4f69-9684-f234300e927e" alt="photo"></p><h2 id="ViewStart-cshtml"><a href="#ViewStart-cshtml" class="headerlink" title="_ViewStart.cshtml"></a>_ViewStart.cshtml</h2><p>執行階段透過ViewResult所執行的View都會先執行_ViewStart.cshtml，所以開發者可以在這個檔案中設定屬於全站View的共同預設特徵，這樣就不用在每個View中各自指定，_ViewStart.cshtml的預設內容如下。</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">Layout = <span class="string">&quot;~/Views/Shared/_Layout.cshtml&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>但如果在View中指定了Layout，則會以該View設定為主，同樣也可以將Layout設定清空，方式是將Layout設定為null，表示這一個View將不使用任何Layout。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F2.png?alt=media&token=8d26f0e6-98ad-45ec-8ae8-08a5e39e5e5f" alt="photo"></p><h2 id="Layout主版頁面"><a href="#Layout主版頁面" class="headerlink" title="Layout主版頁面"></a>Layout主版頁面</h2><p>主板通常包含網頁布局中共用或最常用到的部分，例如:網站Logo、導覽列、網站頁首、頁尾或是功能列等等，並與內容葉面進行結合。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F3.png?alt=media&token=b9f848ec-e14b-4f1c-8eff-036ff3bdeff5" alt="photo"></p><h2 id="Layout檔案介紹"><a href="#Layout檔案介紹" class="headerlink" title="_Layout檔案介紹"></a>_Layout檔案介紹</h2><blockquote><p>@RenderBody</p></blockquote><p>@RenderBody可設定套用此主版內容頁面所輸出的位置,例如有一個index的View而他套用了_Layout而@RenderBody就是用來呈現這個index的內容。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F4.png?alt=media&token=436f422a-3ad4-4080-be91-8dc03c83de73" alt="photo"></p><blockquote><p>@RenderSection</p></blockquote><p>@RenderSection用於輸出頁面中具名區段的內容。第一個參數為具名區段的名稱，若具名區段對應此名稱，將會載入此處，第二個參數可用於設定該區段是否須確實存在，傳入值為true or false。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F5.png?alt=media&token=eeb2c5d0-022d-47f0-95c8-ede9c9132011" alt="photo"></p><p>而在View中會用@section 具名參數名稱{….內容}來加入該區段的內容。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F6.png?alt=media&token=8acc03e1-c8e2-4c21-8abb-18210bd07be1" alt="photo"></p><blockquote><p>@RenderPage</p></blockquote><p>@RenderPage方法的用途於主版頁面中可載入另一個檢視頁面。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F7.png?alt=media&token=2e721f6b-a452-436a-a580-99bf026aaaa3" alt="photo"></p><hr><p>MVC中的View包含HtmlHelper與Razor我會把他們各自寫一篇來介紹~</p><blockquote><p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4Mzk1Nzc=">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)<i class="fa fa-external-link-alt"></i></span></p></blockquote><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
@@ -222,15 +266,19 @@
     
     
     
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/"/>
+    
+    
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
     
   </entry>
   
   <entry>
     <title>C# — 抽象類別與介面</title>
-    <link href="https://jasonhsieh-web.github.io/posts/37572/"/>
-    <id>https://jasonhsieh-web.github.io/posts/37572/</id>
+    <link href="https://jasonhsieh-web.github.io/posts/37573/"/>
+    <id>https://jasonhsieh-web.github.io/posts/37573/</id>
     <published>2021-11-20T16:00:00.000Z</published>
-    <updated>2023-05-28T11:46:19.799Z</updated>
+    <updated>2023-05-28T14:17:25.304Z</updated>
     
     <content type="html"><![CDATA[<h1 id="抽象類別"><a href="#抽象類別" class="headerlink" title="抽象類別"></a><strong>抽象類別</strong></h1><p>將類別之間的共同特性,從類別中萃取出來的動作,就稱之為「抽象化」,如交通工具封裝一些特性,再透過繼承的方式由子類別來展現這一些特性：如汽車、腳踏車、機車。如果是不同類型物件間的共同特性，則可以定義成介面。</p><span id="more"></span><p>抽象類別就是將同種類類別的共通特性，定義到父類別中，再透過繼承的動作，讓子類別都可以具備一致的特性。以上面交通工具的角色就是用來定義所有交通工具的”共同特性”。像這種類別，就稱為「抽象類別」。</p><p>抽象類別可以含抽象成員的類別，但無法使用「new」關鍵字建立物件。<br>現在假設定義一個「Shape」類別來描述所有形狀的共同特性,而在此類別中設計一個「ShowInfo」方法,但不同種類的「Shape」，要顯示的訊息不同，因此「ShowInfo」需要加上virtual關鍵字讓子類別可以override。像「ShowInfo」這一種在每個子類別中，都需要覆寫才可以使用的方法，在物件導向中可以宣告為「抽象方法」。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F1.png?alt=media&token=bfc19677-e407-4c6f-b333-a853d63d6be6" alt="&quot;photo&quot;"></p><p>繼承抽象類別的子類別中，必須實作所有抽象成員，子類別使用override宣告抽象方法實作。</p><p>下圖宣告Rectangle和Circle繼承Shape，可以看到不同的子類別因各自定義不同的抽象成員的實作方法，因此也會產生多型的現象。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F2.png?alt=media&token=6d8ca9e4-22d7-4f7a-a72f-7450774540c1" alt="&quot;photo&quot;"></p><hr><h1 id="介面"><a href="#介面" class="headerlink" title="介面"></a><strong>介面</strong></h1><p>在C#中可以利用interface定義介面來模擬多重繼承，界面和類別一樣可以定義屬性、方法、事件。不同的地方在於介面僅可定義抽象成員，不包含實作的部分，實作部分留給繼承此介面的類別來實作。定義介面習慣以大寫I來命名。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F3.png?alt=media&token=f7685c29-bcea-4249-b6ab-5575b980abf6" alt="&quot;photo&quot;"><br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5%E8%88%87%E4%BB%8B%E9%9D%A2%2F4.png?alt=media&token=a534396a-ce0c-4eaf-b1c4-7185d4d395cc" alt="&quot;photo&quot;"></p><h2 id="介面與抽象類別的比較"><a href="#介面與抽象類別的比較" class="headerlink" title="介面與抽象類別的比較"></a><strong>介面與抽象類別的比較</strong></h2><p>介面跟抽象類別都是屬於物件導向抽象化的產物，但有兩個主要不同點：</p><blockquote><p>抽象類別主要是定義同種類物件所需要具備的基本特性，因此需要被繼承之後，這些特性才會展現在子類別中。</p></blockquote><blockquote><p>介面則是用來定義不同種類物件，提供相同功能所需要具備的特性。因此不同種類的物件，實作相同的介面就會有相同的功能。</p></blockquote><blockquote><p>抽象類別中，可以定義實體成員。雖然抽象類別不能直接建立實體，但是這些實體的特性會被繼承到子類別中。</p></blockquote><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
@@ -239,15 +287,19 @@
     
     
     
+    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/categories/Csharp/"/>
+    
+    
+    <category term="Csharp" scheme="https://jasonhsieh-web.github.io/tags/Csharp/"/>
     
   </entry>
   
   <entry>
     <title>ASP.NET MVC — Controller</title>
-    <link href="https://jasonhsieh-web.github.io/posts/36985/"/>
-    <id>https://jasonhsieh-web.github.io/posts/36985/</id>
+    <link href="https://jasonhsieh-web.github.io/posts/40435/"/>
+    <id>https://jasonhsieh-web.github.io/posts/40435/</id>
     <published>2021-10-24T16:00:00.000Z</published>
-    <updated>2023-05-28T11:46:07.854Z</updated>
+    <updated>2023-05-28T14:17:27.607Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Controller的責任"><a href="#Controller的責任" class="headerlink" title="Controller的責任"></a>Controller的責任</h1><p>MVC強調關注點分離,其中Controller只負責網站流程相關,其他像是商業邏輯或頁面顯示等工作,Controller一律不會介入,主要著重在控制網站及使用路由傳遞資料等認識。</p><span id="more"></span><h1 id="Controller的基本要求"><a href="#Controller的基本要求" class="headerlink" title="Controller的基本要求"></a>Controller的基本要求</h1><p>Controller為一個類別,此類別可以包含許多方法(Method),這方法會被稱為一個Action或Action方法,透過這些Action,Controller可接受客戶端傳送來的要求與決定回應的View。</p><p><strong>新增Controller時必須注意類別名稱必須是Controller結尾</strong></p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F1.png?alt=media&token=6eb1c530-d8c1-449d-8772-a08dddc76af3" alt="photo"></p><p>Controller接受請求後會依照程式敘述判斷是否需要對Model或Service進行呼叫，若Controller需對其進行呼叫,程式便會執行Model中的商業邏輯或是使用Service進行資料庫處理,然後回傳所需的資料至Controller。</p><h2 id="RouteConfig"><a href="#RouteConfig" class="headerlink" title="RouteConfig"></a>RouteConfig</h2><p>要如何知道網址和Controller的相對應關係呢?我們可以找到&#x2F;APP_Start&#x2F;RouteConfig.cs這支檔案。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F2.png?alt=media&token=fe832482-ee07-4447-9656-d6602017c166" alt="photo"></p><h2 id="IgnoreRoute"><a href="#IgnoreRoute" class="headerlink" title="IgnoreRoute"></a>IgnoreRoute</h2><p>在此語法後的字串,代表的是不要透過Routing處理的網址</p><h2 id="MapRoute"><a href="#MapRoute" class="headerlink" title="MapRoute"></a>MapRoute</h2><p>MapRoute表示Routing設定的規則，參數分別為:</p><ol><li>Name:對於這個Route的命名</li><li>Url:網址條件，當網址符合條件時，會依據這個Route去找對應的程式碼</li><li>Defaults:參數的預設值。第一層為Controller、第二層為Action、第三層為Id。若網址未輸入Controller.Action.Id，預設路由&#x2F;Home&#x2F;Index</li></ol><p>注意:id不像controller跟action都指派到一個很明確的目標預設可有可無因此設值為UrlParameter.Optional(若不是設定UrlParameter.Optional則會變成必帶參數)。詳細路由會在寫一篇來介紹~</p><h2 id="ActionResult"><a href="#ActionResult" class="headerlink" title="ActionResult"></a>ActionResult</h2><p>ActionResult是用來回傳執行結果的抽象類別，以下列出ActionResult及ActionResult的衍生類別</p><ol><li>ContentResult</li></ol><p>會回傳純文字文件</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F3.png?alt=media&token=7e2fbcaf-9369-46e7-ae79-6cca29c0bfab" alt="photo"></p><ol start="2"><li>EmptyResult</li></ol><p>會回傳空的結果，通常只要Action的回傳是null，Asp.Net MVC將會使用EmptyResult當作回傳類型。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F4.png?alt=media&token=1bce9916-ef5a-4b7a-beff-f1bf4bcde5f6" alt="photo"></p><ol start="3"><li>RedirectResult</li></ol><p>此回傳會重新導向連結,此方法相當於Asp.Net的Response.Redirect。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F5.png?alt=media&token=96295ed5-d7db-4bc4-907a-05c79e3b84a4" alt="photo"></p><p>當在網址輸入&#x2F;Home&#x2F;RedirectResult會被導向到&#x2F;Home&#x2F;Index。</p><ol start="4"><li>RedirectToRouteResult</li></ol><p>此回傳與RedirectResult類似會重新導向連結，不同的是RedirectToRouteResult是使用Controller類別的RedirecToAction和RedirecToRoute方法來回傳。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F6.png?alt=media&token=f0b43aba-f8f5-43be-ba2d-26ca935ef6b8" alt="photo"></p><p>注意:RedirectResult是根據網址(Url)進行頁面導向，只需Url撰寫正確，不僅是同一專案下的Controller Action，連同”外部”的網頁都可以進行導向。RedirectToRouteResult是根據路由(Route)來進行導向，主要只會導向至同一專案下的Controller Action。</p><ol start="5"><li>ViewResult</li></ol><p>會回傳一個檢視(View)結果</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F7.png?alt=media&token=d3e01f62-3ec0-4040-b0aa-b16b57c431f6" alt="photo"></p><ol start="6"><li>PatialViewResult</li></ol><p>與ViewResult類似，都會回傳一個檢視結果，不同的是回傳一個部分檢視(Partial View),而且也不支援主版的應用,詳細用法會在另外寫一篇介紹。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F8.png?alt=media&token=6d79cb8e-d09b-40cb-a9a0-4221045b5715" alt="photo"></p><ol start="7"><li>HttpUnauthorizedResult</li></ol><p>會回傳一個未經授權的錯誤，Asp.Net MVC會發送一個HTTP錯誤401的狀態</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F9.png?alt=media&token=a55e84c8-d726-4e88-af21-2a05febb09a9" alt="photo"></p><ol start="8"><li>HttpNotFoundResult</li></ol><p>與ViewResult類似，都會回傳一個檢視結果，不同的是回傳一個部分檢視(Partial View),而且也不支援主版的應用,詳細用法會在另外寫一篇介紹。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F10.png?alt=media&token=eaa94150-961d-42ad-b030-e657b2091ded" alt="photo"></p><ol start="9"><li>JsonResult</li></ol><p>會傳一個Json結果,Asp.Net MVC將Response.ContentType定義為application&#x2F;json,並透過JavaScriptSerializer將回傳物件序列化成Json字串,Asp.Net MVC會默認不允許GET請求JSON結果,若要使用必須將JsonRequestBehavior設置為AllowGet。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F11.png?alt=media&token=f002c768-086d-47b6-ae78-e8357315f45c" alt="photo"></p><ol start="10"><li>FilePathResult</li></ol><p>會回傳一個檔案內容,而FilePathResult是透過路徑來傳送檔案到客戶端,主要是以Controller類別的File方法來回傳FilePathResult。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F12.png?alt=media&token=be0c9961-8a89-4836-ae85-f1189fd12796" alt="photo"></p><ol start="11"><li>FileContentResult</li></ol><p>會回傳一個檔案內容,而FileContentResult是透過二進位資料的方式傳遞。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F13.png?alt=media&token=331f3a03-7ec1-4223-b884-b476ef1ef332" alt="photo"></p><ol start="12"><li>FileStreamResult</li></ol><p>會回傳一個檔案內容,是透過Stream的方式傳遞。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F14.png?alt=media&token=9af17dde-ed36-4615-9085-9358e196e2f4" alt="photo"></p><ol start="13"><li>ActionResult</li></ol><p>ActionResult是Controller Action執行後的回傳結果類型,上述所講的類別都是直接或間接繼承自ActionResult,所以在基本上上述幾點所用的方法都可以用在ActionResult上。ActionResult的回傳可使用直接或間接繼承至ActionResult的類別,所以ActionResult的回傳結果比較廣泛。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F15.png?alt=media&token=a2931d3e-3a05-4a6a-9299-840c8dd17965" alt="photo"></p><h2 id="ViewData、ViewBag、TempData"><a href="#ViewData、ViewBag、TempData" class="headerlink" title="ViewData、ViewBag、TempData"></a>ViewData、ViewBag、TempData</h2><h3 id="ViewData"><a href="#ViewData" class="headerlink" title="ViewData"></a><strong>ViewData</strong></h3><p>利用ViewData可設定顯示在前端的資訊,在頁面中只要透過ViewData就可取得後端傳來的資料,ViewData只能對一個Action有作用,若頁面導向後ViewData中的資料便會清除。</p><h3 id="ViewBag"><a href="#ViewBag" class="headerlink" title="ViewBag"></a><strong>ViewBag</strong></h3><p>ViewBag與ViewData有一樣的功用,差別在於ViewBag可產生動態屬性,利用dynamic這個型別包裝，使用ViewBag時不需再進行類別的轉換,資料可直接取用。</p><h3 id="TempData"><a href="#TempData" class="headerlink" title="TempData"></a><strong>TempData</strong></h3><p>TempData預設會將資料存放在Session,因此生命週期存在於一整個Request的範圍,就算網頁進行導向,還是能夠取得資料,但只允許一次的導向,在經過第二次後TempData的資料會清楚,而TempData可在Controller與Controller之間做傳遞。</p><p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FController%2F16.png?alt=media&token=8a9e53ec-77c5-4ba8-8b6b-4a0ee431fc89" alt="photo"></p><blockquote><p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4Mzk1Nzc=">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)<i class="fa fa-external-link-alt"></i></span></p></blockquote><blockquote><p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p></blockquote>]]></content>
     
@@ -256,6 +308,10 @@
     
     
     
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/categories/ASP-NET-MVC/"/>
+    
+    
+    <category term="ASP.NET MVC" scheme="https://jasonhsieh-web.github.io/tags/ASP-NET-MVC/"/>
     
   </entry>
   

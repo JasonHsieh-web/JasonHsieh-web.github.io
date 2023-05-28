@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>ASP.NET MVC — Model</title>
-    <url>/posts/89489/</url>
+    <url>/posts/58259/</url>
     <content><![CDATA[<h1 id="何謂Model"><a href="#何謂Model" class="headerlink" title="何謂Model?"></a>何謂Model?</h1><p>MVC中有關「資料」的任務都是皆由Model負責。負責定義資料型態，不管是在Controller或是View中，所有資料的型態都會參考到View。</p>
 <span id="more"></span>
 
@@ -35,10 +35,16 @@
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>ASP.NET MVC</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET MVC</tag>
+      </tags>
   </entry>
   <entry>
     <title>ASP.NET MVC — Controller</title>
-    <url>/posts/36985/</url>
+    <url>/posts/40435/</url>
     <content><![CDATA[<h1 id="Controller的責任"><a href="#Controller的責任" class="headerlink" title="Controller的責任"></a>Controller的責任</h1><p>MVC強調關注點分離,其中Controller只負責網站流程相關,其他像是商業邏輯或頁面顯示等工作,Controller一律不會介入,主要著重在控制網站及使用路由傳遞資料等認識。</p>
 <span id="more"></span>
 
@@ -135,10 +141,16 @@
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>ASP.NET MVC</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET MVC</tag>
+      </tags>
   </entry>
   <entry>
     <title>C# — 抽象類別與介面</title>
-    <url>/posts/37572/</url>
+    <url>/posts/37573/</url>
     <content><![CDATA[<h1 id="抽象類別"><a href="#抽象類別" class="headerlink" title="抽象類別"></a><strong>抽象類別</strong></h1><p>將類別之間的共同特性,從類別中萃取出來的動作,就稱之為「抽象化」,如交通工具封裝一些特性,再透過繼承的方式由子類別來展現這一些特性：如汽車、腳踏車、機車。如果是不同類型物件間的共同特性，則可以定義成介面。</p>
 <span id="more"></span>
 
@@ -163,10 +175,16 @@
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>Csharp</category>
+      </categories>
+      <tags>
+        <tag>Csharp</tag>
+      </tags>
   </entry>
   <entry>
     <title>ASP.NET MVC — Razor</title>
-    <url>/posts/26594/</url>
+    <url>/posts/26595/</url>
     <content><![CDATA[<h1 id="Razor"><a href="#Razor" class="headerlink" title="Razor"></a>Razor</h1><p>Razor又稱Razor Syntax，是用來將Server Side的C#程式嵌入到HTML中的標記語法，如下圖。</p>
 <span id="more"></span>
 
@@ -215,50 +233,16 @@
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
 ]]></content>
-  </entry>
-  <entry>
-    <title>ASP.NET MVC — View</title>
-    <url>/posts/36984/</url>
-    <content><![CDATA[<h1 id="View的責任"><a href="#View的責任" class="headerlink" title="View的責任"></a>View的責任</h1><p>View主要負責顯示Controller傳來的資料與指令，因此View中的程式碼只專注於呈現資料的用途，其他的運算邏輯與流程，View都不會介入。</p>
-<span id="more"></span>
-
-<h1 id="View的位置"><a href="#View的位置" class="headerlink" title="View的位置"></a>View的位置</h1><p>View的位置會在專案最外層資料夾下(Views)，並且由各個Controller命名的資料夾進行分類，而Shared裡面放的是Layout為母版頁面，會看到Shared資料夾裡的_Layout.cshtml是含有底線的命名，一般為全站通用的功用型檔案.<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F1.png?alt=media&token=1b3942dc-3f40-4f69-9684-f234300e927e" alt="photo"></p>
-<h2 id="ViewStart-cshtml"><a href="#ViewStart-cshtml" class="headerlink" title="_ViewStart.cshtml"></a>_ViewStart.cshtml</h2><p>執行階段透過ViewResult所執行的View都會先執行_ViewStart.cshtml，所以開發者可以在這個檔案中設定屬於全站View的共同預設特徵，這樣就不用在每個View中各自指定，_ViewStart.cshtml的預設內容如下。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">Layout = <span class="string">&quot;~/Views/Shared/_Layout.cshtml&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但如果在View中指定了Layout，則會以該View設定為主，同樣也可以將Layout設定清空，方式是將Layout設定為null，表示這一個View將不使用任何Layout。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F2.png?alt=media&token=8d26f0e6-98ad-45ec-8ae8-08a5e39e5e5f" alt="photo"></p>
-<h2 id="Layout主版頁面"><a href="#Layout主版頁面" class="headerlink" title="Layout主版頁面"></a>Layout主版頁面</h2><p>主板通常包含網頁布局中共用或最常用到的部分，例如:網站Logo、導覽列、網站頁首、頁尾或是功能列等等，並與內容葉面進行結合。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F3.png?alt=media&token=b9f848ec-e14b-4f1c-8eff-036ff3bdeff5" alt="photo"></p>
-<h2 id="Layout檔案介紹"><a href="#Layout檔案介紹" class="headerlink" title="_Layout檔案介紹"></a>_Layout檔案介紹</h2><blockquote>
-<p>@RenderBody</p>
-</blockquote>
-<p>@RenderBody可設定套用此主版內容頁面所輸出的位置,例如有一個index的View而他套用了_Layout而@RenderBody就是用來呈現這個index的內容。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F4.png?alt=media&token=436f422a-3ad4-4080-be91-8dc03c83de73" alt="photo"></p>
-<blockquote>
-<p>@RenderSection</p>
-</blockquote>
-<p>@RenderSection用於輸出頁面中具名區段的內容。第一個參數為具名區段的名稱，若具名區段對應此名稱，將會載入此處，第二個參數可用於設定該區段是否須確實存在，傳入值為true or false。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F5.png?alt=media&token=eeb2c5d0-022d-47f0-95c8-ede9c9132011" alt="photo"></p>
-<p>而在View中會用@section 具名參數名稱{….內容}來加入該區段的內容。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F6.png?alt=media&token=8acc03e1-c8e2-4c21-8abb-18210bd07be1" alt="photo"></p>
-<blockquote>
-<p>@RenderPage</p>
-</blockquote>
-<p>@RenderPage方法的用途於主版頁面中可載入另一個檢視頁面。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F7.png?alt=media&token=2e721f6b-a452-436a-a580-99bf026aaaa3" alt="photo"></p>
-<hr>
-<p>MVC中的View包含HtmlHelper與Razor我會把他們各自寫一篇來介紹~</p>
-<blockquote>
-<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4Mzk1Nzc=">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-<blockquote>
-<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
-</blockquote>
-]]></content>
+      <categories>
+        <category>ASP.NET MVC</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET MVC</tag>
+      </tags>
   </entry>
   <entry>
     <title>ASP.NET MVC — HTML Helper與自訂HTML Helper</title>
-    <url>/posts/64362/</url>
+    <url>/posts/64363/</url>
     <content><![CDATA[<h1 id="HTML-Helper"><a href="#HTML-Helper" class="headerlink" title="HTML Helper"></a>HTML Helper</h1><p>在ASP.NET MVC中可以使用HTML Helper輔助產生需要的HTML語法，進而增加專案開發的效率。以下介紹HTML Helper的方法。</p>
 <span id="more"></span>
 
@@ -299,66 +283,62 @@
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>ASP.NET MVC</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET MVC</tag>
+      </tags>
   </entry>
   <entry>
-    <title>Design Pattern — 內聚力與耦合力</title>
-    <url>/posts/78794/</url>
-    <content><![CDATA[<h1 id="內聚力-Cohesion"><a href="#內聚力-Cohesion" class="headerlink" title="內聚力 Cohesion"></a>內聚力 Cohesion</h1><ul>
-<li>在一個”模組”內完成”一件工作”的度量指標<span id="more"></span></li>
-</ul>
-<h2 id="高內聚力"><a href="#高內聚力" class="headerlink" title="高內聚力"></a>高內聚力</h2><ul>
-<li>一次專注做一件事情</li>
-<li>內聚力高，意味著該模組可以獨立運作，也意味著更容易重複利用</li>
-<li>ex: 一個class只負責一件事情(例如寫Log)</li>
-</ul>
-<h2 id="低內聚"><a href="#低內聚" class="headerlink" title="低內聚"></a>低內聚</h2><ul>
-<li>在一個”模組”內完成多件事情</li>
-<li>內聚力低，意味著該模組會造成難以維護&#x2F;測試&#x2F;重用&#x2F;理解</li>
-<li>ex: 所有功能寫在一個class內或一個method有5000行程式碼</li>
-</ul>
-<h2 id="較佳的實務設計"><a href="#較佳的實務設計" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul>
-<li>在設計模組的時候，要盡量設計出 <strong>高內聚</strong> 的程式碼</li>
-<li>若有一個模組完成太多項工作，建議拆分成多個不同的類別</li>
-<li>實現 <strong>SRP</strong> 就是<strong>提高內聚力</strong>的一種表現</li>
-</ul>
-<h1 id="耦合力-Coupling"><a href="#耦合力-Coupling" class="headerlink" title="耦合力 Coupling"></a>耦合力 Coupling</h1><ul>
-<li>模組跟模組之間的關聯強度或是依賴程度</li>
-<li>ex: 在B類別內，直接建立了A物件實體，那就會建立類別A與類別B之間的”耦合關係”</li>
-</ul>
-<h2 id="高耦合"><a href="#高耦合" class="headerlink" title="高耦合"></a>高耦合</h2><ul>
-<li>意味著當改了A模組時，相關聯的B模組就容易被影響(改A壞B)</li>
-</ul>
-<h2 id="低耦合"><a href="#低耦合" class="headerlink" title="低耦合"></a>低耦合</h2><ul>
-<li>當修改模組時，越少模組被引響，那意味著耦合力較低</li>
-</ul>
-<h2 id="較佳的實務設計-1"><a href="#較佳的實務設計-1" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul>
-<li>在設計模組的時候，要盡量設計出 <strong>低耦合力</strong> 的程式碼</li>
-<li>實現 <strong>DIP</strong> 就是實現<strong>降低耦合力</strong>的一個原則</li>
-</ul>
+    <title>ASP.NET MVC — View</title>
+    <url>/posts/27249/</url>
+    <content><![CDATA[<h1 id="View的責任"><a href="#View的責任" class="headerlink" title="View的責任"></a>View的責任</h1><p>View主要負責顯示Controller傳來的資料與指令，因此View中的程式碼只專注於呈現資料的用途，其他的運算邏輯與流程，View都不會介入。</p>
+<span id="more"></span>
+
+<h1 id="View的位置"><a href="#View的位置" class="headerlink" title="View的位置"></a>View的位置</h1><p>View的位置會在專案最外層資料夾下(Views)，並且由各個Controller命名的資料夾進行分類，而Shared裡面放的是Layout為母版頁面，會看到Shared資料夾裡的_Layout.cshtml是含有底線的命名，一般為全站通用的功用型檔案.<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F1.png?alt=media&token=1b3942dc-3f40-4f69-9684-f234300e927e" alt="photo"></p>
+<h2 id="ViewStart-cshtml"><a href="#ViewStart-cshtml" class="headerlink" title="_ViewStart.cshtml"></a>_ViewStart.cshtml</h2><p>執行階段透過ViewResult所執行的View都會先執行_ViewStart.cshtml，所以開發者可以在這個檔案中設定屬於全站View的共同預設特徵，這樣就不用在每個View中各自指定，_ViewStart.cshtml的預設內容如下。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">Layout = <span class="string">&quot;~/Views/Shared/_Layout.cshtml&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但如果在View中指定了Layout，則會以該View設定為主，同樣也可以將Layout設定清空，方式是將Layout設定為null，表示這一個View將不使用任何Layout。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F2.png?alt=media&token=8d26f0e6-98ad-45ec-8ae8-08a5e39e5e5f" alt="photo"></p>
+<h2 id="Layout主版頁面"><a href="#Layout主版頁面" class="headerlink" title="Layout主版頁面"></a>Layout主版頁面</h2><p>主板通常包含網頁布局中共用或最常用到的部分，例如:網站Logo、導覽列、網站頁首、頁尾或是功能列等等，並與內容葉面進行結合。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F3.png?alt=media&token=b9f848ec-e14b-4f1c-8eff-036ff3bdeff5" alt="photo"></p>
+<h2 id="Layout檔案介紹"><a href="#Layout檔案介紹" class="headerlink" title="_Layout檔案介紹"></a>_Layout檔案介紹</h2><blockquote>
+<p>@RenderBody</p>
+</blockquote>
+<p>@RenderBody可設定套用此主版內容頁面所輸出的位置,例如有一個index的View而他套用了_Layout而@RenderBody就是用來呈現這個index的內容。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F4.png?alt=media&token=436f422a-3ad4-4080-be91-8dc03c83de73" alt="photo"></p>
 <blockquote>
-<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推
-<i class="fa fa-external-link-alt"></i></span></p>
+<p>@RenderSection</p>
+</blockquote>
+<p>@RenderSection用於輸出頁面中具名區段的內容。第一個參數為具名區段的名稱，若具名區段對應此名稱，將會載入此處，第二個參數可用於設定該區段是否須確實存在，傳入值為true or false。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F5.png?alt=media&token=eeb2c5d0-022d-47f0-95c8-ede9c9132011" alt="photo"></p>
+<p>而在View中會用@section 具名參數名稱{….內容}來加入該區段的內容。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F6.png?alt=media&token=8acc03e1-c8e2-4c21-8abb-18210bd07be1" alt="photo"></p>
+<blockquote>
+<p>@RenderPage</p>
+</blockquote>
+<p>@RenderPage方法的用途於主版頁面中可載入另一個檢視頁面。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FView%2F7.png?alt=media&token=2e721f6b-a452-436a-a580-99bf026aaaa3" alt="photo"></p>
+<hr>
+<p>MVC中的View包含HtmlHelper與Razor我會把他們各自寫一篇來介紹~</p>
+<blockquote>
+<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4Mzk1Nzc=">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
 <blockquote>
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Design Pattern — SRP 單一責任原則</title>
-    <url>/posts/847489/</url>
-    <content><![CDATA[<h1 id="待…"><a href="#待…" class="headerlink" title="待…"></a>待…</h1><blockquote>
-<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推
-<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-<blockquote>
-<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
-</blockquote>
-]]></content>
+      <categories>
+        <category>ASP.NET MVC</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET MVC</tag>
+      </tags>
   </entry>
   <entry>
     <title>ASP.NET MVC — DataAnnotation 資料模型驗證</title>
-    <url>/posts/36983/</url>
+    <url>/posts/36985/</url>
     <content><![CDATA[<p>網站中，開發者會為頁面資料，進行欄位驗證確保資料的正確性，因此開發者一般會使用JavaScript來進行客戶端驗證，而ASP.NET MVC中，無提供自動化的客戶端驗證，而是須使用模型驗證(Model Validate)。</p>
 <span id="more"></span>
 
@@ -406,10 +386,84 @@
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>ASP.NET MVC</category>
+      </categories>
+      <tags>
+        <tag>ASP.NET MVC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Design Pattern — 內聚力與耦合力</title>
+    <url>/posts/78794/</url>
+    <content><![CDATA[<h1 id="內聚力-Cohesion"><a href="#內聚力-Cohesion" class="headerlink" title="內聚力 Cohesion"></a>內聚力 Cohesion</h1><ul>
+<li>在一個”模組”內完成”一件工作”的度量指標<span id="more"></span></li>
+</ul>
+<h2 id="高內聚力"><a href="#高內聚力" class="headerlink" title="高內聚力"></a>高內聚力</h2><ul>
+<li>一次專注做一件事情</li>
+<li>內聚力高，意味著該模組可以獨立運作，也意味著更容易重複利用</li>
+<li>ex: 一個class只負責一件事情(例如寫Log)</li>
+</ul>
+<h2 id="低內聚"><a href="#低內聚" class="headerlink" title="低內聚"></a>低內聚</h2><ul>
+<li>在一個”模組”內完成多件事情</li>
+<li>內聚力低，意味著該模組會造成難以維護&#x2F;測試&#x2F;重用&#x2F;理解</li>
+<li>ex: 所有功能寫在一個class內或一個method有5000行程式碼</li>
+</ul>
+<h2 id="較佳的實務設計"><a href="#較佳的實務設計" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul>
+<li>在設計模組的時候，要盡量設計出 <strong>高內聚</strong> 的程式碼</li>
+<li>若有一個模組完成太多項工作，建議拆分成多個不同的類別</li>
+<li>實現 <strong>SRP</strong> 就是<strong>提高內聚力</strong>的一種表現</li>
+</ul>
+<h1 id="耦合力-Coupling"><a href="#耦合力-Coupling" class="headerlink" title="耦合力 Coupling"></a>耦合力 Coupling</h1><ul>
+<li>模組跟模組之間的關聯強度或是依賴程度</li>
+<li>ex: 在B類別內，直接建立了A物件實體，那就會建立類別A與類別B之間的”耦合關係”</li>
+</ul>
+<h2 id="高耦合"><a href="#高耦合" class="headerlink" title="高耦合"></a>高耦合</h2><ul>
+<li>意味著當改了A模組時，相關聯的B模組就容易被影響(改A壞B)</li>
+</ul>
+<h2 id="低耦合"><a href="#低耦合" class="headerlink" title="低耦合"></a>低耦合</h2><ul>
+<li>當修改模組時，越少模組被引響，那意味著耦合力較低</li>
+</ul>
+<h2 id="較佳的實務設計-1"><a href="#較佳的實務設計-1" class="headerlink" title="較佳的實務設計"></a>較佳的實務設計</h2><ul>
+<li>在設計模組的時候，要盡量設計出 <strong>低耦合力</strong> 的程式碼</li>
+<li>實現 <strong>DIP</strong> 就是實現<strong>降低耦合力</strong>的一個原則</li>
+</ul>
+<blockquote>
+<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推
+<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Design Pattern</category>
+      </categories>
+      <tags>
+        <tag>Design Pattern</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Design Pattern — SRP 單一責任原則</title>
+    <url>/posts/43034/</url>
+    <content><![CDATA[<h1 id="待…"><a href="#待…" class="headerlink" title="待…"></a>待…</h1><blockquote>
+<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cudWRlbXkuY29tL2NvdXJzZS9zb2xpZC1jc2hhcnAv">保哥的(打造堅固耐用的 C# 程式碼) 大推
+<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Design Pattern</category>
+      </categories>
+      <tags>
+        <tag>Design Pattern</tag>
+      </tags>
   </entry>
   <entry>
     <title>C# —集合(ArrayList、List、Dictionary)</title>
-    <url>/posts/24896/</url>
+    <url>/posts/53703/</url>
     <content><![CDATA[<h1 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a><strong>ArrayList</strong></h1><p>它和陣列非常類似,它比陣列有彈性可以動態地增加ArrayList中的項目,陣列則不行。當需要一個資料結構可以動態新增或移除成員時便可使用ArrayList物件來記錄。使用前須引用命名空間</p>
  <span id="more"></span>
 <blockquote>
@@ -472,10 +526,16 @@
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>Csharp</category>
+      </categories>
+      <tags>
+        <tag>Csharp</tag>
+      </tags>
   </entry>
   <entry>
     <title>C# —— LINQ</title>
-    <url>/posts/75770/</url>
+    <url>/posts/39644/</url>
     <content><![CDATA[<p>LINQ語法擴充了C#語言的查詢語法,可適用LINQ查詢的資料類型有</p>
 <span id="more"></span>
 <ol>
@@ -523,10 +583,16 @@
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>Csharp</category>
+      </categories>
+      <tags>
+        <tag>Csharp</tag>
+      </tags>
   </entry>
   <entry>
     <title>C# —— 多型性(Polymorphism)</title>
-    <url>/posts/75771/</url>
+    <url>/posts/23154/</url>
     <content><![CDATA[<h2 id="多型性"><a href="#多型性" class="headerlink" title="多型性"></a>多型性</h2><p>多型讓你可以用相同的方式操作同類型各式各樣的東西,而各式各樣的東西會展現它自己的特性,因此只要注意如何操作而不必在意東西是什麼。</p>
 <span id="more"></span>
 
@@ -554,10 +620,16 @@
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>Csharp</category>
+      </categories>
+      <tags>
+        <tag>Csharp</tag>
+      </tags>
   </entry>
   <entry>
     <title>C# —— 繼承性(Inheritance)</title>
-    <url>/posts/75773/</url>
+    <url>/posts/59073/</url>
     <content><![CDATA[<h2 id="繼承性"><a href="#繼承性" class="headerlink" title="繼承性"></a>繼承性</h2><p>今天要介紹物件導向三大特性之一 : <strong>繼承性(Inheritance)</strong></p>
 <span id="more"></span>
 
@@ -583,10 +655,16 @@
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>Csharp</category>
+      </categories>
+      <tags>
+        <tag>Csharp</tag>
+      </tags>
   </entry>
   <entry>
     <title>C# —— 類別與物件</title>
-    <url>/posts/75774/</url>
+    <url>/posts/8749/</url>
     <content><![CDATA[<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>首先來介紹”類別”,類別你可以幫它想像一個設計圖,例如我們創立一個”車”的類別,那這台車可能有些<strong>屬性</strong>(名字、車輪數、顏色)以及一些<strong>方法</strong>例如車可以倒退、可以前進、可以左右轉。</p>
 <span id="more"></span>
 
@@ -629,5 +707,11 @@
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>Csharp</category>
+      </categories>
+      <tags>
+        <tag>Csharp</tag>
+      </tags>
   </entry>
 </search>

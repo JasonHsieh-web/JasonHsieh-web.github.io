@@ -22,29 +22,25 @@
     var CONFIG = {"hostname":"jasonhsieh-web.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="RazorRazor又稱Razor Syntax，是用來將Server Side的C#程式嵌入到HTML中的標記語法，如下圖。">
+  <meta name="description" content="HTML Helper在ASP.NET MVC中可以使用HTML Helper輔助產生需要的HTML語法，進而增加專案開發的效率。以下介紹HTML Helper的方法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ASP.NET MVC — Razor">
-<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/26594/index.html">
+<meta property="og:title" content="ASP.NET MVC — HTML Helper與自訂HTML Helper">
+<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/64363/index.html">
 <meta property="og:site_name" content="網頁的小宇宙">
-<meta property="og:description" content="RazorRazor又稱Razor Syntax，是用來將Server Side的C#程式嵌入到HTML中的標記語法，如下圖。">
+<meta property="og:description" content="HTML Helper在ASP.NET MVC中可以使用HTML Helper輔助產生需要的HTML語法，進而增加專案開發的效率。以下介紹HTML Helper的方法。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F1.png?alt=media&token=1c21ef9e-0bd6-4516-be7e-3ea1889358bf">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F2.png?alt=media&token=7a71d1d9-3363-4247-a79b-ab4e836af377">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F3.png?alt=media&token=479f15a3-1601-4716-a413-233e2b55b266">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F4.png?alt=media&token=fafd3275-a994-4936-8912-354dd10edfbc">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F5.png?alt=media&token=4a121fdf-7e89-48a7-8940-6595b5d3a5b0">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F6.png?alt=media&token=416212ef-aa06-4623-b645-eb7e61e4c387">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F7.png?alt=media&token=cfeebe0b-47b0-47d9-8c68-5dc1d82dbfd5">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F8.png?alt=media&token=6e5a1452-5c40-4769-ac47-3a85a9b6f47b">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F9.png?alt=media&token=a2d3a33a-6520-4709-b506-a020a7836221">
-<meta property="article:published_time" content="2021-11-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-28T11:45:51.043Z">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F1.png?alt=media&token=1f7d1f07-17dd-48f7-b0f6-9b1b55e30ef2">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F2.png?alt=media&token=fae84b15-3a05-4b12-bf51-ba95fae8574a">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F3.png?alt=media&token=7ff9295e-42b2-4f6f-92b1-9ab2c0fe0d52">
+<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F4.png?alt=media&token=09087c6b-5be0-4170-995d-b0883a17717d">
+<meta property="article:published_time" content="2021-11-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-28T14:17:11.838Z">
 <meta property="article:author" content="Jason">
+<meta property="article:tag" content="ASP.NET MVC">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F1.png?alt=media&token=1c21ef9e-0bd6-4516-be7e-3ea1889358bf">
+<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F1.png?alt=media&token=1f7d1f07-17dd-48f7-b0f6-9b1b55e30ef2">
 
-<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/26594/">
+<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/64363/">
 
 
 <script id="page-configurations">
@@ -57,7 +53,7 @@
   };
 </script>
 
-  <title>ASP.NET MVC — Razor | 網頁的小宇宙</title>
+  <title>ASP.NET MVC — HTML Helper與自訂HTML Helper | 網頁的小宇宙</title>
   
 
 
@@ -202,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/26594/">
+    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/64363/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/SpaceMan%2F%E9%A0%AD%E8%B2%BC.png?alt=media&token=d5386314-4bb8-495e-88bd-cb8bf18dbd4f">
@@ -215,7 +211,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ASP.NET MVC — Razor
+          ASP.NET MVC — HTML Helper與自訂HTML Helper
         </h1>
 
         <div class="post-meta">
@@ -225,15 +221,24 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2021-11-22 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-22T00:00:00+08:00">2021-11-22</time>
+              <time title="創建時間：2021-11-23 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-23T00:00:00+08:00">2021-11-23</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2023-05-28 19:45:51" itemprop="dateModified" datetime="2023-05-28T19:45:51+08:00">2023-05-28</time>
+                <time title="修改時間：2023-05-28 22:17:11" itemprop="dateModified" datetime="2023-05-28T22:17:11+08:00">2023-05-28</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ASP-NET-MVC/" itemprop="url" rel="index"><span itemprop="name">ASP.NET MVC</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
@@ -251,8 +256,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/posts/26594/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/26594/" itemprop="commentCount"></span>
+    <a title="disqus" href="/posts/64363/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/64363/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -267,47 +272,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Razor"><a href="#Razor" class="headerlink" title="Razor"></a>Razor</h1><p>Razor又稱Razor Syntax，是用來將Server Side的C#程式嵌入到HTML中的標記語法，如下圖。</p>
+        <h1 id="HTML-Helper"><a href="#HTML-Helper" class="headerlink" title="HTML Helper"></a>HTML Helper</h1><p>在ASP.NET MVC中可以使用HTML Helper輔助產生需要的HTML語法，進而增加專案開發的效率。以下介紹HTML Helper的方法。</p>
 <span id="more"></span>
 
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F1.png?alt=media&token=1c21ef9e-0bd6-4516-be7e-3ea1889358bf" alt="photo"></p>
-<blockquote>
-<p>Razor中只有HTML及C#兩種元素，結合再一起就形成了Razor語法。</p>
-</blockquote>
-<blockquote>
-<p>C#程式區塊是以@{…}包覆，裡面是一般C#程式。</p>
-</blockquote>
-<blockquote>
-<p>Razor inline表達式是指C#變數穿插在HTML中，而Razor中預設是Html語言，若遇到@符號，表示後面接的是C#指令。</p>
-</blockquote>
-<blockquote>
-<p>Razor會依不同的規則或符號在HTML和c#間切換。</p>
-</blockquote>
-<h2 id="Razor支援的保留關鍵字"><a href="#Razor支援的保留關鍵字" class="headerlink" title="Razor支援的保留關鍵字"></a><strong>Razor支援的保留關鍵字</strong></h2><p>不是所有C#指令或關鍵字都能在Razor中使用，Razor支援的保留關鍵字，分為兩大類:</p>
 <ol>
-<li><p>Razor關鍵字:section、model、helper、inherits和functions五個關鍵字是Razor創造的，用來支持Razor語法所需功能。</p>
+<li><p>輸出超連結</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>)</span><br><span class="line">第一個參數為想顯示的文字,第二個參數為此View預設Controller中的Action</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;首頁&quot;</span>,<span class="string">&quot;Index&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>1-1</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>,<span class="string">&quot;ControllerName&quot;</span>)</span><br><span class="line">第三個參數可以指定Controller名稱</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;首頁&quot;</span>,<span class="string">&quot;Index&quot;</span>,<span class="string">&quot;Home&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>1-2</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>,RouteValues)</span><br><span class="line">第三個參數為路由的參數</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;關於&quot;</span>,<span class="string">&quot;Aboot&quot;</span>,<span class="keyword">new</span> &#123; id = <span class="number">0</span> &#125;)</span><br></pre></td></tr></table></figure>
+<p>1-3</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(<span class="string">&quot;linkText&quot;</span>,<span class="string">&quot;actionName&quot;</span>,RouteValues,htmlAttributes)</span><br><span class="line">第四個參數可以設定HTML屬性,需在關鍵字前加上@才能正確編譯,若HTML屬性含有「-」 符號必須用底線「_」代替,如data-<span class="keyword">value</span>需改為data_value</span><br><span class="line">ex: @Html.ActionLink(<span class="string">&quot;關於&quot;</span>,<span class="string">&quot;Aboot&quot;</span>,<span class="keyword">new</span> &#123; id = <span class="number">0</span> &#125;,<span class="keyword">new</span> &#123;@class=<span class="string">&#x27;btn&#x27;</span>)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>C#關鍵字:源自既有的C#，而不是Razor創造的，如:using、if…else、switch…case、for、foreach、while…..等等</p>
+<li><p>弱型別Helper<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F1.png?alt=media&token=1f7d1f07-17dd-48f7-b0f6-9b1b55e30ef2" alt="photo"></p>
+</li>
+<li><p>強行別Helper可傳入Model,都是以For作為結尾，若使用強行別Helper，需在View的頂端使用@model 定義此View所參考的Model，才能正確編譯。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F2.png?alt=media&token=fae84b15-3a05-4b12-bf51-ba95fae8574a" alt="photo"></p>
 </li>
 </ol>
-<p> Razor只能在View檢視(.cshtml)中使用，而不能再.html中使用，所以View也稱為Razor View 或 View Template。</p>
-<h3 id="Razor語法規則"><a href="#Razor語法規則" class="headerlink" title="Razor語法規則"></a><strong>Razor語法規則</strong></h3><p>規則1:以@符號作為C#開頭</p>
-<p>規則2:以@{…}宣告單行的C#程式<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F2.png?alt=media&token=7a71d1d9-3363-4247-a79b-ab4e836af377" alt="photo"></p>
-<p>規則3:以@{…}宣告多行的C#程式<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F3.png?alt=media&token=479f15a3-1601-4716-a413-233e2b55b266" alt="photo"></p>
-<p>規則4:C#的inline表達式<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F4.png?alt=media&token=fafd3275-a994-4936-8912-354dd10edfbc" alt="photo"></p>
-<p>規則5:C#程式區塊中的HTML隱式轉換</p>
-<p>@{….}程式區塊中預設語言是C#，但若夾雜了HTML語法，Razor會自動做隱式轉換。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F5.png?alt=media&token=4a121fdf-7e89-48a7-8940-6595b5d3a5b0" alt="photo"></p>
-<p>規則6:C#關鍵字嚴格區分大小寫</p>
-<p>規則7:Razor明確表達式為@(….)符號</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F6.png?alt=media&token=416212ef-aa06-4623-b645-eb7e61e4c387" alt="photo"></p>
-<p>規則8:以文字顯示@符號，需用@@表示</p>
-<p>規則9:用@Html.Raw()顯示原始字串，不做HTML編碼</p>
-<p>規則10:磁碟路徑表示法</p>
-<p>字串變數入包含磁碟路徑，可在最前面加上@符號,若要把檔案虛擬路徑轉成實體路徑，可用Server.MapPath()方法。</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F7.png?alt=media&token=cfeebe0b-47b0-47d9-8c68-5dc1d82dbfd5" alt="photo"></p>
-<h3 id="Razor判斷式與流程控制"><a href="#Razor判斷式與流程控制" class="headerlink" title="Razor判斷式與流程控制"></a><strong>Razor判斷式與流程控制</strong></h3><p>Razor若要做判斷式或迴圈流程控制，可用C#的if、for、foreach等指令</p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F8.png?alt=media&token=6e5a1452-5c40-4769-ac47-3a85a9b6f47b" alt="photo"></p>
-<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FRazor%2F9.png?alt=media&token=a2d3a33a-6520-4709-b506-a020a7836221" alt="photo"></p>
+<blockquote>
+<p>強型別好處是，支援Model物件的成員名稱IntelliSense提示及編譯時期的檢查。</p>
+</blockquote>
+<h1 id="自訂HTML-Helper"><a href="#自訂HTML-Helper" class="headerlink" title="自訂HTML Helper"></a>自訂HTML Helper</h1><p>我們可新增擴充方法自訂全站都可以使用的HTML Helper，建議獨立出一個資料夾。擴充方法為靜態方法，因此定義HTML Helper方法必須宣告為靜態方法(static method)，並存放於一個靜態的類別中(static class)。此外還需注意回傳的型態，若使用string作為字串回傳的型態，回傳的內容將被透過HTML編碼後進行輸出,而使用System.Web.Mvc.MvcHtmlString作為字串回傳時，當內容包含標籤資料，便會直接輸出成HTML標籤。<br><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F3.png?alt=media&token=7ff9295e-42b2-4f6f-92b1-9ab2c0fe0d52" alt="photo"><br>若欲於View中使用自訂的HTML Helper，必須先在View的最上方引用命名空間，便能在View中使用自訂的HTML Helper</p>
+<blockquote>
+<p>@using  專案名稱.Helpers</p>
+</blockquote>
+<p>除了上述的StringBuilder組自定義的HTML Helper，ASP.NET MVC為了HTML標籤需求而提供TagBuilder類別，因此也可使用TagBuilder類別來自定義HTML Helper，以更物件化的方式產生需要的HTML標籤。</p>
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/ASP.NET%2FHTML%20Helper%E8%88%87%E8%87%AA%E8%A8%82HTML%20Helper%2F4.png?alt=media&token=09087c6b-5be0-4170-995d-b0883a17717d" alt="photo"></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TagBuilder中的Tostring的多載方法</span><br><span class="line">空(預設) = 正常的標籤 &lt;Lable id=<span class="string">&quot;test&quot;</span>&gt;xxx&lt;/Label&gt;</span><br><span class="line">TagRenderMode.Nomal = 正常的標籤 &lt;Lable id=<span class="string">&quot;test&quot;</span>&gt;xxx&lt;/Label&gt;</span><br><span class="line">TagRenderMode.StartTag = 開始標籤 &lt;Lable&gt;</span><br><span class="line">TagRenderMode.EndTag = 結束標籤 &lt;/Label&gt;</span><br><span class="line">TagRenderMode.SelfClosing =自我結束標籤 &lt;Lable id=<span class="string">&quot;test&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4Mzk1Nzc=">一次就懂 ASP.NET MVC 5.x 網站開發：Web應用的經典實務範例解析(Visual C#)<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
 <blockquote>
 <p>參考至: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4MjY4MjM/c2xvYz1tYWlu">網頁程式設計ASP.NET MVC 5.X範例完美演繹(適用Visual C# 2019&#x2F;2017)（第三版）<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
@@ -322,6 +319,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ASP-NET-MVC/" rel="tag"># ASP.NET MVC</a>
+          </div>
 
         
 
@@ -329,12 +329,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/36984/" rel="prev" title="ASP.NET MVC — View">
-      <i class="fa fa-chevron-left"></i> ASP.NET MVC — View
+    <a href="/posts/26595/" rel="prev" title="ASP.NET MVC — Razor">
+      <i class="fa fa-chevron-left"></i> ASP.NET MVC — Razor
     </a></div>
       <div class="post-nav-item">
-    <a href="/posts/64362/" rel="next" title="ASP.NET MVC — HTML Helper與自訂HTML Helper">
-      ASP.NET MVC — HTML Helper與自訂HTML Helper <i class="fa fa-chevron-right"></i>
+    <a href="/posts/36985/" rel="next" title="ASP.NET MVC — DataAnnotation 資料模型驗證">
+      ASP.NET MVC — DataAnnotation 資料模型驗證 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -401,7 +401,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Razor"><span class="nav-number">1.</span> <span class="nav-text">Razor</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Razor%E6%94%AF%E6%8F%B4%E7%9A%84%E4%BF%9D%E7%95%99%E9%97%9C%E9%8D%B5%E5%AD%97"><span class="nav-number">1.1.</span> <span class="nav-text">Razor支援的保留關鍵字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Razor%E8%AA%9E%E6%B3%95%E8%A6%8F%E5%89%87"><span class="nav-number">1.1.1.</span> <span class="nav-text">Razor語法規則</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Razor%E5%88%A4%E6%96%B7%E5%BC%8F%E8%88%87%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">1.1.2.</span> <span class="nav-text">Razor判斷式與流程控制</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML-Helper"><span class="nav-number">1.</span> <span class="nav-text">HTML Helper</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E8%A8%82HTML-Helper"><span class="nav-number">2.</span> <span class="nav-text">自訂HTML Helper</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -419,6 +419,18 @@
           <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">文章</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
 </div>
@@ -553,9 +565,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://jasonhsieh-web.github.io/posts/26594/";
-    this.page.identifier = "posts/26594/";
-    this.page.title = "ASP.NET MVC — Razor";
+    this.page.url = "https://jasonhsieh-web.github.io/posts/64363/";
+    this.page.identifier = "posts/64363/";
+    this.page.title = "ASP.NET MVC — HTML Helper與自訂HTML Helper";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
