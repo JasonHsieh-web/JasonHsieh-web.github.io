@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jasonhsieh-web.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="陣列將同性質資料集中放在連續記憶體位址例如我們如果想要宣告5個整數，不是用陣列的話要一個一個宣告像是 int a,b,c,d,e; 但如果用陣列宣告就可以像這樣 int []scores &#x3D; new int[5];">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C# —— 陣列、陣列方法">
+<meta property="og:url" content="https://jasonhsieh-web.github.io/posts/22824/index.html">
+<meta property="og:site_name" content="網頁的小宇宙">
+<meta property="og:description" content="陣列將同性質資料集中放在連續記憶體位址例如我們如果想要宣告5個整數，不是用陣列的話要一個一個宣告像是 int a,b,c,d,e; 但如果用陣列宣告就可以像這樣 int []scores &#x3D; new int[5];">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2023-05-29T13:40:00.000Z">
+<meta property="article:modified_time" content="2023-05-29T13:45:36.461Z">
+<meta property="article:author" content="Jason">
+<meta property="article:tag" content="Csharp">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://jasonhsieh-web.github.io/posts/22824/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>C# —— 陣列、陣列方法 | 網頁的小宇宙</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="網頁的小宇宙" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">網頁的小宇宙</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://jasonhsieh-web.github.io/posts/22824/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/SpaceMan%2F%E9%A0%AD%E8%B2%BC.png?alt=media&token=d5386314-4bb8-495e-88bd-cb8bf18dbd4f">
+      <meta itemprop="name" content="Jason">
+      <meta itemprop="description" content="不知道自己無知，乃是雙倍的無知。——柏拉圖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="網頁的小宇宙">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C# —— 陣列、陣列方法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2023-05-29 21:40:00 / 修改時間：21:45:36" itemprop="dateCreated datePublished" datetime="2023-05-29T21:40:00+08:00">2023-05-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Csharp/" itemprop="url" rel="index"><span itemprop="name">Csharp</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/posts/22824/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/22824/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="陣列將同性質資料集中放在連續記憶體位址"><a href="#陣列將同性質資料集中放在連續記憶體位址" class="headerlink" title="陣列將同性質資料集中放在連續記憶體位址"></a>陣列將同性質資料集中放在連續記憶體位址</h2><p>例如我們如果想要宣告5個整數，不是用陣列的話要一個一個宣告像是</p>
+<p>int a,b,c,d,e; 但如果用陣列宣告就可以像這樣 int []scores &#x3D; new int[5];</p>
+<span id="more"></span>
+
+<h3 id="宣告陣列的方法"><a href="#宣告陣列的方法" class="headerlink" title="宣告陣列的方法"></a>宣告陣列的方法</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">資料型別 [] 陣列名稱 = <span class="keyword">new</span> 資料型別[陣列大小];</span><br><span class="line">ex:  <span class="built_in">int</span> []scores = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">5</span>]; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="陣列的初值設定"><a href="#陣列的初值設定" class="headerlink" title="陣列的初值設定"></a>陣列的初值設定</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> []scores = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">5</span>]; <span class="comment">//宣告陣列</span></span><br><span class="line">scores[<span class="number">0</span>] = <span class="number">90</span>;scores[<span class="number">1</span>] = <span class="number">85</span>;scores[<span class="number">2</span>] = <span class="number">92</span>;scores[<span class="number">3</span>] =<span class="number">75</span>;</span><br><span class="line">scores[<span class="number">4</span>] = <span class="number">80</span>;  <span class="comment">//這樣一個一個賦予值是不是很麻煩呢~</span></span><br><span class="line"><span class="comment">//所以也可以像這樣</span></span><br><span class="line"><span class="built_in">int</span>[]scores = <span class="keyword">new</span> <span class="built_in">int</span>[]=<span class="number">90</span>,<span class="number">85</span>,<span class="number">92</span>,<span class="number">75</span>,<span class="number">80</span>&#125;;<span class="comment">//不指定大小，直接賦予相對應的值</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用迴圈存取陣列內容"><a href="#使用迴圈存取陣列內容" class="headerlink" title="使用迴圈存取陣列內容"></a>使用迴圈存取陣列內容</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//例如有5個成績，想要算這5個成績的平均</span></span><br><span class="line"><span class="built_in">int</span>[]scores = <span class="keyword">new</span> <span class="built_in">int</span>[]&#123;<span class="number">90</span>,<span class="number">85</span>,<span class="number">92</span>,<span class="number">75</span>,<span class="number">80</span>&#125;;</span><br><span class="line"><span class="built_in">int</span> sum,avg ;</span><br><span class="line">sum = <span class="number">0</span> ;</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span> ;i&lt;scores.Length; i++)</span><br><span class="line">&#123;</span><br><span class="line">sum += score[i];<span class="comment">//累加成績</span></span><br><span class="line">&#125;</span><br><span class="line">avg = sum / scores.Length ;</span><br></pre></td></tr></table></figure>
+
+<p>若for的條件運算式(終值)無法確定時，可改用foreach敘述</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span>(資料型別 element <span class="keyword">in</span> <span class="keyword">group</span>)</span><br><span class="line">&#123; </span><br><span class="line">    敘述區塊</span><br><span class="line">    [<span class="meta">break;</span>]</span><br><span class="line">    敘述區塊</span><br><span class="line">&#125;      </span><br><span class="line">element:是一個變數名稱，可將陣列中每個元素依序指定給element</span><br><span class="line"><span class="keyword">group</span>:是一個物件變數，必須是物件集合或陣列名稱</span><br><span class="line"><span class="keyword">break</span>:若要提前離開迴圈，可在欲離開處使用brea</span><br><span class="line">ex:將scores陣列中所有成績相加置入sum變數中</span><br><span class="line"><span class="built_in">int</span>[]scores = <span class="keyword">new</span> <span class="built_in">int</span>[]=&#123;<span class="number">90</span>,<span class="number">85</span>,<span class="number">92</span>,<span class="number">75</span>,<span class="number">80</span>&#125;;</span><br><span class="line"><span class="built_in">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">foreach</span>(<span class="built_in">int</span> point <span class="keyword">in</span> scores) <span class="comment">//point用來存放scores裡每個元素</span></span><br><span class="line">&#123;</span><br><span class="line">   sum+=point ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="陣列的排序"><a href="#陣列的排序" class="headerlink" title="陣列的排序"></a>陣列的排序</h3><p>Array.Sort()方法可以將指定陣列內的元素由小到大遞增排序</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//寫法</span></span><br><span class="line"><span class="comment">//Array.Sort(陣列名稱1,陣列名稱2);//最多兩個引數</span></span><br><span class="line"><span class="comment">//ex1:成績排序</span></span><br><span class="line"><span class="built_in">int</span>[] scores = <span class="keyword">new</span> scores[]&#123;<span class="number">94</span>,<span class="number">85</span>,<span class="number">89</span>&#125;;</span><br><span class="line">Array.Sort(scores); </span><br><span class="line">排序前: scores[<span class="number">0</span>]=<span class="number">94</span> scores[<span class="number">1</span>]=<span class="number">85</span> scores[<span class="number">2</span>]=<span class="number">89</span></span><br><span class="line">排序後: scores[<span class="number">0</span>]=<span class="number">85</span> scores[<span class="number">1</span>]=<span class="number">89</span> scores[<span class="number">2</span>]=<span class="number">94</span></span><br><span class="line"><span class="comment">//ex2:成績表含有數學和學生姓名，需要兩個陣列來存放，如果只針對數學成績排序會導致姓名和成績不一致，因此Array.Sort()方法允許使用兩個引數</span></span><br><span class="line"><span class="built_in">int</span>[] scores = <span class="keyword">new</span> scores[]&#123;<span class="number">94</span>,<span class="number">85</span>,<span class="number">89</span>&#125;;</span><br><span class="line"><span class="built_in">string</span>[] sName = <span class="keyword">new</span> sName[]&#123;<span class="string">&quot;小明&quot;</span>,<span class="string">&quot;大王&quot;</span>,<span class="string">&quot;阿花&quot;</span>&#125;;</span><br><span class="line">Array.Sort(scores,sName);</span><br><span class="line"><span class="comment">//排序前:</span></span><br><span class="line">scores[<span class="number">0</span>]=<span class="number">94</span> scores[<span class="number">1</span>]=<span class="number">85</span> scores[<span class="number">2</span>]=<span class="number">89</span></span><br><span class="line">sName[<span class="number">0</span>]=<span class="string">&quot;小明&quot;</span>sName[<span class="number">1</span>]=<span class="string">&quot;大王&quot;</span>sName[<span class="number">2</span>]=<span class="string">&quot;阿花&quot;</span></span><br><span class="line"><span class="comment">//排序後: </span></span><br><span class="line">scores[<span class="number">0</span>]=<span class="number">85</span> scores[<span class="number">1</span>]=<span class="number">89</span> scores[<span class="number">2</span>]=<span class="number">94</span></span><br><span class="line">sName[<span class="number">0</span>]=<span class="string">&quot;大王&quot;</span>sName[<span class="number">1</span>]=<span class="string">&quot;阿花&quot;</span>sName[<span class="number">2</span>]=<span class="string">&quot;小明&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="陣列的反轉"><a href="#陣列的反轉" class="headerlink" title="陣列的反轉"></a>陣列的反轉</h3><p>Array.Sort()可以將陣列由小到大遞增，那如果今天想要由大到小遞減就需要用到**Array.Reverse(陣列名稱)**，但Array.Reverse只提供一個引數，若兩個陣列有相關聯，反轉時兩個陣列都要做Array.Reverse</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//例如把上面ex2反轉</span></span><br><span class="line"><span class="built_in">int</span>[] scores = <span class="keyword">new</span> scores[]&#123;<span class="number">94</span>,<span class="number">85</span>,<span class="number">89</span>&#125;;</span><br><span class="line"><span class="built_in">string</span>[] sName = <span class="keyword">new</span> sName[]&#123;<span class="string">&quot;小明&quot;</span>,<span class="string">&quot;大王&quot;</span>,<span class="string">&quot;阿花&quot;</span>&#125;;</span><br><span class="line">Array.Sort(scores,sName);</span><br><span class="line">Array.Reverse(scores);<span class="comment">//反轉成績</span></span><br><span class="line">Array.Reverse(sName);<span class="comment">//反轉姓名</span></span><br><span class="line"><span class="comment">//反轉前 : </span></span><br><span class="line">scores[<span class="number">0</span>]=<span class="number">85</span> scores[<span class="number">1</span>]=<span class="number">89</span> scores[<span class="number">2</span>]=<span class="number">94</span></span><br><span class="line">sName[<span class="number">0</span>]=<span class="string">&quot;大王&quot;</span>sName[<span class="number">1</span>]=<span class="string">&quot;阿花&quot;</span>sName[<span class="number">2</span>]=<span class="string">&quot;小明&quot;</span></span><br><span class="line"><span class="comment">//反轉後 : </span></span><br><span class="line">scores[<span class="number">0</span>]=<span class="number">94</span> scores[<span class="number">1</span>]=<span class="number">89</span> scores[<span class="number">2</span>]=<span class="number">85</span></span><br><span class="line">sName[<span class="number">0</span>]=<span class="string">&quot;小明&quot;</span>sName[<span class="number">1</span>]=<span class="string">&quot;阿花&quot;</span>sName[<span class="number">2</span>]=<span class="string">&quot;大王&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="陣列的搜尋"><a href="#陣列的搜尋" class="headerlink" title="陣列的搜尋"></a>陣列的搜尋</h3><p><strong>Array.IndexOf()<strong>方法，可以從指定的</strong>一維陣列中找尋指定資料是否存在</strong>，若找到相符合的值就回傳該陣列所在的索引位置，若沒找到就回傳-1</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//寫法</span></span><br><span class="line"><span class="comment">// 變數名稱 = Array.IndexOf(陣列名稱,欲想找得值,count);</span></span><br><span class="line"><span class="comment">//count:由指定的索引位置往後找幾個元素，若count省略表示搜尋整個陣列</span></span><br><span class="line"><span class="comment">//ex1</span></span><br><span class="line"><span class="built_in">int</span>[] scores = <span class="keyword">new</span> scores[]&#123;<span class="number">94</span>,<span class="number">85</span>,<span class="number">89</span>,<span class="number">90</span>,<span class="number">85</span>&#125;;</span><br><span class="line"><span class="built_in">int</span> num1 =Array.IndexOf(scores,<span class="number">94</span>);<span class="comment">//回傳0</span></span><br><span class="line"><span class="built_in">int</span> num2 =Array.IndexOf(scores,<span class="number">85</span>,<span class="number">3</span>);<span class="comment">//回傳4，因為從第3個元素開始找</span></span><br><span class="line"><span class="built_in">int</span> num3 =Array.IndexOf(scores,<span class="number">70</span>);<span class="comment">//回傳-1，找不到</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="陣列常用的屬性與方法"><a href="#陣列常用的屬性與方法" class="headerlink" title="陣列常用的屬性與方法"></a>陣列常用的屬性與方法</h3><p>Rank屬性 :如果想知道某陣列是幾維陣列就可以使用</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span>[,,]scores1= <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">2</span>,<span class="number">16</span>,<span class="number">24</span>];</span><br><span class="line"><span class="built_in">int</span>[ ,]scores2 = <span class="keyword">new</span> <span class="built_in">int</span>[,]&#123;&#123;<span class="number">90</span>,<span class="number">85</span>,<span class="number">77</span>&#125;,&#123;<span class="number">81</span>,<span class="number">68</span>,<span class="number">98</span>&#125;&#125;;</span><br><span class="line"><span class="built_in">int</span>[] scores3 = <span class="keyword">new</span> <span class="built_in">int</span>[]&#123;<span class="number">87</span>,<span class="number">69</span>,<span class="number">89</span>&#125;;</span><br><span class="line"><span class="built_in">int</span> value1 =scores1.Rank;<span class="comment">//3，因為是三維陣列</span></span><br><span class="line"><span class="built_in">int</span> value2 =scores2.Rank;<span class="comment">//2，因為是二維陣列</span></span><br><span class="line"><span class="built_in">int</span> value3 =scores3.Rank;<span class="comment">//1，因為是一維陣列</span></span><br></pre></td></tr></table></figure>
+
+<p>Length屬性:可以取得陣列的長度，即為陣列元素的總數</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span>[] scores3 = <span class="keyword">new</span> <span class="built_in">int</span>[]&#123;<span class="number">87</span>,<span class="number">69</span>,<span class="number">89</span>&#125;;</span><br><span class="line"><span class="built_in">int</span> value3 = scores3.Length; <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<p>GetLength方法:可以取得陣列中”指定維度”的長度，此方法只有一個參數，就是陣列的維度(第1個維度為0，第2個維度為1….)</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span>[ ,]scores2 = <span class="keyword">new</span> <span class="built_in">int</span>[,]&#123;&#123;<span class="number">90</span>,<span class="number">85</span>,<span class="number">77</span>,<span class="number">88</span>&#125;,&#123;<span class="number">81</span>,<span class="number">68</span>,<span class="number">98</span>,<span class="number">86</span>&#125;&#125;;</span><br><span class="line"><span class="built_in">int</span>[] scores3 = <span class="keyword">new</span> <span class="built_in">int</span>[]&#123;<span class="number">87</span>,<span class="number">69</span>,<span class="number">89</span>&#125;;</span><br><span class="line"><span class="built_in">int</span> value3 = scores3.GetLength(<span class="number">0</span>);<span class="comment">//3</span></span><br><span class="line"><span class="built_in">int</span> value2 = scores2.GetLength(<span class="number">0</span>);<span class="comment">//2</span></span><br><span class="line"><span class="built_in">int</span> value1 = scores2.GetLength(<span class="number">1</span>);<span class="comment">//4</span></span><br></pre></td></tr></table></figure>
+
+<p>CopyTo方法:可以將一個陣列元素複製到另一個目標陣列中，而且可以指定從第幾個索引值開始複製</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span>[] scores1 = <span class="keyword">new</span> <span class="built_in">int</span>[]&#123;<span class="number">87</span>,<span class="number">69</span>,<span class="number">89</span>&#125;;</span><br><span class="line"><span class="built_in">int</span>[] scores2 = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">3</span>];</span><br><span class="line">scores1.CopyTo(scores2,<span class="number">0</span>);<span class="comment">//將scores1的元素第0個索引位置開始複製scores2</span></span><br></pre></td></tr></table></figure>
+
+<p>Split方法:屬於字串物件的方法，可以根據間隔字元將字串分割成陣列元素值</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> scores = <span class="string">&quot;95,88,76,69,92&quot;</span>;</span><br><span class="line"><span class="built_in">string</span> []aScores = scores.split(<span class="string">&#x27;,&#x27;</span>);<span class="comment">//指定以,字元來分割字串</span></span><br><span class="line">執行後: aScores[<span class="number">0</span>]=<span class="number">95</span> aScores[<span class="number">1</span>]=<span class="number">88</span> aScores[<span class="number">2</span>]=<span class="number">76</span> aScores[<span class="number">3</span>]=<span class="number">69</span>         aScores[<span class="number">4</span>]=<span class="number">92</span></span><br></pre></td></tr></table></figure>
+<p>在C#中陣列實際上是一個物件，由於陣列是屬型別參照的一種，必須使用new來建立一個陣列物件，所以陣列無法像變數一樣宣告後即可使用，必須先經宣告後，用new來建立陣列的實體</p>
+<p>參考：<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA3NTQyNDc=">Visual C＃ 2017基礎必修課<i class="fa fa-external-link-alt"></i></span></p>
+<p>另外有寫<a href="https://jasonhsieh-web.github.io/posts/53703/#more">C# —集合(ArrayList、List、Dictionary)</a>，可以參考看看哦。</p>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Csharp/" rel="tag"># Csharp</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/1451/" rel="prev" title="C# —— 常數Const與readonly">
+      <i class="fa fa-chevron-left"></i> C# —— 常數Const與readonly
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/8943/" rel="next" title="C# —— get與set存取器">
+      C# —— get與set存取器 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%A3%E5%88%97%E5%B0%87%E5%90%8C%E6%80%A7%E8%B3%AA%E8%B3%87%E6%96%99%E9%9B%86%E4%B8%AD%E6%94%BE%E5%9C%A8%E9%80%A3%E7%BA%8C%E8%A8%98%E6%86%B6%E9%AB%94%E4%BD%8D%E5%9D%80"><span class="nav-number">1.</span> <span class="nav-text">陣列將同性質資料集中放在連續記憶體位址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A3%E5%91%8A%E9%99%A3%E5%88%97%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">宣告陣列的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%A3%E5%88%97%E7%9A%84%E5%88%9D%E5%80%BC%E8%A8%AD%E5%AE%9A"><span class="nav-number">1.2.</span> <span class="nav-text">陣列的初值設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%BF%B4%E5%9C%88%E5%AD%98%E5%8F%96%E9%99%A3%E5%88%97%E5%85%A7%E5%AE%B9"><span class="nav-number">1.3.</span> <span class="nav-text">使用迴圈存取陣列內容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%A3%E5%88%97%E7%9A%84%E6%8E%92%E5%BA%8F"><span class="nav-number">1.4.</span> <span class="nav-text">陣列的排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%A3%E5%88%97%E7%9A%84%E5%8F%8D%E8%BD%89"><span class="nav-number">1.5.</span> <span class="nav-text">陣列的反轉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%A3%E5%88%97%E7%9A%84%E6%90%9C%E5%B0%8B"><span class="nav-number">1.6.</span> <span class="nav-text">陣列的搜尋</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%A3%E5%88%97%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B1%AC%E6%80%A7%E8%88%87%E6%96%B9%E6%B3%95"><span class="nav-number">1.7.</span> <span class="nav-text">陣列常用的屬性與方法</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jason"
+      src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/SpaceMan%2F%E9%A0%AD%E8%B2%BC.png?alt=media&token=d5386314-4bb8-495e-88bd-cb8bf18dbd4f">
+  <p class="site-author-name" itemprop="name">Jason</p>
+  <div class="site-description" itemprop="description">不知道自己無知，乃是雙倍的無知。——柏拉圖</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0phc29uSHNpZWgtd2Vi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JasonHsieh-web"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL2phc29uJUU3JTlBJTg0JUU1JTg5JThEJUU3JUFCJUFGJUU0JUI5JThCJUU4JUI3JUFG" title="Medium → https:&#x2F;&#x2F;medium.com&#x2F;jason%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B9%8B%E8%B7%AF"><i class="fab fa-medium fa-fw"></i>Medium</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnE3NTM5NTE0NjhAZ21haWwuY29t" title="E-Mail → mailto:q753951468@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-sharp fa-solid fa-rocket"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">雖然是小小分享站台，但若要轉載煩請標著作者名稱與連結哦。</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='34,34,34' opacity='0.5' zIndex='-1' count='200' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://jasonhsieh-web.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://jasonhsieh-web.github.io/posts/22824/";
+    this.page.identifier = "posts/22824/";
+    this.page.title = "C# —— 陣列、陣列方法";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://jasonhsieh-web.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

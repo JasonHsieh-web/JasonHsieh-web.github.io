@@ -395,7 +395,7 @@
   </entry>
   <entry>
     <title>Design Pattern — 內聚力與耦合力</title>
-    <url>/posts/78794/</url>
+    <url>/posts/24048/</url>
     <content><![CDATA[<h1 id="內聚力-Cohesion"><a href="#內聚力-Cohesion" class="headerlink" title="內聚力 Cohesion"></a>內聚力 Cohesion</h1><ul>
 <li>在一個”模組”內完成”一件工作”的度量指標<span id="more"></span></li>
 </ul>
@@ -703,6 +703,155 @@
 <p>參考:</p>
 <p><span class="exturl" data-url="aHR0cDovL2RvZzA0MTYuYmxvZ3Nwb3QuY29tLzIwMTcvMTEvY3Zpc3VhbC1zdHVkaW8tY2xhc3MtYW5kLW9iamVjdC5odG1s">類別與物件<i class="fa fa-external-link-alt"></i></span></p>
 <p><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1ncGpBRkJoM0dKNA==">小山的 C# 教學-第14課-物件導向基礎 Class<i class="fa fa-external-link-alt"></i></span></p>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Csharp</category>
+      </categories>
+      <tags>
+        <tag>Csharp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C# —— Regular Expression(規則運算式)</title>
+    <url>/posts/8200/</url>
+    <content><![CDATA[<p>使用規則運算式來處理文字是以規則運算式引擎為核心，由.NET Framework中的命名空間System.Text.RegularExpressions.來表示，如要使用的話需用using來加在開頭，屬於Regex類別。</p>
+<span id="more"></span>
+
+<p>以下先來介紹規則運算式的入門</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[]:用來定義可接受的字元</span><br><span class="line">[a-z] : 可接受a~z等26個&quot;小寫&quot;字母</span><br><span class="line">[A-Z] : 可接受A~Z等26個&quot;大寫&quot;字母</span><br><span class="line">[0-9] : 只接受0~9等十個數字</span><br><span class="line">[a-zA-Z0-9] : 可接受所有大小寫字母及數字</span><br><span class="line">除了以上用法，也可以直接指定可接受的字元，例如[acfgh]表示可以接受a、c、f、g、h等五個小寫字母，另外，^符號表示&quot;不接受&quot;的意思。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">&#123;&#125;: 用來定義必須輸入的字元數</span><br><span class="line">&#123;<span class="number">5</span>&#125; : 必須輸入<span class="number">5</span>個字元</span><br><span class="line">&#123;<span class="number">5</span>,<span class="number">10</span>&#125; : 必須輸入<span class="number">5</span>~<span class="number">10</span>個字元</span><br><span class="line">[<span class="meta">a-z</span>]&#123;<span class="number">5</span>&#125;:表示必須輸入<span class="number">5</span>個a~z中的<span class="number">5</span>個小寫字母</span><br><span class="line">[<span class="meta">a-zA-Z0-9</span>]&#123;<span class="number">5</span>~<span class="number">10</span>&#125; : 表示必須輸入<span class="number">5</span>~<span class="number">10</span>個大小寫字母或數字</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//.符號 : 表示任意字元</span></span><br><span class="line"><span class="comment">//.&#123;5~10&#125;:表示可接受5~10個任意字元</span></span><br><span class="line"><span class="comment">//|符號:表示或的意思</span></span><br><span class="line">[<span class="meta">a-z</span>]&#123;<span class="number">5</span>&#125;|[A-Z][<span class="number">5</span>] <span class="comment">//必須輸入5個小寫或大寫字母，而不是5大小寫混合字母</span></span><br></pre></td></tr></table></figure>
+
+<p>綜合以上假如我們要比對身分證號碼，我們知道身分證是由1個A<del>Z的大寫英文字母+上1個1</del>2的數字來判斷性別+上8個0~9的數字，那我們可以這樣寫</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">[<span class="meta">A-Z</span>]&#123;<span class="number">1</span>&#125;[<span class="number">1</span><span class="number">-2</span>]&#123;<span class="number">1</span>&#125;[<span class="number">0</span><span class="number">-9</span>]&#123;<span class="number">8</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或是 台灣的郵遞區號，郵遞區號可能是3個數字或是5個數字</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">([<span class="number">0</span><span class="number">-9</span>]&#123;<span class="number">3</span>&#125;|[<span class="number">0</span><span class="number">-9</span>]&#123;<span class="number">5</span>&#125;)  <span class="comment">//加上()增加可讀性，因為是3個或是5個所以用|表示或</span></span><br></pre></td></tr></table></figure>
+<p>或是手機號碼09開頭後面接著8個0~9的數字</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">^<span class="number">09</span>[<span class="number">0</span><span class="number">-9</span>]&#123;<span class="number">8</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>想試試看你自訂的正規式是否正確可以到 <span class="exturl" data-url="aHR0cHM6Ly9ydWJ1bGFyLmNvbS8=">這裡<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="錨點-位置"><a href="#錨點-位置" class="headerlink" title="錨點(位置)"></a>錨點(位置)</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">^符號:表示從字串開頭開始比對</span><br><span class="line">$符號:比對必須發生在字串結尾</span><br></pre></td></tr></table></figure>
+
+<h2 id="Regex類別的方法"><a href="#Regex類別的方法" class="headerlink" title="Regex類別的方法"></a>Regex類別的方法</h2><p>isMatch(想判斷的字串,自訂的正規式):判斷輸入文字中是否存在規則運算式模式</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> item = <span class="string">&quot;123&quot;</span>;</span><br><span class="line"><span class="built_in">bool</span> answer = Regex.IsMatch(item, <span class="string">@&quot;^\d&#123;3&#125;&quot;</span>);<span class="comment">//判斷是否為3個任意數字，@避免跳脫字元</span></span><br><span class="line">Response.Write(answer); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>參考:</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA4Mzg0NDA=">ASP.NET專題實務(I)：C#入門實戰<i class="fa fa-external-link-alt"></i></span></p>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Csharp</category>
+      </categories>
+      <tags>
+        <tag>Csharp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C# —— 常數Const與readonly</title>
+    <url>/posts/1451/</url>
+    <content><![CDATA[<h2 id="常數就是不能被修改的值"><a href="#常數就是不能被修改的值" class="headerlink" title="常數就是不能被修改的值"></a>常數就是不能被修改的值</h2><p>先介紹const，常數可以是數值、布林值、字串或 null 參考，如果今天你有一個值是固定的，不希望它被更改，就可以用const來宣告。</p>
+<p>例如圓周率3.14是固定的，可以寫成這樣。</p>
+<span id="more"></span>
+
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">circle</span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">double</span> PI = <span class="number">3.14</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://firebasestorage.googleapis.com/v0/b/primal-asset-277603.appspot.com/o/C%23%2F%E5%B8%B8%E6%95%B8Const%E8%88%87readonly%2F1.webp?alt=media&token=30999ac2-183b-405c-a63c-c7a0ba90645a" alt="&quot;photo&quot;"></p>
+<p>無法對PI再進行修改</p>
+<p>注意:const的常數不能同時加上static，以及const是編譯時期常數，實際值在編譯期間就會被取代到使用常數的地方</p>
+<h2 id="另外還有一個是readonly是唯獨變數"><a href="#另外還有一個是readonly是唯獨變數" class="headerlink" title="另外還有一個是readonly是唯獨變數"></a>另外還有一個是readonly是唯獨變數</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">circle</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="built_in">double</span> PI = <span class="number">3.14</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>readonly是<strong>執行階段常數</strong>，執行的時候再去參考變數取得真正的值</p>
+<p>以下說明const與readonly有什麼差別?</p>
+<ol>
+<li>const 僅能用於數字(int、float)和字串、列舉，而readonly可以是任意型態。</li>
+<li>const能在方法中使用，readonly不行。</li>
+<li>const常數在宣告的時候就要初始化(指定值),readonly可以延遲到建構子中再初始化</li>
+</ol>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Csharp</category>
+      </categories>
+      <tags>
+        <tag>Csharp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C# —— 陣列、陣列方法</title>
+    <url>/posts/22824/</url>
+    <content><![CDATA[<h2 id="陣列將同性質資料集中放在連續記憶體位址"><a href="#陣列將同性質資料集中放在連續記憶體位址" class="headerlink" title="陣列將同性質資料集中放在連續記憶體位址"></a>陣列將同性質資料集中放在連續記憶體位址</h2><p>例如我們如果想要宣告5個整數，不是用陣列的話要一個一個宣告像是</p>
+<p>int a,b,c,d,e; 但如果用陣列宣告就可以像這樣 int []scores &#x3D; new int[5];</p>
+<span id="more"></span>
+
+<h3 id="宣告陣列的方法"><a href="#宣告陣列的方法" class="headerlink" title="宣告陣列的方法"></a>宣告陣列的方法</h3><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">資料型別 [] 陣列名稱 = <span class="keyword">new</span> 資料型別[陣列大小];</span><br><span class="line">ex:  <span class="built_in">int</span> []scores = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">5</span>]; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="陣列的初值設定"><a href="#陣列的初值設定" class="headerlink" title="陣列的初值設定"></a>陣列的初值設定</h3><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">int</span> []scores = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">5</span>]; <span class="comment">//宣告陣列</span></span><br><span class="line">scores[<span class="number">0</span>] = <span class="number">90</span>;scores[<span class="number">1</span>] = <span class="number">85</span>;scores[<span class="number">2</span>] = <span class="number">92</span>;scores[<span class="number">3</span>] =<span class="number">75</span>;</span><br><span class="line">scores[<span class="number">4</span>] = <span class="number">80</span>;  <span class="comment">//這樣一個一個賦予值是不是很麻煩呢~</span></span><br><span class="line"><span class="comment">//所以也可以像這樣</span></span><br><span class="line"><span class="built_in">int</span>[]scores = <span class="keyword">new</span> <span class="built_in">int</span>[]=<span class="number">90</span>,<span class="number">85</span>,<span class="number">92</span>,<span class="number">75</span>,<span class="number">80</span>&#125;;<span class="comment">//不指定大小，直接賦予相對應的值</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用迴圈存取陣列內容"><a href="#使用迴圈存取陣列內容" class="headerlink" title="使用迴圈存取陣列內容"></a>使用迴圈存取陣列內容</h3><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//例如有5個成績，想要算這5個成績的平均</span></span><br><span class="line"><span class="built_in">int</span>[]scores = <span class="keyword">new</span> <span class="built_in">int</span>[]&#123;<span class="number">90</span>,<span class="number">85</span>,<span class="number">92</span>,<span class="number">75</span>,<span class="number">80</span>&#125;;</span><br><span class="line"><span class="built_in">int</span> sum,avg ;</span><br><span class="line">sum = <span class="number">0</span> ;</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span> ;i&lt;scores.Length; i++)</span><br><span class="line">&#123;</span><br><span class="line">sum += score[i];<span class="comment">//累加成績</span></span><br><span class="line">&#125;</span><br><span class="line">avg = sum / scores.Length ;</span><br></pre></td></tr></table></figure>
+
+<p>若for的條件運算式(終值)無法確定時，可改用foreach敘述</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">foreach</span>(資料型別 element <span class="keyword">in</span> <span class="keyword">group</span>)</span><br><span class="line">&#123; </span><br><span class="line">    敘述區塊</span><br><span class="line">    [<span class="meta">break;</span>]</span><br><span class="line">    敘述區塊</span><br><span class="line">&#125;      </span><br><span class="line">element:是一個變數名稱，可將陣列中每個元素依序指定給element</span><br><span class="line"><span class="keyword">group</span>:是一個物件變數，必須是物件集合或陣列名稱</span><br><span class="line"><span class="keyword">break</span>:若要提前離開迴圈，可在欲離開處使用brea</span><br><span class="line">ex:將scores陣列中所有成績相加置入sum變數中</span><br><span class="line"><span class="built_in">int</span>[]scores = <span class="keyword">new</span> <span class="built_in">int</span>[]=&#123;<span class="number">90</span>,<span class="number">85</span>,<span class="number">92</span>,<span class="number">75</span>,<span class="number">80</span>&#125;;</span><br><span class="line"><span class="built_in">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">foreach</span>(<span class="built_in">int</span> point <span class="keyword">in</span> scores) <span class="comment">//point用來存放scores裡每個元素</span></span><br><span class="line">&#123;</span><br><span class="line">   sum+=point ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="陣列的排序"><a href="#陣列的排序" class="headerlink" title="陣列的排序"></a>陣列的排序</h3><p>Array.Sort()方法可以將指定陣列內的元素由小到大遞增排序</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//寫法</span></span><br><span class="line"><span class="comment">//Array.Sort(陣列名稱1,陣列名稱2);//最多兩個引數</span></span><br><span class="line"><span class="comment">//ex1:成績排序</span></span><br><span class="line"><span class="built_in">int</span>[] scores = <span class="keyword">new</span> scores[]&#123;<span class="number">94</span>,<span class="number">85</span>,<span class="number">89</span>&#125;;</span><br><span class="line">Array.Sort(scores); </span><br><span class="line">排序前: scores[<span class="number">0</span>]=<span class="number">94</span> scores[<span class="number">1</span>]=<span class="number">85</span> scores[<span class="number">2</span>]=<span class="number">89</span></span><br><span class="line">排序後: scores[<span class="number">0</span>]=<span class="number">85</span> scores[<span class="number">1</span>]=<span class="number">89</span> scores[<span class="number">2</span>]=<span class="number">94</span></span><br><span class="line"><span class="comment">//ex2:成績表含有數學和學生姓名，需要兩個陣列來存放，如果只針對數學成績排序會導致姓名和成績不一致，因此Array.Sort()方法允許使用兩個引數</span></span><br><span class="line"><span class="built_in">int</span>[] scores = <span class="keyword">new</span> scores[]&#123;<span class="number">94</span>,<span class="number">85</span>,<span class="number">89</span>&#125;;</span><br><span class="line"><span class="built_in">string</span>[] sName = <span class="keyword">new</span> sName[]&#123;<span class="string">&quot;小明&quot;</span>,<span class="string">&quot;大王&quot;</span>,<span class="string">&quot;阿花&quot;</span>&#125;;</span><br><span class="line">Array.Sort(scores,sName);</span><br><span class="line"><span class="comment">//排序前:</span></span><br><span class="line">scores[<span class="number">0</span>]=<span class="number">94</span> scores[<span class="number">1</span>]=<span class="number">85</span> scores[<span class="number">2</span>]=<span class="number">89</span></span><br><span class="line">sName[<span class="number">0</span>]=<span class="string">&quot;小明&quot;</span>sName[<span class="number">1</span>]=<span class="string">&quot;大王&quot;</span>sName[<span class="number">2</span>]=<span class="string">&quot;阿花&quot;</span></span><br><span class="line"><span class="comment">//排序後: </span></span><br><span class="line">scores[<span class="number">0</span>]=<span class="number">85</span> scores[<span class="number">1</span>]=<span class="number">89</span> scores[<span class="number">2</span>]=<span class="number">94</span></span><br><span class="line">sName[<span class="number">0</span>]=<span class="string">&quot;大王&quot;</span>sName[<span class="number">1</span>]=<span class="string">&quot;阿花&quot;</span>sName[<span class="number">2</span>]=<span class="string">&quot;小明&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="陣列的反轉"><a href="#陣列的反轉" class="headerlink" title="陣列的反轉"></a>陣列的反轉</h3><p>Array.Sort()可以將陣列由小到大遞增，那如果今天想要由大到小遞減就需要用到**Array.Reverse(陣列名稱)**，但Array.Reverse只提供一個引數，若兩個陣列有相關聯，反轉時兩個陣列都要做Array.Reverse</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//例如把上面ex2反轉</span></span><br><span class="line"><span class="built_in">int</span>[] scores = <span class="keyword">new</span> scores[]&#123;<span class="number">94</span>,<span class="number">85</span>,<span class="number">89</span>&#125;;</span><br><span class="line"><span class="built_in">string</span>[] sName = <span class="keyword">new</span> sName[]&#123;<span class="string">&quot;小明&quot;</span>,<span class="string">&quot;大王&quot;</span>,<span class="string">&quot;阿花&quot;</span>&#125;;</span><br><span class="line">Array.Sort(scores,sName);</span><br><span class="line">Array.Reverse(scores);<span class="comment">//反轉成績</span></span><br><span class="line">Array.Reverse(sName);<span class="comment">//反轉姓名</span></span><br><span class="line"><span class="comment">//反轉前 : </span></span><br><span class="line">scores[<span class="number">0</span>]=<span class="number">85</span> scores[<span class="number">1</span>]=<span class="number">89</span> scores[<span class="number">2</span>]=<span class="number">94</span></span><br><span class="line">sName[<span class="number">0</span>]=<span class="string">&quot;大王&quot;</span>sName[<span class="number">1</span>]=<span class="string">&quot;阿花&quot;</span>sName[<span class="number">2</span>]=<span class="string">&quot;小明&quot;</span></span><br><span class="line"><span class="comment">//反轉後 : </span></span><br><span class="line">scores[<span class="number">0</span>]=<span class="number">94</span> scores[<span class="number">1</span>]=<span class="number">89</span> scores[<span class="number">2</span>]=<span class="number">85</span></span><br><span class="line">sName[<span class="number">0</span>]=<span class="string">&quot;小明&quot;</span>sName[<span class="number">1</span>]=<span class="string">&quot;阿花&quot;</span>sName[<span class="number">2</span>]=<span class="string">&quot;大王&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="陣列的搜尋"><a href="#陣列的搜尋" class="headerlink" title="陣列的搜尋"></a>陣列的搜尋</h3><p><strong>Array.IndexOf()<strong>方法，可以從指定的</strong>一維陣列中找尋指定資料是否存在</strong>，若找到相符合的值就回傳該陣列所在的索引位置，若沒找到就回傳-1</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//寫法</span></span><br><span class="line"><span class="comment">// 變數名稱 = Array.IndexOf(陣列名稱,欲想找得值,count);</span></span><br><span class="line"><span class="comment">//count:由指定的索引位置往後找幾個元素，若count省略表示搜尋整個陣列</span></span><br><span class="line"><span class="comment">//ex1</span></span><br><span class="line"><span class="built_in">int</span>[] scores = <span class="keyword">new</span> scores[]&#123;<span class="number">94</span>,<span class="number">85</span>,<span class="number">89</span>,<span class="number">90</span>,<span class="number">85</span>&#125;;</span><br><span class="line"><span class="built_in">int</span> num1 =Array.IndexOf(scores,<span class="number">94</span>);<span class="comment">//回傳0</span></span><br><span class="line"><span class="built_in">int</span> num2 =Array.IndexOf(scores,<span class="number">85</span>,<span class="number">3</span>);<span class="comment">//回傳4，因為從第3個元素開始找</span></span><br><span class="line"><span class="built_in">int</span> num3 =Array.IndexOf(scores,<span class="number">70</span>);<span class="comment">//回傳-1，找不到</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="陣列常用的屬性與方法"><a href="#陣列常用的屬性與方法" class="headerlink" title="陣列常用的屬性與方法"></a>陣列常用的屬性與方法</h3><p>Rank屬性 :如果想知道某陣列是幾維陣列就可以使用</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">int</span>[,,]scores1= <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">2</span>,<span class="number">16</span>,<span class="number">24</span>];</span><br><span class="line"><span class="built_in">int</span>[ ,]scores2 = <span class="keyword">new</span> <span class="built_in">int</span>[,]&#123;&#123;<span class="number">90</span>,<span class="number">85</span>,<span class="number">77</span>&#125;,&#123;<span class="number">81</span>,<span class="number">68</span>,<span class="number">98</span>&#125;&#125;;</span><br><span class="line"><span class="built_in">int</span>[] scores3 = <span class="keyword">new</span> <span class="built_in">int</span>[]&#123;<span class="number">87</span>,<span class="number">69</span>,<span class="number">89</span>&#125;;</span><br><span class="line"><span class="built_in">int</span> value1 =scores1.Rank;<span class="comment">//3，因為是三維陣列</span></span><br><span class="line"><span class="built_in">int</span> value2 =scores2.Rank;<span class="comment">//2，因為是二維陣列</span></span><br><span class="line"><span class="built_in">int</span> value3 =scores3.Rank;<span class="comment">//1，因為是一維陣列</span></span><br></pre></td></tr></table></figure>
+
+<p>Length屬性:可以取得陣列的長度，即為陣列元素的總數</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">int</span>[] scores3 = <span class="keyword">new</span> <span class="built_in">int</span>[]&#123;<span class="number">87</span>,<span class="number">69</span>,<span class="number">89</span>&#125;;</span><br><span class="line"><span class="built_in">int</span> value3 = scores3.Length; <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<p>GetLength方法:可以取得陣列中”指定維度”的長度，此方法只有一個參數，就是陣列的維度(第1個維度為0，第2個維度為1….)</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">int</span>[ ,]scores2 = <span class="keyword">new</span> <span class="built_in">int</span>[,]&#123;&#123;<span class="number">90</span>,<span class="number">85</span>,<span class="number">77</span>,<span class="number">88</span>&#125;,&#123;<span class="number">81</span>,<span class="number">68</span>,<span class="number">98</span>,<span class="number">86</span>&#125;&#125;;</span><br><span class="line"><span class="built_in">int</span>[] scores3 = <span class="keyword">new</span> <span class="built_in">int</span>[]&#123;<span class="number">87</span>,<span class="number">69</span>,<span class="number">89</span>&#125;;</span><br><span class="line"><span class="built_in">int</span> value3 = scores3.GetLength(<span class="number">0</span>);<span class="comment">//3</span></span><br><span class="line"><span class="built_in">int</span> value2 = scores2.GetLength(<span class="number">0</span>);<span class="comment">//2</span></span><br><span class="line"><span class="built_in">int</span> value1 = scores2.GetLength(<span class="number">1</span>);<span class="comment">//4</span></span><br></pre></td></tr></table></figure>
+
+<p>CopyTo方法:可以將一個陣列元素複製到另一個目標陣列中，而且可以指定從第幾個索引值開始複製</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">int</span>[] scores1 = <span class="keyword">new</span> <span class="built_in">int</span>[]&#123;<span class="number">87</span>,<span class="number">69</span>,<span class="number">89</span>&#125;;</span><br><span class="line"><span class="built_in">int</span>[] scores2 = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">3</span>];</span><br><span class="line">scores1.CopyTo(scores2,<span class="number">0</span>);<span class="comment">//將scores1的元素第0個索引位置開始複製scores2</span></span><br></pre></td></tr></table></figure>
+
+<p>Split方法:屬於字串物件的方法，可以根據間隔字元將字串分割成陣列元素值</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> scores = <span class="string">&quot;95,88,76,69,92&quot;</span>;</span><br><span class="line"><span class="built_in">string</span> []aScores = scores.split(<span class="string">&#x27;,&#x27;</span>);<span class="comment">//指定以,字元來分割字串</span></span><br><span class="line">執行後: aScores[<span class="number">0</span>]=<span class="number">95</span> aScores[<span class="number">1</span>]=<span class="number">88</span> aScores[<span class="number">2</span>]=<span class="number">76</span> aScores[<span class="number">3</span>]=<span class="number">69</span>         aScores[<span class="number">4</span>]=<span class="number">92</span></span><br></pre></td></tr></table></figure>
+<p>在C#中陣列實際上是一個物件，由於陣列是屬型別參照的一種，必須使用new來建立一個陣列物件，所以陣列無法像變數一樣宣告後即可使用，必須先經宣告後，用new來建立陣列的實體</p>
+<p>參考：<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9va3MuY29tLnR3L3Byb2R1Y3RzLzAwMTA3NTQyNDc=">Visual C＃ 2017基礎必修課<i class="fa fa-external-link-alt"></i></span></p>
+<p>另外有寫<a href="https://jasonhsieh-web.github.io/posts/53703/#more">C# —集合(ArrayList、List、Dictionary)</a>，可以參考看看哦。</p>
+<blockquote>
+<p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Csharp</category>
+      </categories>
+      <tags>
+        <tag>Csharp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C# —— get與set存取器</title>
+    <url>/posts/8943/</url>
+    <content><![CDATA[<h2 id="get與set存取器"><a href="#get與set存取器" class="headerlink" title="get與set存取器"></a>get與set存取器</h2><p>get :當外界讀取屬性時，會自動啟動get程式區塊執行，透過return敘述將指定的欄位變數的內容傳回(唯讀)。</p>
+<p>set :在存入數值時<strong>自動呼叫</strong>，用於處理計算及邏輯處理(唯寫)，自帶value變數，當有傳入值時會自動帶入value。</p>
+<span id="more"></span>
+
+<p>Example :</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">Class User</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span> hp = <span class="number">20</span>; <span class="comment">//給予初始值</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> HP</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123; <span class="keyword">return</span> hp;&#125; <span class="comment">//讀取時回傳hp</span></span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">value</span> &lt; <span class="number">0</span>)<span class="comment">//當有傳入值時判斷</span></span><br><span class="line">            &#123;</span><br><span class="line">                hp = <span class="number">0</span>;<span class="comment">//小於0 hp就等於0</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                hp = <span class="keyword">value</span>;<span class="comment">//不小於0 hp就等於傳入的值</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">btn1_Click</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">   User user = <span class="keyword">new</span> User();</span><br><span class="line"></span><br><span class="line">   MessageBox.Show(user,HP);<span class="comment">//20</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果只想讓程式只能唯讀的話，就可以把set拿掉，或是只想要唯寫就可把get拿掉。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">int</span> HP</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span> &#123; <span class="keyword">return</span> hp; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>文章若有錯誤或想交流，還不吝嗇給予指教哦</p>
 </blockquote>
